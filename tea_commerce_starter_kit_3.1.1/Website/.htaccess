@@ -1,0 +1,14 @@
+# Helicon ISAPI_Rewrite configuration file
+# Version 3.1.0.86
+
+RewriteEngine on
+
+RewriteCond %{HTTPS} (on)?
+RewriteCond %{HTTP:Host} ^starterkit\.teacommerce\.dk$ [NC,OR]
+RewriteCond %{HTTP:Host} ^starterkitv2\.teacommerce\.dk$ [NC,OR]
+RewriteCond %{HTTP:Host} ^demo\.teacommerce\.dk$ [NC,OR]
+RewriteCond %{HTTP:Host} ^licensekit\.teacommerce\.dk$ [NC,OR]
+RewriteCond %{HTTP:Host} ^multilanguage\.teacommerce\.dk$ [NC,OR]
+RewriteCond %{HTTP:Host} ^multilanguage\.da\.teacommerce\.dk$ [NC,OR]
+RewriteCond %{HTTP:Host} ^multilanguage\.en\.teacommerce\.dk$ [NC]
+RewriteRule .? http(?%1s)://starterkit.teacommerce.net%{REQUEST_URI} [R=301,L]

@@ -1,0 +1,41 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+
+  DynamicNode currentPage = Model;
+
+  List<DynamicNode> cartSteps = currentPage.AncestorOrSelf("Cart").Descendants("CartStep").Items;
+  DynamicNode currentStep = Model;
+  int currentStepIndex = cartSteps.IndexOf( cartSteps.Single( c => c.Id == currentStep.Id ) );
+}
+@if ( cartSteps.Count > 0 ) {
+  int count = 1;
+  
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul id="cartStepProgress" class="nav noPrint" >
+        @foreach ( DynamicNode cartStep in cartSteps ) {
+
+          string id = "stepProgress" + count;
+          string cssClass = "stepProgress";
+          if ( cartStep.Id == @Model.Id ) { cssClass += " active"; }
+      
+          <li id="@id" class="@cssClass">
+            @if ( currentStepIndex < count ) { 
+              <a class="stepHeadline no-link"><span>0</span><span>@count</span> <span>@cartStep.Name</span>
+              </a>
+            } else { 
+              <a href="@cartStep.Url" class="stepHeadline"><span>0</span><span>@count</span> <span>@cartStep.Name</span>
+              </a>
+            }
+          </li>
+      
+            count++;
+        }
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+}

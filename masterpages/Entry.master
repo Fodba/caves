@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+<asp:Content id="MasterLayoutcontent" ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+   <title ><umbraco:Macro Alias="PageTitle" runat="server"></umbraco:Macro></title>
+  <!-- META TAGS -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <umbraco:Macro Alias="MetaDescription" runat="server" />
+  
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" type="text/css" href="/less/bootstrap.less" />
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />
+ 
+</head>
+
+<body>
+  <div id="wrapper" style="background:url(/media/6324/1-cave-41-prehome.jpg) no-repeat center center fixed;background-size:cover">	
+    <div id="top" class="noPrint">     
+      <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+          <div class="container">
+			  <a class="span5 logo" href="{localLink:1365}"><img src="/css/gfx/logo.png"/></a> 
+			  <div>
+              <umbraco:Macro Alias="LoginView" runat="server" />         
+			  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="content" >
+      <asp:ContentPlaceHolder Id="CphMain" runat="server" />
+        <div >
+            <a class="linkEnter" href="fr/accueil/"><div class="enter"><span><strong>ENTREZ</strong>DANS LA CAVE<img src="/css/gfx/arrow_enter.png" /></span></div></a>
+        </div>        
+    </div>
+	</div> 
+</body>
+</html>
+</asp:Content>

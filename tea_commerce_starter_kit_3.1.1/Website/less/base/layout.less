@@ -1,0 +1,40 @@
+﻿/* */
+/* layout.less */
+/* */
+
+@StickyFooterHeight : 500px;
+
+@MainLayoutHorizontalPadding : 25px;
+@MainLayoutVerticalPadding : 0px;
+
+@LayoutLeftBlockWidth : 209px;
+@LayoutRightBlockWidth : 240px;
+@LayoutMainBlockWidth : 441px;
+
+@LayoutTwoColBlockContentWidth : 685px;
+@LayoutTwoColNoBoxBlockContentWidth : 701px;
+
+
+html, body { height: 100%; }
+body { background: url('/css/gfx/bg.jpg') repeat-x; }
+div#wrapper { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -@StickyFooterHeight; }
+div#wrapper div.push { height: @StickyFooterHeight; }
+
+div#content { padding:20px 0; 
+
+	div#left,
+	div#right,
+	div#main { float:left; }
+
+	div#left { width: @LayoutLeftBlockWidth; min-height:10px; }
+	div#right { width: @LayoutRightBlockWidth; }
+
+	div#main { width: @LayoutMainBlockWidth; padding: @MainLayoutHorizontalPadding @MainLayoutVerticalPadding; overflow:hidden; }
+
+	div#pageTwoCol div#main { width: @LayoutTwoColBlockContentWidth; padding:0 15px 0 0; }
+	div#pageTwoColNoBox div#main { width: @LayoutTwoColNoBoxBlockContentWidth; padding:0 0 0 30px; }
+}
+
+body.Frontpage div#content div#main,
+div#content div#pageOneCol div#main { width:100%; padding:0; }
+div.container { padding:0 20px; }

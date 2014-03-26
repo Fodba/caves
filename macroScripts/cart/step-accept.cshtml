@@ -1,0 +1,60 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  Order order = null;
+  decimal totalQuantity = 0;
+
+  if ( TC.HasCurrentOrder( storeId ) ) {
+    order = TC.GetCurrentOrder( storeId );
+    totalQuantity = order.OrderLines.Sum( o => o.Quantity );
+  }
+  
+}
+@if ( order != null && totalQuantity > 0 ) {
+
+  //Pages
+  DynamicNode currentPage = Model;
+  DynamicNode previousStep = currentPage.Previous();
+  DynamicNode nextStep = currentPage.Next();
+  
+  <h1>
+    <span>0@(currentPage.Position() + 1).</span> <span>@currentPage.Name</span>
+  </h1>
+  
+  <div id="cartItemInfo">
+    <span>@Dictionary[ "CartContent" ]</span>
+  </div>
+  //Cart content
+  @RenderPage( "~/macroScripts/cart/view-order-line-overview.cshtml" )
+  
+  //Customer information
+  @RenderPage( "~/macroScripts/cart/view-customer-information.cshtml" )
+
+  <div id="acceptTerms">
+    <input type="checkbox" id="acceptTermsCheck" alt="@Dictionary[ "IHerebyAcceptAlert" ]" />&nbsp;<label
+      for="acceptTermsCheck">@Dictionary[ "IHerebyAccept" ]</label>
+  </div>
+  <div class="goToTermsAndConditions">
+    <a href="@Library.NodeById( Model._TermsAndConditionsPage ).Url" target="_blank">@Dictionary[ "GoToTermsAndConditions" ]</a>
+  </div>
+  
+  <div id="cartBottom" class="noPrint">
+    <div class="input-append" id="next">
+      @Html.Raw( @TC.GeneratePaymentForm( storeId, "<input type=\"submit\" class=\"btn btn-brown\" id=\"next\" value=\"" + @nextStep.Name + "\" /><input type=\"submit\" class=\"btn btn-brown\" value=\">\" />" ) )
+    </div>
+    <div class="input-append" id="prev">
+      <a href="@previousStep.Url" class="btn btn-brown">< </a><a href="@previousStep.Url" class="btn btn-brown">
+        @previousStep.Name</a>
+    </div>
+  </div>
+  
+} else { 
+  <div id="cartIsEmpty">
+    <span>@Dictionary[ "YourCartIsEmpty" ]</span>
+  </div>
+}

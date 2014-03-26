@@ -1,0 +1,8 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+
+<form action="@((Model as DynamicNode).AncestorOrSelf( "Lang" ).Descendants( "SearchEcommerce" ).Items.First().Url)" method="get">
+  <input class="span3" name="q" id="topSearchQ" type="text" placeholder="@Dictionary["SearchInputText"]" />
+  <input class="btn btn-brown" type="submit" value="@Dictionary[ "Search" ]" />
+</form>

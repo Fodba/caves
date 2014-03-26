@@ -1,0 +1,114 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using TeaCommerce.Api.Common
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  Order order = null;
+  decimal totalQuantity = 0;
+
+  if ( TC.HasCurrentOrder( storeId ) ) {
+    order = TC.GetCurrentOrder( storeId );
+    totalQuantity = order.OrderLines.Sum( o => o.Quantity );
+  }
+  
+}
+@if ( order != null && totalQuantity > 0 ) {
+
+  //Pages
+  DynamicNode currentPage = Model;
+  DynamicNode previousStep = currentPage.Previous();
+  DynamicNode nextStep = currentPage.Next();
+
+  //Shipping method
+  IEnumerable<ShippingMethod> shippingMethods = TC.GetShippingMethods( storeId );
+
+  //Payment Method
+  IEnumerable<PaymentMethod> paymentMethods = TC.GetPaymentMethods( storeId );
+  
+  <h1>
+    <span>0@(currentPage.Position() + 1).</span>
+    <span>@currentPage.Name</span>
+  </h1>
+  
+  <form action="/base/TC/FormPost.aspx" method="post">
+  <input name="storeId" type="hidden" value="@storeId" />
+  <input name="returnUrl" type="hidden" value="@nextStep.Url" />
+  <input name="SetCurrentPaymentMethod" type="hidden" value="paymentMethodId : paymentMethodId" />
+  <input name="SetCurrentShippingMethod" type="hidden" value="shippingMethodId : shippingMethodId" />
+  <div id="paymentAndShipping">
+    <!-- Payment START -->
+    <div id="paymentInformation">
+      <h2>@Dictionary[ "ChoosePaymentMethod" ]</h2>
+      @foreach ( PaymentMethod paymentMethod in paymentMethods ) {
+        int? imageId = paymentMethod.ImageIdentifier.TryParse<int>();
+        string imageUrl = imageId != null ? Library.MediaById( imageId.Value ).Url : "";
+        string name = !string.IsNullOrEmpty( Dictionary[ paymentMethod.Alias ] ) ? Dictionary[ paymentMethod.Alias ] : paymentMethod.Name;
+        string description = !string.IsNullOrEmpty( Dictionary[ paymentMethod.Alias + "Desc" ] ) ? Dictionary[ paymentMethod.Alias + "Desc" ] : paymentMethod.Name;
+        string id = "payment" + paymentMethod.Id;
+        
+        <div class="control-group">
+          <input id="@id" value="@paymentMethod.Id" name="paymentMethodId" type="radio"
+          @if ( order.PaymentInformation.PaymentMethodId == paymentMethod.Id ) {
+            @Html.Raw( "checked=checked" )
+          }
+          />
+          <label for="@id">
+            <h3>@name</h3>
+            <span class="description">
+              @description @TC.GetPriceForPaymentMethod( storeId, paymentMethod.Id ).Formatted
+            </span>
+            @if ( !string.IsNullOrEmpty( imageUrl ) ) { 
+              <img src="@imageUrl" alt="@name" />
+            }
+          </label>
+        </div>
+      }
+    </div>
+    <!-- Payment END -->
+    <!-- Shipping START -->
+    <div id="shippingInformation">
+      <h2>@Dictionary[ "ChooseShippingMethod" ]</h2>
+      @foreach ( ShippingMethod shippingMethod in shippingMethods ) {
+        int? imageId = shippingMethod.ImageIdentifier.TryParse<int>();
+        string imageUrl = imageId != null ? Library.MediaById( imageId.Value ).Url : "";
+        string name = !string.IsNullOrEmpty( Dictionary[ shippingMethod.Alias ] ) ? Dictionary[ shippingMethod.Alias ] : shippingMethod.Name;
+        string description = !string.IsNullOrEmpty( Dictionary[ shippingMethod.Alias + "Desc" ] ) ? Dictionary[ shippingMethod.Alias + "Desc" ] : shippingMethod.Name;
+        string id = "shipping" + shippingMethod.Id;
+        
+        <div class="control-group">
+          <input id="@id" value="@shippingMethod.Id" name="shippingMethodId" type="radio"
+          @if ( order.ShipmentInformation.ShippingMethodId == shippingMethod.Id ) {
+            @Html.Raw( "checked=checked" )
+          }
+          />
+          <label for="@id">
+            <h3>@name</h3>
+            <span class="description">
+              @description @TC.GetPriceForShippingMethod( storeId, shippingMethod.Id ).Formatted
+            </span>
+            @if ( !string.IsNullOrEmpty( imageUrl ) ) { 
+              <img src="@imageUrl" alt="@name" />
+            }
+          </label>
+        </div>
+        
+      }
+    </div>
+    <!-- Shipping END -->
+  </div>
+  <div id="cartBottom" class="noPrint">
+    <div class="input-append" id="next">
+      <input type="submit" class="btn btn-brown" value="@nextStep.Name" />
+      <input type="submit" class="btn btn-brown" value=">" />
+    </div>
+    <div class="input-append" id="prev">
+      <a href="@previousStep.Url" class="btn btn-brown">< </a><a href="@previousStep.Url" class="btn btn-brown">
+        @previousStep.Name</a>
+    </div>
+  </div>
+  </form>
+}

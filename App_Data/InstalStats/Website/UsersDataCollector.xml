@@ -1,0 +1,9 @@
+<UsersData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <Total>1</Total>
+  <Types>
+    <UserType>
+      <Count>1</Count>
+      <Name>admin</Name>
+    </UserType>
+  </Types>
+</UsersData>

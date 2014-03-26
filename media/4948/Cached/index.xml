@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>Champagne.jpg</originalFileName>
+    <size>170155</size>
+    <dateLastModified>Mon, 17 Dec 2012 12:15:26 GMT</dateLastModified>
+    <width>566</width>
+    <height>848</height>
+    <cachedImage>
+      <fileName>qyps4omy.jpeg</fileName>
+      <dateCreated>Thu, 06 Jun 2013 14:59:32 GMT</dateCreated>
+      <dateLastAccessed>Tue, 25 Mar 2014 09:23:06 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>109</width>
+      <height>164</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>0p3sa4z3.jpeg</fileName>
+      <dateCreated>Thu, 06 Jun 2013 16:37:04 GMT</dateCreated>
+      <dateLastAccessed>Mon, 09 Sep 2013 13:15:02 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>40</width>
+      <height>60</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>frontpage-rotation-red-wine.jpg</originalFileName>
+    <size>64525</size>
+    <dateLastModified>Tue, 12 Mar 2013 07:56:23 GMT</dateLastModified>
+    <width>940</width>
+    <height>350</height>
+    <cachedImage>
+      <fileName>aiaivjgo.jpeg</fileName>
+      <dateCreated>Tue, 19 Mar 2013 11:59:22 GMT</dateCreated>
+      <dateLastAccessed>Tue, 19 Mar 2013 11:59:22 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>50</compression>
+      <width>940</width>
+      <height>350</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

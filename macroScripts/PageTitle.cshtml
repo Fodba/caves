@@ -1,0 +1,6 @@
+﻿@using umbraco.MacroEngines
+@using umbraco.NodeFactory
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+	@Html.Raw(Model.Name+" - "+Model.AncestorOrSelf(1).siteName)
+}

@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Cart.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="BodyText" runat="server">
+	<umbraco:Macro Alias="CartShippingPayment" runat="server" />
+</asp:content>

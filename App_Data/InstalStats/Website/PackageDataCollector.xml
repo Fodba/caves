@@ -1,0 +1,41 @@
+<PackageData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <Installed>
+    <Package>
+      <Name>ImageGen</Name>
+      <UniqueId>cbc37b15-4a53-4c3f-b8a0-e49543d84192</UniqueId>
+    </Package>
+    <Package>
+      <Name>Structure Extensions</Name>
+      <UniqueId>00000000-0000-0000-0000-000000000000</UniqueId>
+    </Package>
+    <Package>
+      <Name>Media Icons</Name>
+      <UniqueId>a6572e36-fc8a-433e-b9b0-bc43dde8d21d</UniqueId>
+    </Package>
+    <Package>
+      <Name>jesperEasyNames</Name>
+      <UniqueId>00000000-0000-0000-0000-000000000000</UniqueId>
+    </Package>
+    <Package>
+      <Name>Fugue Icon Package</Name>
+      <UniqueId>00000000-0000-0000-0000-000000000000</UniqueId>
+    </Package>
+    <Package>
+      <Name>Productivity Menus</Name>
+      <UniqueId>00000000-0000-0000-0000-000000000000</UniqueId>
+    </Package>
+    <Package>
+      <Name>Digibiz Advanced Media Picker</Name>
+      <UniqueId>cafb8801-b42b-4054-9d82-ca9e8f7a4b04</UniqueId>
+    </Package>
+    <Package>
+      <Name>Widget Grid</Name>
+      <UniqueId>00000000-0000-0000-0000-000000000000</UniqueId>
+    </Package>
+    <Package>
+      <Name>Umbraco.InstallStatistics</Name>
+      <UniqueId>00000000-0000-0000-0000-000000000000</UniqueId>
+    </Package>
+  </Installed>
+  <Total>9</Total>
+</PackageData>

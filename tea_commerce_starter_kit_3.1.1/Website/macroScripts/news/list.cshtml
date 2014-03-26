@@ -1,0 +1,75 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{ 
+  HttpContext hc = HttpContext.Current;
+
+  DynamicNode currentPage = Model;
+  
+  int numberOfPagesToShow = 10;
+  int pageNumber = !string.IsNullOrEmpty( hc.Request.QueryString[ "page" ] ) ? int.Parse( hc.Request.QueryString[ "page" ] ) : 1;
+  
+  int itemsListPage = !string.IsNullOrEmpty( Parameter.itemsListPage ) ? int.Parse(Parameter.itemsListPage) : (!string.IsNullOrEmpty(PageData[ 0 ]) ? int.Parse(PageData[ 0 ]) : 0);
+  DynamicNode rootNode = itemsListPage > 0 ? Library.NodeById( itemsListPage ) : currentPage;
+  IEnumerable<DynamicNode> items = rootNode.GetChildrenAsList.Items.Where( (Func<DynamicNode, bool>)( n => n.NodeTypeAlias == "News" && DateTime.Parse ( n.GetPropertyValue( "date" ) ) < DateTime.Now) ).OrderByDescending( n => n.GetPropertyValue( "date" ) );
+  
+  int numberOfItems = items.Count();
+  int staticNumberOfItems = !string.IsNullOrEmpty(Parameter.staticNumberOfItems ) ? int.Parse(Parameter.staticNumberOfItems) : (!string.IsNullOrEmpty(PageData[ 1 ]) ? int.Parse(PageData[ 1 ]) : 0);
+  int itemsPerPage = !string.IsNullOrEmpty( Parameter.itemsPerPage ) && staticNumberOfItems == 0 ? int.Parse( Parameter.itemsPerPage ) : (!string.IsNullOrEmpty(PageData[ 2 ]) ? int.Parse(PageData[ 2 ]) : (staticNumberOfItems > 0 ? staticNumberOfItems : numberOfItems ) );
+  
+  int numberOfPages = numberOfItems / pageNumber;
+  int count = staticNumberOfItems > 0 ? ( staticNumberOfItems < numberOfItems ? staticNumberOfItems : numberOfItems ) : ( itemsPerPage < numberOfItems ? (numberOfPages == pageNumber ? ((itemsPerPage * pageNumber) - numberOfItems - itemsPerPage): itemsPerPage) : numberOfItems) ;
+
+  bool hideFirstAndLast = !string.IsNullOrEmpty(Parameter.hideFirstAndLast ) ? Parameter.hideFirstAndLast == "1" : (!string.IsNullOrEmpty(PageData[ 3 ]) ? PageData[ 3 ] == "1" : false);
+  bool hideNextAndPrev = !string.IsNullOrEmpty( Parameter.hideNextAndPrev ) ? Parameter.hideNextAndPrev == "1" : ( !string.IsNullOrEmpty( PageData[ 4 ] ) ? PageData[ 4 ] == "1" : false );
+  bool hideNumbers = !string.IsNullOrEmpty( Parameter.hideNumbers ) ? Parameter.hideNumbers == "1" : ( !string.IsNullOrEmpty( PageData[ 5 ] ) ? PageData[ 5 ] == "1" : false );
+  
+  string extraParams = "";
+
+  IList<DynamicNode> itemsToDisplay = items.ToList();
+  
+  if(staticNumberOfItems == 0){
+    itemsToDisplay = itemsToDisplay.Skip( itemsPerPage * ( pageNumber - 1 ) ).Take( itemsPerPage ).ToList();
+  } else {
+    itemsToDisplay = items.Take( staticNumberOfItems ).ToList();
+  }
+
+  
+  <ul class="newsList">
+    
+    @for(int i = 0; i < itemsToDisplay.Count; i++){
+    DynamicNode item = itemsToDisplay[i];
+
+      DateTime date = DateTime.Parse(item.GetPropertyValue("date"));
+      string cssClass = "item pos" + (i + 1);
+      if ( item.Id == currentPage.Id ) { cssClass += " active"; }
+      if ( item.IsAncestorOrSelf( currentPage ) ) { cssClass += " inpath"; }
+      if(i == itemsToDisplay.Count - 1) { cssClass += " lastitem"; }
+      
+      <li class="@cssClass">
+          
+      <h2 class="headline">
+        <a href="@item.Url">
+        @item.GetPropertyValue("umbHeadline")
+        </a>
+      </h2>
+  
+      <div class="newsDate">
+        @string.Format("{0:" + Dictionary["btGeneral_DateFormat"] + "}", date)
+      </div>
+  
+      <p class="newsSummary">
+      
+        @Library.Truncate( Library.StripHtml( item.GetPropertyValue( "bodyText" ) ), 200 )
+      </p>
+  
+      </li>
+
+    }
+
+  </ul>
+    
+  @RenderPage( "~/macroScripts/utils/paging.cshtml", pageNumber, numberOfItems, itemsPerPage, staticNumberOfItems, numberOfPagesToShow, extraParams, hideFirstAndLast, hideNextAndPrev, hideNumbers )
+
+
+}

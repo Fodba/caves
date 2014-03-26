@@ -1,0 +1,42 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  string imageStr = string.IsNullOrEmpty( Parameter.imagesFrom ) ? PageData[ 0 ] : Parameter.imagesFrom;
+  if ( imageStr != null ) {
+    List<dynamic> images = imageStr.Split( new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries ).Select( id => Library.NodeById( id ) ).ToList();
+    bool showCaptions = bool.Parse( string.IsNullOrEmpty( Parameter.showCaptions ) ? PageData[ 1 ] : Parameter.showCaptions );
+    string width = string.IsNullOrEmpty( Parameter.irWidth ) ? PageData[ 2 ] : Parameter.irWidth;
+    string height = string.IsNullOrEmpty( Parameter.irHeight ) ? PageData[ 3 ] : Parameter.irHeight;
+
+    string carouselId = "carousel" + new Random().Next( 1000, 9999 );
+
+    if ( images.Count() > 0 ) {
+  <div class="carousel slide" id="@carouselId">
+    @{
+      umbraco.library.RegisterJavaScriptFile( "bootstrap.min.js", "/scripts/bootstrap.min.js" );
+    }
+
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      @foreach ( dynamic image in images ) {
+        <div class="item">
+          <img src="/imageGen.ashx?width=@width&height=@height&image=@image.umbracoFile" alt="@image.nodeName" />
+          @if ( showCaptions ) {
+            <div class="carousel-caption">
+              <p>
+                @image.nodeName
+              </p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+    @if ( images.Count() > 1 ) {
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#@carouselId" data-slide="prev"></a>
+      <a class="carousel-control right" href="#@carouselId" data-slide="next"></a>
+    }
+  </div>
+    }
+  }
+}

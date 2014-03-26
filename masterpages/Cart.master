@@ -1,0 +1,12 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/PageFullWidthLayout.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="BodyText" runat="server">
+  
+  <div id="cart">
+    
+    <umbraco:Macro Alias="CartStepProgress" runat="server" />
+    <asp:ContentPlaceHolder Id="BodyText" runat="server" />
+  
+  </div>
+
+</asp:content>

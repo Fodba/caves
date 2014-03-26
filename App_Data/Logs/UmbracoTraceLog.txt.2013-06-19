@@ -1,0 +1,813 @@
+2013-06-19 12:03:50,115 [18] INFO  Umbraco.Core.CoreBootManager - [Thread 14] Umbraco application starting
+2013-06-19 12:03:50,172 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Determining hash of code files on disk
+2013-06-19 12:03:50,182 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Hash determined (took 8ms)
+2013-06-19 12:03:50,585 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 390ms)
+2013-06-19 12:03:50,621 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 15ms)
+2013-06-19 12:03:50,633 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 12:03:50,645 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 12:03:50,664 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 12:03:50,676 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 12:03:50,921 [18] INFO  Umbraco.Core.CoreBootManager - [Thread 14] Umbraco application startup complete (took 797ms)
+2013-06-19 12:03:52,685 [18] INFO  umbraco.BusinessLogic.Log - [Thread 11] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 12:03:53,788 [18] ERROR Umbraco.Core.PluginManager - [Thread 14] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 12:03:53,806 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 12:03:53,939 [18] INFO  Umbraco.Core.PluginManager - [Thread 14] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 13ms)
+2013-06-19 12:06:26,192 [18] INFO  umbraco.BasePages.BasePage - [Thread 19] User Admin (Id: 0) logged in
+2013-06-19 12:06:26,242 [18] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 13ms)
+2013-06-19 12:06:26,435 [18] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 11ms)
+2013-06-19 12:08:24,904 [18] INFO  Umbraco.Core.PluginManager - [Thread 24] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 12:08:24,964 [18] INFO  Umbraco.Core.PluginManager - [Thread 24] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 0ms)
+2013-06-19 12:26:01,114 [18] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 83] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:b8f14368-f0a0-48c1-afe1-bff2eb825755
+2013-06-19 12:26:01,214 [18] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 83] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 15:37:38,188 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-06-19 15:37:38,266 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-06-19 15:37:38,276 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 8ms)
+2013-06-19 15:37:38,490 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 201ms)
+2013-06-19 15:37:38,521 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 11ms)
+2013-06-19 15:37:38,533 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 15:37:38,545 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 15:37:38,563 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 15:37:38,574 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 10ms)
+2013-06-19 15:37:38,728 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 532ms)
+2013-06-19 15:37:40,401 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 15:37:40,530 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 13ms)
+2013-06-19 15:37:41,454 [5] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 15:37:41,472 [5] INFO  umbraco.BusinessLogic.Log - [Thread 12] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 15:41:17,929 [5] INFO  Umbraco.Core.PluginManager - [Thread 30] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 13ms)
+2013-06-19 15:41:18,043 [5] INFO  Umbraco.Core.PluginManager - [Thread 30] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 13ms)
+2013-06-19 15:41:18,866 [5] INFO  Umbraco.Core.PluginManager - [Thread 29] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 15:41:41,964 [5] INFO  Umbraco.Core.PluginManager - [Thread 35] Completed resolution of types of Umbraco.Web.BaseRest.RestExtensionAttribute, found 1 (took 21ms)
+2013-06-19 15:42:00,214 [5] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 27] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:da64748b-5011-4026-8043-2a69a3490c94
+2013-06-19 15:42:00,289 [5] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 27] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 15:42:54,377 [32] INFO  Umbraco.Core.CoreBootManager - [Thread 5] Umbraco application starting
+2013-06-19 15:42:54,408 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Determining hash of code files on disk
+2013-06-19 15:42:54,418 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Hash determined (took 9ms)
+2013-06-19 15:42:54,598 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 168ms)
+2013-06-19 15:42:54,623 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 11ms)
+2013-06-19 15:42:54,634 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 10ms)
+2013-06-19 15:42:54,646 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 15:42:54,662 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 15:42:54,673 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 11ms)
+2013-06-19 15:42:54,819 [32] INFO  Umbraco.Core.CoreBootManager - [Thread 5] Umbraco application startup complete (took 436ms)
+2013-06-19 15:42:55,021 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 15:42:55,077 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 13ms)
+2013-06-19 15:42:56,421 [32] INFO  umbraco.BusinessLogic.Log - [Thread 27] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 15:42:56,478 [32] ERROR Umbraco.Core.PluginManager - [Thread 5] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 15:43:02,869 [32] INFO  Umbraco.Core.PluginManager - [Thread 31] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 15:43:02,891 [32] INFO  Umbraco.Core.PluginManager - [Thread 31] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 15:50:30,450 [32] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 37] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:87bb054e-0bb9-4445-83f0-03254b70bcbf
+2013-06-19 15:50:30,488 [32] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 37] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 15:51:24,504 [8] INFO  Umbraco.Core.CoreBootManager - [Thread 7] Umbraco application starting
+2013-06-19 15:51:24,539 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Determining hash of code files on disk
+2013-06-19 15:51:24,550 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Hash determined (took 10ms)
+2013-06-19 15:51:24,743 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 182ms)
+2013-06-19 15:51:24,773 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 14ms)
+2013-06-19 15:51:24,785 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 15:51:24,805 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 18ms)
+2013-06-19 15:51:24,828 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 17ms)
+2013-06-19 15:51:24,842 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 15:51:24,996 [8] INFO  Umbraco.Core.CoreBootManager - [Thread 7] Umbraco application startup complete (took 485ms)
+2013-06-19 15:51:26,589 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 15:51:26,656 [8] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 14ms)
+2013-06-19 15:51:26,736 [8] INFO  umbraco.BusinessLogic.Log - [Thread 37] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 15:51:26,737 [8] ERROR Umbraco.Core.PluginManager - [Thread 7] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 15:52:51,521 [8] INFO  Umbraco.Core.PluginManager - [Thread 28] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 15:52:51,542 [8] INFO  Umbraco.Core.PluginManager - [Thread 28] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 15:53:21,454 [8] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 45] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:4abb46f8-d09e-4e52-b4e8-53f8bd51cfb7
+2013-06-19 15:53:21,497 [8] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 45] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 15:54:27,445 [54] INFO  Umbraco.Core.CoreBootManager - [Thread 5] Umbraco application starting
+2013-06-19 15:54:27,475 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Determining hash of code files on disk
+2013-06-19 15:54:27,486 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Hash determined (took 10ms)
+2013-06-19 15:54:27,668 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 172ms)
+2013-06-19 15:54:27,696 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 13ms)
+2013-06-19 15:54:27,711 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 14ms)
+2013-06-19 15:54:27,725 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 12ms)
+2013-06-19 15:54:27,744 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 12ms)
+2013-06-19 15:54:27,757 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 15:54:27,911 [54] INFO  Umbraco.Core.CoreBootManager - [Thread 5] Umbraco application startup complete (took 460ms)
+2013-06-19 15:54:28,158 [54] ERROR Umbraco.Core.PluginManager - [Thread 5] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 15:54:28,173 [54] INFO  umbraco.BusinessLogic.Log - [Thread 14] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 15:54:28,186 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 15:54:28,246 [54] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 14ms)
+2013-06-19 15:56:20,947 [54] INFO  Umbraco.Core.PluginManager - [Thread 53] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 15:56:20,968 [54] INFO  Umbraco.Core.PluginManager - [Thread 53] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 15:58:57,021 [54] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 53] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:6838c26f-5e2a-4694-bf12-d1d98cecb5f8
+2013-06-19 15:58:57,060 [54] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 53] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 15:59:58,584 [69] INFO  Umbraco.Core.CoreBootManager - [Thread 61] Umbraco application starting
+2013-06-19 15:59:58,615 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Determining hash of code files on disk
+2013-06-19 15:59:58,625 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Hash determined (took 9ms)
+2013-06-19 15:59:58,808 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 172ms)
+2013-06-19 15:59:58,835 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 15:59:58,850 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 14ms)
+2013-06-19 15:59:58,862 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 15:59:58,878 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 15:59:58,893 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 13ms)
+2013-06-19 15:59:59,048 [69] INFO  Umbraco.Core.CoreBootManager - [Thread 61] Umbraco application startup complete (took 457ms)
+2013-06-19 15:59:59,249 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 15:59:59,308 [69] INFO  Umbraco.Core.PluginManager - [Thread 61] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 15ms)
+2013-06-19 15:59:59,391 [69] INFO  umbraco.BusinessLogic.Log - [Thread 68] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:00:00,731 [69] ERROR Umbraco.Core.PluginManager - [Thread 61] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:00:09,583 [69] INFO  Umbraco.Core.PluginManager - [Thread 60] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 16:00:09,604 [69] INFO  Umbraco.Core.PluginManager - [Thread 60] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 16:00:36,239 [69] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 73] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:3526c898-80f2-4f76-b6e2-6104e59f637a
+2013-06-19 16:00:36,396 [69] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 73] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:01:03,723 [74] INFO  Umbraco.Core.CoreBootManager - [Thread 77] Umbraco application starting
+2013-06-19 16:01:03,755 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Determining hash of code files on disk
+2013-06-19 16:01:03,768 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Hash determined (took 12ms)
+2013-06-19 16:01:03,968 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 188ms)
+2013-06-19 16:01:03,997 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 13ms)
+2013-06-19 16:01:04,013 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 15ms)
+2013-06-19 16:01:04,029 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 15ms)
+2013-06-19 16:01:04,046 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 12ms)
+2013-06-19 16:01:04,059 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 16:01:04,214 [74] INFO  Umbraco.Core.CoreBootManager - [Thread 77] Umbraco application startup complete (took 484ms)
+2013-06-19 16:01:04,432 [74] INFO  umbraco.BusinessLogic.Log - [Thread 68] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:01:04,432 [74] ERROR Umbraco.Core.PluginManager - [Thread 77] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:01:04,501 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 16:01:04,560 [74] INFO  Umbraco.Core.PluginManager - [Thread 77] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 15ms)
+2013-06-19 16:02:31,463 [74] INFO  Umbraco.Core.PluginManager - [Thread 53] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 16:02:31,494 [74] INFO  Umbraco.Core.PluginManager - [Thread 53] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 13ms)
+2013-06-19 16:03:26,023 [74] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 75] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:f264fbf2-1890-4f16-bbd9-07ec564b2eac
+2013-06-19 16:03:26,134 [74] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 75] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:04:11,180 [51] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-06-19 16:04:11,212 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-06-19 16:04:11,223 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 9ms)
+2013-06-19 16:04:11,408 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 172ms)
+2013-06-19 16:04:11,434 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 16:04:11,449 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 13ms)
+2013-06-19 16:04:11,462 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 16:04:11,477 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 16:04:11,490 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 11ms)
+2013-06-19 16:04:11,642 [51] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 455ms)
+2013-06-19 16:04:11,845 [51] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:04:11,863 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 16:04:11,922 [51] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 14ms)
+2013-06-19 16:04:13,301 [51] INFO  umbraco.BusinessLogic.Log - [Thread 47] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:04:21,899 [51] INFO  Umbraco.Core.PluginManager - [Thread 69] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 16:04:21,921 [51] INFO  Umbraco.Core.PluginManager - [Thread 69] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 11ms)
+2013-06-19 16:05:14,798 [51] INFO  Umbraco.Core.PluginManager - [Thread 63] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 12ms)
+2013-06-19 16:06:32,135 [51] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 69] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:f562d3ac-566a-49e4-85d2-a8b789e6ebab
+2013-06-19 16:06:32,169 [51] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 69] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:16:32,831 [121] INFO  Umbraco.Core.CoreBootManager - [Thread 115] Umbraco application starting
+2013-06-19 16:16:32,864 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Determining hash of code files on disk
+2013-06-19 16:16:32,875 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Hash determined (took 10ms)
+2013-06-19 16:16:33,062 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 177ms)
+2013-06-19 16:16:33,088 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 11ms)
+2013-06-19 16:16:33,100 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 16:16:33,111 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 10ms)
+2013-06-19 16:16:33,127 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 16:16:33,138 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 11ms)
+2013-06-19 16:16:33,284 [121] INFO  Umbraco.Core.CoreBootManager - [Thread 115] Umbraco application startup complete (took 446ms)
+2013-06-19 16:16:33,474 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 16:16:33,533 [121] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 13ms)
+2013-06-19 16:16:33,598 [121] ERROR Umbraco.Core.PluginManager - [Thread 115] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:16:33,650 [121] INFO  umbraco.BusinessLogic.Log - [Thread 117] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:16:35,131 [121] INFO  Umbraco.Core.PluginManager - [Thread 117] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 16:16:35,596 [121] INFO  Umbraco.Core.PluginManager - [Thread 117] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 69ms)
+2013-06-19 16:16:35,787 [121] INFO  Umbraco.Core.PluginManager - [Thread 117] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 12ms)
+2013-06-19 16:30:19,495 [121] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 15] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:179dcff9-8771-4245-9818-d189ef096784
+2013-06-19 16:30:19,574 [121] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 15] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:31:02,880 [42] INFO  Umbraco.Core.CoreBootManager - [Thread 115] Umbraco application starting
+2013-06-19 16:31:02,910 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Determining hash of code files on disk
+2013-06-19 16:31:02,920 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Hash determined (took 9ms)
+2013-06-19 16:31:03,103 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 172ms)
+2013-06-19 16:31:03,129 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 16:31:03,141 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 16:31:03,154 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 16:31:03,170 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 16:31:03,182 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 11ms)
+2013-06-19 16:31:03,331 [42] INFO  Umbraco.Core.CoreBootManager - [Thread 115] Umbraco application startup complete (took 445ms)
+2013-06-19 16:31:04,822 [42] INFO  umbraco.BusinessLogic.Log - [Thread 38] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:31:04,836 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 16:31:04,892 [42] INFO  Umbraco.Core.PluginManager - [Thread 115] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 14ms)
+2013-06-19 16:31:04,963 [42] ERROR Umbraco.Core.PluginManager - [Thread 115] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:31:31,799 [42] INFO  Umbraco.Core.PluginManager - [Thread 38] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 16:31:31,832 [42] INFO  Umbraco.Core.PluginManager - [Thread 38] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 13ms)
+2013-06-19 16:33:01,840 [42] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 100] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:474eb39a-52ad-4bfd-9c28-50ebce490dc3
+2013-06-19 16:33:01,885 [42] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 100] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:33:52,725 [17] INFO  Umbraco.Core.CoreBootManager - [Thread 86] Umbraco application starting
+2013-06-19 16:33:52,757 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Determining hash of code files on disk
+2013-06-19 16:33:52,767 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Hash determined (took 10ms)
+2013-06-19 16:33:52,946 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 169ms)
+2013-06-19 16:33:52,972 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 16:33:52,984 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 16:33:52,997 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 16:33:53,012 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 16:33:53,024 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 11ms)
+2013-06-19 16:33:53,170 [17] INFO  Umbraco.Core.CoreBootManager - [Thread 86] Umbraco application startup complete (took 439ms)
+2013-06-19 16:33:53,366 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 16:33:53,423 [17] INFO  Umbraco.Core.PluginManager - [Thread 86] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 13ms)
+2013-06-19 16:33:54,780 [17] ERROR Umbraco.Core.PluginManager - [Thread 86] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:33:54,834 [17] INFO  umbraco.BusinessLogic.Log - [Thread 92] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:34:04,563 [17] INFO  Umbraco.Core.PluginManager - [Thread 99] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 16:34:04,595 [17] INFO  Umbraco.Core.PluginManager - [Thread 99] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 16:34:57,049 [17] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 93] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:47fb03bf-22e8-44bf-8da6-09be1124d090
+2013-06-19 16:34:57,091 [17] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 93] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:38:52,611 [13] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-06-19 16:38:52,646 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-06-19 16:38:52,656 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 8ms)
+2013-06-19 16:38:52,815 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 149ms)
+2013-06-19 16:38:52,847 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 11ms)
+2013-06-19 16:38:52,861 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 14ms)
+2013-06-19 16:38:52,873 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 16:38:52,891 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 16:38:52,902 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 11ms)
+2013-06-19 16:38:53,038 [13] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 419ms)
+2013-06-19 16:38:54,919 [13] INFO  umbraco.BusinessLogic.Log - [Thread 5] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:38:55,744 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 16:38:55,807 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 12ms)
+2013-06-19 16:38:55,856 [13] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:46:17,420 [13] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 48] An unhandled exception occurred
+System.InvalidOperationException: Le format demandé n'est pas reconnu pour l'URL se terminant par '/'.
+   à System.Web.Services.Protocols.WebServiceHandlerFactory.CoreGetHandler(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   à System.Web.Services.Protocols.WebServiceHandlerFactory.GetHandler(HttpContext context, String verb, String url, String filePath)
+   à System.Web.Script.Services.ScriptHandlerFactory.GetHandler(HttpContext context, String requestType, String url, String pathTranslated)
+   à System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   à System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-06-19 16:46:30,348 [13] INFO  Umbraco.Core.PluginManager - [Thread 50] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 16:46:30,373 [13] INFO  Umbraco.Core.PluginManager - [Thread 50] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 16:47:03,108 [13] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 47] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:95beb55a-3a1d-4b01-9023-f83a0ad8d227
+2013-06-19 16:47:03,328 [13] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 47] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:50:09,918 [13] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-06-19 16:50:09,952 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-06-19 16:50:09,962 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 9ms)
+2013-06-19 16:50:10,128 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 154ms)
+2013-06-19 16:50:10,160 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 16:50:10,173 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 16:50:10,185 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 16:50:10,204 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 16:50:10,215 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 10ms)
+2013-06-19 16:50:10,355 [13] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 428ms)
+2013-06-19 16:50:11,897 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 16:50:11,960 [13] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 12ms)
+2013-06-19 16:50:12,841 [13] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:50:12,860 [13] INFO  umbraco.BusinessLogic.Log - [Thread 10] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:54:49,349 [13] INFO  Umbraco.Core.PluginManager - [Thread 12] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 16:54:49,373 [13] INFO  Umbraco.Core.PluginManager - [Thread 12] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 16:55:21,899 [13] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 18] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:4b4c6b68-dab0-4d26-9495-f3302d00c1f8
+2013-06-19 16:55:22,000 [13] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 18] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 16:56:03,878 [22] INFO  Umbraco.Core.CoreBootManager - [Thread 27] Umbraco application starting
+2013-06-19 16:56:03,907 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Determining hash of code files on disk
+2013-06-19 16:56:03,918 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Hash determined (took 9ms)
+2013-06-19 16:56:04,100 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 170ms)
+2013-06-19 16:56:04,126 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 16:56:04,138 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 16:56:04,151 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 16:56:04,168 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 12ms)
+2013-06-19 16:56:04,181 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 16:56:04,328 [22] INFO  Umbraco.Core.CoreBootManager - [Thread 27] Umbraco application startup complete (took 444ms)
+2013-06-19 16:56:04,560 [22] ERROR Umbraco.Core.PluginManager - [Thread 27] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 16:56:04,573 [22] INFO  umbraco.BusinessLogic.Log - [Thread 23] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 16:56:05,931 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 16:56:05,988 [22] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 14ms)
+2013-06-19 16:56:58,122 [22] INFO  Umbraco.Core.PluginManager - [Thread 23] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 13ms)
+2013-06-19 16:56:58,141 [22] INFO  Umbraco.Core.PluginManager - [Thread 23] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 16:59:10,961 [22] INFO  Umbraco.Core.PluginManager - [Thread 26] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 12ms)
+2013-06-19 17:20:57,813 [22] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 146] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(SqlConnection connection, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelpers.SqlServer.SqlServerHelper.ExecuteNonQuery(String commandText, SqlParameter[] parameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:0570e989-72b7-4c06-8c10-25dae9d11338
+2013-06-19 17:20:57,859 [22] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 146] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 17:36:12,801 [164] INFO  Umbraco.Core.CoreBootManager - [Thread 16] Umbraco application starting
+2013-06-19 17:36:12,836 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Determining hash of code files on disk
+2013-06-19 17:36:12,846 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Hash determined (took 8ms)
+2013-06-19 17:36:13,004 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 144ms)
+2013-06-19 17:36:13,034 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 17:36:13,046 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 17:36:13,058 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 17:36:13,073 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 17:36:13,084 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 10ms)
+2013-06-19 17:36:13,179 [164] INFO  Umbraco.Core.CoreBootManager - [Thread 16] Umbraco application startup complete (took 370ms)
+2013-06-19 17:36:13,328 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 17:36:13,385 [164] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 12ms)
+2013-06-19 17:36:13,462 [164] ERROR Umbraco.Core.PluginManager - [Thread 16] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 17:36:13,465 [164] INFO  umbraco.BusinessLogic.Log - [Thread 162] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 17:40:38,458 [164] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 166] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:e852a430-67b0-401b-a887-62040f433d11
+2013-06-19 17:40:38,521 [164] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 166] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 17:42:13,999 [157] INFO  Umbraco.Core.CoreBootManager - [Thread 161] Umbraco application starting
+2013-06-19 17:42:14,034 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Determining hash of code files on disk
+2013-06-19 17:42:14,043 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Hash determined (took 8ms)
+2013-06-19 17:42:14,198 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 144ms)
+2013-06-19 17:42:14,229 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 17:42:14,241 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 11ms)
+2013-06-19 17:42:14,253 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 17:42:14,268 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 17:42:14,279 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 10ms)
+2013-06-19 17:42:14,371 [157] INFO  Umbraco.Core.CoreBootManager - [Thread 161] Umbraco application startup complete (took 364ms)
+2013-06-19 17:42:14,523 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 15ms)
+2013-06-19 17:42:14,579 [157] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 12ms)
+2013-06-19 17:42:14,625 [157] ERROR Umbraco.Core.PluginManager - [Thread 161] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 17:42:14,638 [157] INFO  umbraco.BusinessLogic.Log - [Thread 168] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 17:42:15,587 [157] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 32] An unhandled exception occurred
+System.InvalidOperationException: Impossible de gérer la demande. ---> System.InvalidOperationException: Impossible de gérer la demande. ---> System.InvalidOperationException: Void CreateNewMedia(System.String) et Void CreateNewMedia(System.String, System.String) utilisent tous les deux le nom de message 'CreateNewMedia'. Utilisez la propriété MessageName de l'attribut personnalisé de la WebMethod pour spécifier des noms de message uniques pour les méthodes.
+   à System.Web.Services.Description.ServiceDescriptionReflector.CheckForDuplicateMethods(LogicalMethodInfo[] methods)
+   à System.Web.Services.Description.ServiceDescriptionReflector.Reflect(Type type, String url)
+   à System.Web.Services.Protocols.DocumentationServerType..ctor(Type type, String uri, Boolean excludeSchemeHostPortFromCachingKey)
+   à System.Web.Services.Protocols.DocumentationServerProtocol.Initialize()
+   à System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean& abortProcessing)
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean& abortProcessing)
+   à System.Web.Services.Protocols.WebServiceHandlerFactory.CoreGetHandler(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.Web.Services.Protocols.WebServiceHandlerFactory.CoreGetHandler(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   à System.Web.Services.Protocols.WebServiceHandlerFactory.GetHandler(HttpContext context, String verb, String url, String filePath)
+   à System.Web.Script.Services.ScriptHandlerFactory.GetHandler(HttpContext context, String requestType, String url, String pathTranslated)
+   à System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   à System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-06-19 17:42:51,406 [157] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 32] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:ca9cd82d-161a-4207-a8d9-4c04d5a7a856
+2013-06-19 17:42:51,464 [157] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 32] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 17:43:26,419 [19] INFO  Umbraco.Core.CoreBootManager - [Thread 161] Umbraco application starting
+2013-06-19 17:43:26,456 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Determining hash of code files on disk
+2013-06-19 17:43:26,467 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Hash determined (took 9ms)
+2013-06-19 17:43:26,648 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 169ms)
+2013-06-19 17:43:26,680 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 12ms)
+2013-06-19 17:43:26,693 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 12ms)
+2013-06-19 17:43:26,706 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 12ms)
+2013-06-19 17:43:26,724 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 13ms)
+2013-06-19 17:43:26,741 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 16ms)
+2013-06-19 17:43:26,870 [19] INFO  Umbraco.Core.CoreBootManager - [Thread 161] Umbraco application startup complete (took 440ms)
+2013-06-19 17:43:27,039 [19] INFO  umbraco.BusinessLogic.Log - [Thread 77] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 17:43:27,073 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 17:43:27,143 [19] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 13ms)
+2013-06-19 17:43:28,236 [19] ERROR Umbraco.Core.PluginManager - [Thread 161] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 17:45:29,114 [19] INFO  Umbraco.Core.PluginManager - [Thread 39] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 17:45:29,136 [19] INFO  Umbraco.Core.PluginManager - [Thread 39] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 17:46:12,373 [19] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 32] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:bfb35f42-1093-4bd4-a853-f02bfdee9e01
+2013-06-19 17:46:12,459 [19] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 32] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 17:46:45,200 [36] INFO  Umbraco.Core.CoreBootManager - [Thread 161] Umbraco application starting
+2013-06-19 17:46:45,237 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Determining hash of code files on disk
+2013-06-19 17:46:45,247 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Hash determined (took 8ms)
+2013-06-19 17:46:45,410 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 148ms)
+2013-06-19 17:46:45,445 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 13ms)
+2013-06-19 17:46:45,464 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 18ms)
+2013-06-19 17:46:45,477 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 17:46:45,492 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 17:46:45,505 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 17:46:45,612 [36] INFO  Umbraco.Core.CoreBootManager - [Thread 161] Umbraco application startup complete (took 402ms)
+2013-06-19 17:46:46,015 [36] ERROR Umbraco.Core.PluginManager - [Thread 161] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 17:46:46,035 [36] INFO  umbraco.BusinessLogic.Log - [Thread 164] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 17:46:46,970 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 16ms)
+2013-06-19 17:46:47,036 [36] INFO  Umbraco.Core.PluginManager - [Thread 161] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 15ms)
+2013-06-19 17:46:47,629 [36] INFO  Umbraco.Core.PluginManager - [Thread 44] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 12ms)
+2013-06-19 17:46:47,669 [36] INFO  Umbraco.Core.PluginManager - [Thread 44] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 17:47:58,487 [36] INFO  Umbraco.Core.PluginManager - [Thread 32] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 12ms)
+2013-06-19 17:49:36,635 [36] ERROR umbraco.DataLayer.SqlHelper`1[[System.Data.SqlClient.SqlParameter, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] - [Thread 164] Error executing query delete from umbracoLog where datestamp < @oldestPermittedLogEntry and logHeader in ('open','system')
+System.Data.SqlClient.SqlException (0x80131904): La conversion d'un type de données nvarchar en type de données datetime a créé une valeur hors limites.
+L'instruction a été arrêtée.
+   à System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   à System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   à System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   à System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   à System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   à Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(String connectionString, CommandType commandType, String commandText, SqlParameter[] commandParameters)
+   à umbraco.DataLayer.SqlHelper`1.ExecuteNonQuery(String commandText, IParameter[] parameters)
+ClientConnectionId:b699d97e-d761-4e0a-9a26-5fbd1881f300
+2013-06-19 17:49:36,721 [36] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 164] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2013-06-19 18:01:54,412 [87] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-06-19 18:01:54,450 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-06-19 18:01:54,460 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 8ms)
+2013-06-19 18:01:54,627 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 154ms)
+2013-06-19 18:01:54,666 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 13ms)
+2013-06-19 18:01:54,679 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 12ms)
+2013-06-19 18:01:54,692 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 11ms)
+2013-06-19 18:01:54,707 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 11ms)
+2013-06-19 18:01:54,720 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 12ms)
+2013-06-19 18:01:54,831 [87] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 410ms)
+2013-06-19 18:01:54,971 [87] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Une exception a été levée par la cible d'un appel. ---> System.Web.HttpException: Demande non disponible dans ce contexte
+   à System.Web.HttpContext.get_Request()
+   à Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- Fin de la trace de la pile d'exception interne ---
+   à System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   à System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   à System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   à System.Activator.CreateInstance(Type type)
+   à Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-06-19 18:01:54,992 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 19ms)
+2013-06-19 18:01:55,058 [87] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 15ms)
+2013-06-19 18:01:56,137 [87] INFO  umbraco.BusinessLogic.Log - [Thread 68] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-06-19 18:01:56,292 [87] INFO  Umbraco.Core.PluginManager - [Thread 50] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 12ms)
+2013-06-19 18:01:56,899 [87] INFO  Umbraco.Core.PluginManager - [Thread 50] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 14ms)
+2013-06-19 18:01:57,053 [87] INFO  Umbraco.Core.PluginManager - [Thread 50] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 13ms)

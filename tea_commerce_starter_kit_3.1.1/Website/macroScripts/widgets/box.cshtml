@@ -1,0 +1,49 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+
+  DynamicNode node = PageData[ 0 ];
+
+  IEnumerable<dynamic> images = node.GetPropertyValue( "image" ).Split( new char[] { ',' } ).Select( id => Library.MediaById( id ) );
+  int imageCounter = 1;
+  string link = node.GetPropertyValue( "link" ) != null && node.GetPropertyValue( "link" ) != "" ? Library.NodeById( node.GetPropertyValue( "link" ) ).Url : "";
+
+}
+
+@foreach ( dynamic image in images ) {
+  string imageClass = "image pos" + imageCounter + ( imageCounter == images.Count() ? " lastItem" : "" );
+  if ( link != "" ) {
+    <a href="@link" class="@imageClass">
+      @Html.Raw( WriteImage( image.umbracoFile, image.nodeName, imageClass ) )
+    </a>
+  } else {
+    @Html.Raw( WriteImage( image.umbracoFile, image.nodeName, imageClass ) )
+  }
+
+  imageCounter++;
+}
+
+<h3 class="headline">
+      
+  @if ( link != "" ) {
+    <a href="@link">
+      @node.GetPropertyValue( "umbHeadline" )
+    </a>
+  } else {
+    @node.GetPropertyValue( "umbHeadline" );
+  }
+      
+</h3>
+  
+<div class="bodyText">
+  @Html.Raw( node.GetPropertyValue( "bodyText" ) )
+</div>
+
+@functions{ 
+
+  internal string WriteImage( string url, string altText, string cssClass ) {
+    return "<img src=\"" + url + "\" alt=\"" + altText + "\" class=\"" + cssClass + "\" />";
+  }
+  
+}

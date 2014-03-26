@@ -1,0 +1,68 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+  
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  DynamicNode currentPage = Model;
+
+  string totalPrice = "";
+  decimal totalQuantity = 0;
+  OrderLineCollection orderLines = new OrderLineCollection();
+
+  if ( TC.HasCurrentOrder( storeId ) ) {
+    Order order = TC.GetCurrentOrder( storeId );
+    totalPrice = order.SubtotalPrice.ToString();
+    totalQuantity = order.OrderLines.Sum( o => o.Quantity );
+  }
+  var cartPage = currentPage.AncestorOrSelf( "Lang" ).Descendants( "Cart" ).First();
+  string cssClass = string.Format( "items{0}", totalQuantity );
+}
+<div id="miniCart" class="@cssClass">
+  <!-- TOP START -->
+  <div id="miniCartTop">
+    <h4>@Dictionary[ "YourCart" ]</h4>
+  </div>
+  <!-- TOP END -->
+  <!-- CART INFO START -->
+  <div id="miniCartItemInfo">
+    <!-- CART IS EMPTY START -->
+    <div id="miniCartIsEmpty">
+      <span>@Dictionary[ "YourCartIsEmpty" ]</span></div>
+    <!-- CART IS EMPTY END -->
+    <div id="miniCartNotEmpty">
+      <!-- EMPTY CART START -->
+      <div id="miniCartRemoveAllOrderlines">
+        <form action="/base/TC/FormPost.aspx" method="post">
+        <input name="RemoveAllOrderLines" type="hidden" value="" />
+        <input type="submit" value="" id="emptyCart" />
+        </form>
+      </div>
+      <!-- EMPTY CART END -->
+      <span>@Dictionary[ "YourHave" ]</span> <span id="miniCartTotalQuantity">
+        @totalQuantity.ToString( "0.####" )
+      </span><span id="miniCartSingleItem">
+        @Dictionary[ "Item" ]
+      </span><span id="miniCartMultipleItem">
+        @Dictionary[ "Items" ]
+      </span><span>@Dictionary[ "InYourCart" ]</span>
+    </div>
+    <div class="updating">@Dictionary[ "Updating" ]</div>
+  </div>
+  <!-- CART INFO END -->
+  <!-- BOTTOM START -->
+  <div id="miniCartBottom">
+    <a href="@cartPage.Url" id="miniCartViewCart" class="btn btn-dark-brown">@Dictionary[ "ViewCart" ]</a>
+    <div id="miniCartTotalPriceWrap">
+      <span>@Dictionary[ "TotalPrice" ]</span> <span id="miniCartTotalPrice">
+        @totalPrice
+      </span>
+    </div>
+    <div class="updating">
+      <span>@Dictionary[ "Updating" ]</span></div>
+  </div>
+  <!-- BOTTOM END -->
+</div>

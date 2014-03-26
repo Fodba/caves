@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>Red Wine.jpg</originalFileName>
+    <size>177588</size>
+    <dateLastModified>Mon, 17 Dec 2012 12:15:26 GMT</dateLastModified>
+    <width>526</width>
+    <height>913</height>
+    <cachedImage>
+      <fileName>ezjioorr.jpeg</fileName>
+      <dateCreated>Thu, 06 Jun 2013 14:59:32 GMT</dateCreated>
+      <dateLastAccessed>Tue, 25 Mar 2014 09:23:06 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>94</width>
+      <height>164</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>30lf4cgy.jpeg</fileName>
+      <dateCreated>Mon, 17 Jun 2013 09:53:35 GMT</dateCreated>
+      <dateLastAccessed>Fri, 20 Sep 2013 19:21:40 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>35</width>
+      <height>60</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>ocb1v24e.jpeg</fileName>
+      <dateCreated>Fri, 06 Sep 2013 14:38:24 GMT</dateCreated>
+      <dateLastAccessed>Tue, 17 Sep 2013 08:39:26 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>218</width>
+      <height>378</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

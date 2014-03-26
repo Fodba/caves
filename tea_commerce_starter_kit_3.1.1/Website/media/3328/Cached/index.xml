@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>frontpage-rotation-01.png</originalFileName>
+    <size>597156</size>
+    <dateLastModified>Wed, 05 Dec 2012 10:37:09 GMT</dateLastModified>
+    <width>940</width>
+    <height>350</height>
+    <cachedImage>
+      <fileName>gp4beqso.png</fileName>
+      <dateCreated>Wed, 16 Jan 2013 09:17:57 GMT</dateCreated>
+      <dateLastAccessed>Wed, 16 Jan 2013 09:17:58 GMT</dateLastAccessed>
+      <imageFormat>png</imageFormat>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>900</width>
+      <height>335</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>False</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

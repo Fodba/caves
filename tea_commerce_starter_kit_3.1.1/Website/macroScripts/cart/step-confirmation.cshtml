@@ -1,0 +1,45 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  DynamicNode currentPage = Model;
+
+  Order order = null;
+  decimal totalQuantity = 0;
+
+  if ( TC.HasCurrentFinalizedOrder( storeId ) ) {
+    order = TC.GetCurrentFinalizedOrder( storeId );
+    totalQuantity = order.OrderLines.Sum( o => o.Quantity );
+  }
+  
+}
+@if ( order != null && totalQuantity > 0 ) {
+  <h1>
+    <span>0@(currentPage.Position() + 1).</span> <span>@currentPage.Name</span>
+  </h1>
+  
+  <div id="cartItemInfo">
+    <span>@Dictionary[ "CartContent" ]</span>
+  </div>
+  //Cart content
+  @RenderPage( "~/macroScripts/cart/view-order-line-overview.cshtml" )
+  
+  //Customer information
+  @RenderPage( "~/macroScripts/cart/view-customer-information.cshtml" )
+  
+  <div id="cartBottom" class="noPrint">
+    <div class="input-append" id="next">
+      <a href="javascript:window.print()" class="btn btn-brown">
+        @Dictionary["Print"]</a><a href="javascript:window.print()" class="btn btn-brown"> ></a>
+    </div>
+  </div>
+  
+} else { 
+  <div id="cartIsEmpty">
+    <span>@Dictionary[ "YourCartIsEmpty" ]</span>
+  </div>
+}

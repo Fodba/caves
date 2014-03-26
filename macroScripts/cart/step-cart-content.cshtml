@@ -1,0 +1,58 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  Order order = null;
+  decimal totalQuantity = 0;
+  string quantityCssClass = "singleItem";
+
+  if ( TC.HasCurrentOrder( storeId ) ) {
+    order = TC.GetCurrentOrder( storeId );
+    totalQuantity = order.OrderLines.Sum( o => o.Quantity );
+  }
+	
+  if(totalQuantity > 1){
+    quantityCssClass = "multipleItems";
+  }
+  
+  
+}
+
+@if ( order != null && totalQuantity > 0 ) {
+
+  //Pages
+  DynamicNode currentPage = Model;
+  DynamicNode previousStep = currentPage.Previous();
+  DynamicNode nextStep = currentPage.Next();
+  
+  <h1>
+    <span>0@(Model.Position() + 1).</span> <span>@Model.Name</span>
+  </h1>
+  
+  <div id="cartItemInfo" class="@quantityCssClass">
+    <!-- CART IS EMPTY END -->
+    <div id="cartNotEmpty">
+      <span>@Dictionary[ "YourHave" ]</span> <span id="cartTotalQuantity">@totalQuantity.ToString( "0.####" )</span>
+      <span id="cartSingleItem">@Dictionary[ "Item" ]</span> <span id="cartMultipleItem">@Dictionary[ "Items" ]</span>
+      <span>@Dictionary[ "InYourCart" ]</span>
+    </div>
+  </div>
+  
+  @RenderPage( "~/macroScripts/cart/view-order-line-overview.cshtml" )
+
+  <div id="cartBottom" class="noPrint">
+    <div class="input-append" id="next">
+      <a href="@nextStep.Url" class="btn btn-brown">
+        @nextStep.Name</a> <a href="@nextStep.Url" class="btn btn-brown">> </a>
+    </div>
+  </div>
+  
+} else { 
+  <div id="cartIsEmpty">
+    <span>@Dictionary[ "YourCartIsEmpty" ]</span>
+  </div>
+}

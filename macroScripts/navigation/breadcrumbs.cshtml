@@ -1,0 +1,19 @@
+﻿@{
+  var currentPage = Model;
+  var crumText = string.Empty;
+
+  while ( currentPage.Level > 2 ) {
+    if ( currentPage.Level == Model.Level ) {
+
+      string nodeName = currentPage.Name;
+      crumText = string.Format( "<li class=\"active\">{0}</li>", nodeName ) + crumText;
+    } else {
+      crumText = string.Format( "<li><a href=\"{0}\">{1}</a><span class=\"divider\">/</span></li>", currentPage.Url, currentPage.Name ) + crumText;
+    }
+
+    currentPage = currentPage.Parent;
+  }
+
+  crumText = string.Format( "<li><a href=\"{0}\">{1}</a><span class=\"divider\">/</span></li>", currentPage.Url, "Home" ) + crumText;
+  <ul class="breadcrumb" >@Html.Raw( crumText )</ul>
+}

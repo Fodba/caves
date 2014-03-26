@@ -1,0 +1,12 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/PageLayout.master" AutoEventWireup="true" %>
+
+
+<asp:Content ContentPlaceHolderId="BodyText" runat="server">
+	<umbraco:Macro Alias="NavigationBreadcrumbs" runat="server" />
+  <div id="page">
+    <umbraco:Macro Alias="PageHeading" runat="server" />
+    <div  id="articleBody" itemprop="articleBody">
+      <umbraco:Item field="bodyText" runat="server"/>
+    </div>
+  </div>
+</asp:Content>

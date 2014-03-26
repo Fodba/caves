@@ -1,0 +1,7 @@
+﻿@using umbraco.MacroEngines
+		@using umbraco.NodeFactory
+		@inherits umbraco.MacroEngines.DynamicNodeContext
+		@{
+			var link = "style=\"background:url(" + Model.NodeById(Model.backgroundImage).Url + ") no-repeat center center fixed;background-size:cover\"";
+			@Html.Raw(link)>
+		}

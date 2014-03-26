@@ -1,0 +1,69 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+  int pageNumber = PageData[ 0 ],
+  	  numberOfItems = PageData[ 1 ],
+      itemsPerPage = PageData[ 2 ],
+      staticNumberOfItems = PageData[ 3 ],
+	  numberOfPagesToShow = PageData[ 4 ];
+	
+  string extraParams = PageData[ 5 ];
+	bool showFirstAndLast = PageData[ 6 ],
+		 showNextAndPrev = PageData[ 7 ],
+		 showNumbers = PageData[ 8 ];
+	
+	if(numberOfItems > itemsPerPage && staticNumberOfItems == 0){
+		int numberOfPages = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(numberOfItems) / Convert.ToDecimal(itemsPerPage)));
+		int minReached = -( pageNumber - numberOfPagesToShow / 2 - 1 );
+		int maxReached = ((pageNumber + numberOfPagesToShow / 2) - numberOfPages);
+		int addToMin = maxReached > 0 ? maxReached : 0;
+		int addToMax = minReached > 0 ? minReached : 0;
+		int minPage = minReached > 0 ? 1 : pageNumber - numberOfPagesToShow / 2 - addToMin;
+		int maxPage = maxReached > 0 ? numberOfPages : pageNumber + numberOfPagesToShow / 2 + addToMax;
+		
+		string firstPage = Model.Url + extraParams;
+		string lastPage = "?page=" + numberOfPages + extraParams;
+		string prevLink = (pageNumber - 1) > 1 ? "?page=" + (pageNumber - 1) + extraParams : firstPage;
+		string nextLink = "?page=" + (pageNumber + 1) + extraParams;
+
+		<div class="pagination">
+			<ul>
+				@if(!showFirstAndLast && pageNumber > 1){
+				<li>
+					<a href="@firstPage" class="@(pageNumber > 1 ? "active" : "disabled")"
+					>Første</a>
+				</li>
+				}
+				@if(!showNextAndPrev && pageNumber > 1){
+				<li>
+					<a href="@prevLink" class="@(pageNumber > 1 ? "active" : "disabled")"
+					>«</a>
+				</li>
+				}
+				@if(!showNumbers){
+					for(int i = 1; i <= numberOfPages && i >= minPage && i <= maxPage; i++){
+						string link = "?page=" + i + extraParams;
+						<li>
+						<a href="@link" class="@(pageNumber != i ? "active" : "disabled")">
+							@i	
+						</a>
+						</li>
+					}
+				}
+				@if(!showNextAndPrev && pageNumber < numberOfPages){
+				<li>
+					<a href="@nextLink" class="@(pageNumber * itemsPerPage < numberOfItems ? "active" : "disabled")"
+					>»</a>
+				</li>
+				}
+				@if(!showFirstAndLast && pageNumber < numberOfPages){
+				<li>
+					<a href="@lastPage" class="@(pageNumber * itemsPerPage < numberOfItems ? "active" : "disabled")"
+					>Sidste</a>
+				</li>
+				}
+			</ul>
+		</div>
+	}
+}

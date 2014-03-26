@@ -1,0 +1,11 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+	<asp:Content ContentPlaceHolderId="backgroundImage" runat="server">
+	<umbraco:Macro Alias="BackgroundImage" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderId="CphMain" runat="server">
+	<div class="container-fluid scroll-h" style="padding-top: 50px;">
+        <umbraco:Macro Alias="Domaine" runat="server"></umbraco:Macro>
+	</div>
+    
+</asp:Content>

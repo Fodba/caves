@@ -1,0 +1,48 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+  DynamicNode currentPage = Model;
+  
+  string listId = Parameter.listId,
+         listClass = Parameter.listClass,
+         propertyAlias = Parameter.propertyAlias;
+
+  List<DynamicNode> list = currentPage.XPath( "./ancestor-or-self::* [" + propertyAlias + " != ''][1]" ).Items;
+  
+    
+  if(list.Count > 0){
+    string[] nodeIds = list.FirstOrDefault().GetPropertyValue( propertyAlias ).Split(new char[]{ ','}, StringSplitOptions.RemoveEmptyEntries);
+  
+      
+    listClass += " numberOfPages" + nodeIds.Count();
+  
+    int count = 1;
+    int numberOfItems = nodeIds.Count();
+  
+
+    <ul id="@listId" class="@listClass">
+      
+      @foreach ( string nodeId in nodeIds ) {
+  
+        DynamicNode node = Library.NodeById( nodeId );
+        string liClassName = "item " + node.NodeTypeAlias + " pos" + count;
+        if ( node.Id == currentPage.Id ) { liClassName += " active"; }
+        if ( node.IsAncestorOrSelf( currentPage ) ) { liClassName += " inpath"; }
+        if ( count == 1 ) { liClassName += " firstitem"; }
+        if ( count == nodeIds.Count() ) { liClassName += " lastitem"; }
+        if ( node.GetChildrenAsList.Items.Any() ) { liClassName += " hasChildren"; }
+     
+          <li class="@liClassName">
+            <a href="@node.Url" class="@liClassName">
+              @node.Name
+            </a>
+          </li>
+          
+        count++;
+      }
+    </ul>
+      
+  }
+  
+}

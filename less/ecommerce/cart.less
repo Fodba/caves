@@ -1,0 +1,131 @@
+﻿/* */
+/* cart.less */
+/* */
+
+/*****************************************************
+   - CART STEP PROGRESS
+*****************************************************/
+div#cart .navbar-inner { min-height:0; }
+
+ul#cartStepProgress { 
+	& { list-style: none; padding:0; margin:0; float:none; }
+	li { 
+		& { width:16.6%; line-height:12px; text-align: center; }
+		a { font-size:14px; padding:10px 0 10px 10px; }
+		&.active a.no-link:hover,
+		&.active a { color:#6d1d20; }
+		& a.no-link:hover { color:#777777; }
+	}
+}
+
+/*****************************************************
+   - CART TOP
+*****************************************************/
+div#cart { 
+	h1 { border-bottom:0; padding-bottom:0; margin-bottom:10px; }
+	h2 { font-size:20px; font-weight:normal; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #e9e9ea; }
+	div#cartItemInfo { 
+		& { margin-bottom:15px; }
+		* { font-size:20px; }
+
+		&.multipleItems #cartSingleItem { display: none; }
+		&.singleItem #cartMultipleItem { display: none; }
+	}
+}
+
+/*****************************************************
+   - CART BOTTOM
+*****************************************************/
+div#cartBottom { 
+	& { margin-top:25px; padding-top:25px; border-top:1px solid #e9e9ea; }
+	div#next { float:right; }
+	.btn { line-height:44px; height:44px; font-size:17px; padding:0 20px; }
+	input.btn { line-height:46px; height:46px; }
+}
+
+/*****************************************************
+   - CART CONTENTS
+*****************************************************/
+div.cartContent {
+	.right { text-align:right; }
+	.center { text-align:center; }
+
+	th { font-weight:normal; }
+	input,
+	td a,
+	td { color:#a0a0a0; }
+
+	tr.item {
+		&.over { background:#fffaef; }
+
+		form { margin:0; display:inline; }
+		btn { color:#333; }
+		input.quantity { width:24px; text-align:center; margin:0; }
+		input.delete { height:auto; line-height:17px; }
+
+		td { vertical-align:middle; }
+		.col1 { width:40px; }
+		.col3 { width:102px; }
+		.col4 { width:102px; }
+		.col5 { width:102px; }
+		.col6 { text-align:center; width:47px; }
+	}
+}
+
+/****************************************************
+   - CART CUSTOMER INFORMATION
+*****************************************************/
+div.customerInformation { 
+	& { clear:both; overflow:hidden; }
+	.control-group { float:left; width:470px; }
+	.control-group.comments { clear:both; width:100%; }
+	.control-group textarea { width:770px; }
+
+	.control-label { width:90px; }
+	.controls { margin-left: 110px; }
+	.controls input { width:300px; }
+	.controls select { width:312px; }
+}
+
+
+div#shippingInformationCheck { 
+	& { padding-left:92px; margin-bottom: 20px; }
+	
+	input,
+	label { display:inline; margin:0; }
+}
+
+div#shippingInformation.hide { display:none; }
+div#shippingInformation { display:block; }
+
+/****************************************************
+   - CART PAYMENT AND SHIPPING
+*****************************************************/
+div#paymentAndShipping {
+	.control-group { 
+		& { clear:both; overflow:hidden; }
+		label,
+		input { float:left; }
+		input { margin:6px 10px 0 0; }
+		label h3 { font-size:20px; font-weight:normal; }
+		label img { display:block; padding:10px 0 0 0; }
+	}
+}
+
+div#paymentInformation { margin-bottom:30px; }
+
+/****************************************************
+   - CART ACCEPT
+*****************************************************/
+div.customerInformation .control-group { 
+	& { margin-bottom:5px; }
+	.control-group .control-label { color:#a0a0a0; }
+	.control-group .controls { padding-top:5px; }
+}
+
+div#acceptTerms { 
+	& { overflow:hidden; clear:both; margin-top:30px; }
+	input,
+	label { float:left; }
+	input { margin-right:10px; }
+}

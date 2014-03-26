@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/MainMaster.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderId="CphMain" runat="server">
+  <div id="pageOneCol" class="container">
+    <div class="main" id="main">
+      <asp:ContentPlaceHolder Id="BodyText" runat="server" />
+    </div>
+  </div>
+</asp:Content>

@@ -1,0 +1,119 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using TeaCommerce.Api.Common
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  //Product
+  string ProductTypeName = "Product";
+  DynamicNode currentPage = Model;
+  DynamicNode mainProduct = currentPage.AncestorOrSelf( p => p.NodeTypeAlias == ProductTypeName && p.Parent.NodeTypeAlias != ProductTypeName );
+
+  //Variants
+  List<DynamicNode> variants = mainProduct.Descendants( p => !p.ChildrenAsList.Any( c => c.NodeTypeAlias == ProductTypeName ) ).Items;
+  bool hasVariants = variants.Count > 0;
+
+  //Product to show
+  DynamicNode product = hasVariants ? variants.FirstOrDefault( v => v.Id == currentPage.Id ) ?? variants.First() : mainProduct;
+
+  //Currency
+  Currency currentCurrency = PageData[ 1 ] ?? TC.GetCurrentCurrency( storeId );
+
+  //Product data
+  string link = product.Url;
+  string name = TC.GetPropertyValue( storeId, mainProduct, "productName" );
+  string sku = TC.GetPropertyValue( storeId, product, "sku" );
+  string description = TC.GetPropertyValue( storeId, product, "description" );
+
+  //Image
+  string imageStr = TC.GetPropertyValue( storeId, product, "image" );
+  string[] imageIds = imageStr.Split( new char[] { ',' } );
+  string image = imageIds.Length > 0 ? Library.MediaById( imageIds[ 0 ] ).umbracoFile : "";
+  
+  //TODO: Get stock
+  decimal? stock = TC.GetStock( storeId, product.Id.ToString() );
+
+  //Price
+  Price price = TC.GetPrice( storeId, product.Id.ToString() );
+
+  //Css class
+  string cssClass = "product innerProduct" + ( hasVariants ? " hasVariants" : "" );
+}
+
+
+<div id="product" refreshwithtemplate="product\view.cshtml" class="@cssClass" nodeId="@product.Id" itemscope="" itemtype="http://schema.org/Product">
+  <form action="/base/TC/FormPost.aspx" method="post" class="ajaxForm">
+  <input name="storeId" type="hidden" value="@storeId" />
+  <input name="AddOrUpdateOrderLine" type="hidden" value="productIdentifier : productIdentifier, orderLineId : orderLineId, quantity : quantity, propertyKeys : propertyKeys" />
+  <h1>
+    @name
+  </h1>
+  <div class="productWrap">
+    <div class="productImage">
+      <img src="/ImageGen.ashx?Width=378&amp;Height=378&amp;Constrain=True&amp;Image=@image" class="productImage" alt="@name" title="@name" />
+    </div>
+    <div class="productContent">
+      <div class="description">
+        @Html.Raw( description )
+      </div>
+      <div class="productPrice" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+        <span itemprop="price">
+          @price
+        </span></div>
+      <div class="variants">
+        @if ( hasVariants ) {
+          <select name="productIdentifier" class="productIdentifier">
+            <!-- loop through each of the variant products -->
+            @foreach ( DynamicNode variant in variants ) {
+            
+          
+              <!-- do whatever you like here -->
+              <option value="@variant.Id"
+              @if ( variant.Id == currentPage.Id ) {
+                @Html.Raw( "selected=\"true\"" )
+              }>
+                @variant.Name
+              </option>
+            }
+          </select>
+        } else { 
+          <input name="productIdentifier" class="productIdentifier" type="hidden" value="@product.Id" />
+        }
+      </div>
+      <div class="actions">
+        @if ( stock == null || stock.Value > 0 ) {
+          <input type="submit" value="@Dictionary[ "AddToCart" ]" class="addToCart btn btn-brown btn-cart" />
+          <span class="addingToCart btn btn-addingtocart btn-brown">@Dictionary[ "AddingToCart" ]</span>
+        } else { 
+          <input type="button" value="@Dictionary[ "SoldOut" ]" class="soldout btn btn-danger btn-cart" />
+        }
+      </div>
+      <div class="quantity noPrint">
+        <input type="text" name="quantity" class="quantity" value="1" />
+      </div>
+    </div>
+  </div>
+  @if ( imageIds.Length > 1 ) {
+    int count = 1;
+  <ul class="thumbnails">
+    @foreach ( string imageId in imageIds ) {
+      var thumb = Model.MediaById( imageId );
+      string thumbCssClass = "thumbnail pos" + count
+             + ( count == 1 ? " firstitem on" : "" )
+             + ( count % 2 == 0 ? " even" : "" )
+             + ( count % 3 == 0 ? " everyThird" : "" );
+      <li class="@thumbCssClass">
+        <a href="/ImageGen.ashx?Width=378&amp;Height=378&amp;Constrain=True&amp;Image=@thumb.umbracoFile" class="">
+          <img src="/ImageGen.ashx?Width=201&amp;Height=201&amp;Constrain=True&amp;Image=@thumb.umbracoFile" />
+        </a>
+      </li>  
+      
+      count++;
+    }
+  </ul>
+  }
+  </form>
+</div>

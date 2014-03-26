@@ -1,0 +1,228 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  //Cart template
+  //1198 = Cart content
+  //1201 = Accept
+  //1203 = Confirmation
+  int cartTemplate = Model.template;
+
+  Order order = null;
+  decimal totalQuantity = 0;
+
+  if ( cartTemplate != 1203 ) {
+    if ( TC.HasCurrentOrder( storeId ) ) {
+      order = TC.GetCurrentOrder( storeId );
+    }
+
+  } else {
+    if ( TC.HasCurrentFinalizedOrder( storeId ) ) {
+      order = TC.GetCurrentFinalizedOrder( storeId );
+    }
+  }
+
+  if ( order != null ) {
+    totalQuantity = order.OrderLines.Sum( o => o.Quantity );
+  }
+
+  
+  
+}
+@if ( order != null && totalQuantity > 0 ) {
+  int count = 1;
+
+  //Shipping
+  ShippingMethod currentShippingMethod = TC.GetCurrentShippingMethod( storeId );
+
+  //Shipping
+  PaymentMethod currentPaymentMethod = TC.GetCurrentPaymentMethod( storeId );
+
+  //View settings
+  bool showQuantityForms = cartTemplate == 1198,
+       showDeleteForm = showQuantityForms,
+       showShippingAndPayment = cartTemplate != 1198,
+       showTransactionFee = cartTemplate == 1203;
+  
+  string cssClass = "cartContent";
+  cssClass += showQuantityForms ? " showQuantityForms" : "";
+  cssClass += showDeleteForm ? " showDeleteForm" : "";
+  cssClass += showShippingAndPayment ? " showShippingAndPayment" : "";
+  cssClass += showTransactionFee ? " showTransactionFee" : "";
+
+  //Cart content
+  <div class="@cssClass">
+    <table class="table">
+      <tr>
+        <th class="col1">
+          @Dictionary[ "Image" ]
+        </th>
+        <th class="col2">
+          @Dictionary[ "Name" ]
+        </th>
+        <th class="col3 center">
+          @Dictionary[ "Quantity" ]
+        </th>
+        <th class="col4 right">
+          @Dictionary[ "UnitPrice" ]
+        </th>
+        <th class="col5 right">
+          @Dictionary[ "TotalPrice" ]
+        </th>
+        @if ( showDeleteForm ) {
+          <th class="col6 center">
+            @Dictionary[ "Delete" ]
+          </th>
+        }
+      </tr>
+      @foreach ( OrderLine orderLine in order.OrderLines ) {
+
+        //Product
+        DynamicNode product = Model.NodeById( orderLine.ProductIdentifier.ToString() );
+
+        //Image
+        string imageStr = TC.GetPropertyValue( storeId, orderLine.ProductIdentifier, "image" );
+        string[] imageIds = imageStr.Split( new char[] { ',' } );
+        string image = imageIds.Length > 0 ? Model.MediaById( imageIds[ 0 ] ).umbracoFile : "";
+
+        //Css Class
+        string orderLineCssClass = "item item" + count;
+        if ( count == 1 ) { orderLineCssClass += " firstitem"; }
+        if ( count == order.OrderLines.Count ) { orderLineCssClass += " lastitem"; }
+
+        //Id
+        string id = "orderLine" + orderLine.Id;
+        
+        <tr id="@id" class="@orderLineCssClass" orderLineId="@orderLine.Id" nodeId="@product.Id">
+          <td class="col1">
+            <a href="@product.Url">
+              <img alt="" src="/ImageGen.ashx?Width=60&amp;Height=60&amp;Constrain=true&amp;Image=@image" />
+            </a>
+          </td>
+          <td class="col2">
+            <a href="@product.Url">
+              @orderLine.Name
+            </a>
+          </td>
+          <td class="col3 center">
+            @if ( showQuantityForms ) {
+              <div class="input-append">
+                <form action="/base/TC/FormPost.aspx" method="post" class="ajaxForm">
+                <input name="storeId" type="hidden" value="@storeId" />
+                <input name="AddOrUpdateOrderLine" type="hidden" value="orderLineId : orderLineId, quantity : quantity" />
+                <input name="orderLineId" type="hidden" value="@orderLine.Id" />
+                <input name="quantity" type="hidden" value="1" />
+                <input type="submit" value="+" class="plus btn first-child" />
+                </form>
+                <form action="/base/TC/FormPost.aspx" method="post" class="ajaxForm">
+                <input name="storeId" type="hidden" value="@storeId" />
+                <input name="AddOrUpdateOrderLine" type="hidden" value="orderLineId : orderLineId, quantity : quantity, overwriteQuantity : overwriteQuantity" />
+                <input name="overwriteQuantity" type="hidden" value="true" />
+                <input name="orderLineId" type="hidden" value="@orderLine.Id" />
+                <input type="number" name="quantity" class="quantity middle-child" value="@orderLine.Quantity.ToString( "0.####" )" lastvalue="@orderLine.Quantity" />
+                </form>
+                <form action="/base/TC/FormPost.aspx" method="post" class="ajaxForm">
+                <input name="storeId" type="hidden" value="@storeId" />
+                <input name="AddOrUpdateOrderLine" type="hidden" value="orderLineId : orderLineId, quantity : quantity" />
+                <input name="orderLineId" type="hidden" value="@orderLine.Id" />
+                <input name="quantity" type="hidden" value="-1" />
+                <input type="submit" value="-" class="minus btn" />
+                </form>
+              </div>
+            } else {
+              @orderLine.Quantity.ToString( "0.####" )
+            }
+          </td>
+          <td class="col4 right unitPrice">
+            @orderLine.UnitPrice
+          </td>
+          <td class="col5 right totalPrice">
+            @orderLine.TotalPrice
+          </td>
+          @if ( showDeleteForm ) {
+            <td class="col6 right">
+              <form action="/base/TC/FormPost.aspx" method="post" class="ajaxForm">
+              <input name="RemoveOrderLine" type="hidden" value="orderLineId : orderLineId" />
+              <input name="storeId" type="hidden" value="@storeId" />
+              <input name="orderLineId" type="hidden" value="@orderLine.Id" />
+              <input type="image" src="/css/gfx/cart-delete.png" class="delete" />
+              </form>
+            </td>
+          }
+        </tr>
+        
+          count++;
+      }
+      <tr class="orderTotal">
+        <td colspan="4" class="right">
+          @Dictionary[ "Subtotal" ]
+        </td>
+        <td @if(showDeleteForm){@Html.Raw("colspan=2")} class="money right" id="subtotalPrice">
+          @order.SubtotalPrice
+        </td>
+      </tr>
+      @if ( showShippingAndPayment ) {
+        if ( currentShippingMethod != null ) {
+        <tr class="orderTotal">
+          <td colspan="4" class="right">
+            @Dictionary[ "Shipping" ] (@Dictionary[ currentShippingMethod.Alias ])
+          </td>
+          <td @if(showDeleteForm){@Html.Raw("colspan=2")} class="money right" id="shipmentInformationTotalPrice">
+            @order.ShipmentInformation.TotalPrice
+          </td>
+        </tr>
+        }
+        if ( currentPaymentMethod != null ) {
+        <tr class="orderTotal">
+          <td colspan="4" class="right">
+            @Dictionary[ "Payment" ] (@Dictionary[ currentPaymentMethod.Alias ])
+          </td>
+          <td @if(showDeleteForm){@Html.Raw("colspan=2")} class="money right" id="paymentInformationTotalPrice">
+            @order.PaymentInformation.TotalPrice
+          </td>
+        </tr>
+        }
+        if ( showTransactionFee && order.TransactionInformation.TransactionFee.Value > 0 ) { 
+        <tr class="orderTotal">
+          <td colspan="4" class="right">
+            @Dictionary[ "TransactionFee" ]
+          </td>
+          <td @if(showDeleteForm){@Html.Raw("colspan=2")} class="money right" id="transactionInformationTransactionFee">
+            @order.TransactionInformation.TransactionFee
+          </td>
+        </tr>
+        }
+      }
+      <tr class="orderTotal">
+        <td colspan="4" class="right">
+          @Dictionary[ "VAT" ]
+        </td>
+        <td @if(showDeleteForm){@Html.Raw("colspan=2")} class="money right" id="totalVat">
+          @if ( showShippingAndPayment ) {
+            @order.TotalPrice.VatFormatted
+          } else { 
+            @order.SubtotalPrice.VatFormatted
+          }
+        </td>
+      </tr>
+      <tr class="orderTotal">
+        <td colspan="4" class="right">
+          @Dictionary[ "Total" ]
+        </td>
+        <td @if(showDeleteForm){@Html.Raw("colspan=2")} class="money right" id="totalPrice">
+          @if ( showShippingAndPayment ) {
+            @order.TotalPrice
+          } else { 
+            @order.SubtotalPrice
+          }
+        </td>
+      </tr>
+    </table>
+  </div>
+
+}

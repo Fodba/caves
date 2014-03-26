@@ -1,0 +1,12 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/MainMaster.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderId="CphMain" runat="server">
+  <div id="pageTwoCol" class="container">
+    <div class="main" id="main">
+      <asp:ContentPlaceHolder Id="BodyText" runat="server" />
+    </div>
+    <div id="right" class="noPrint">
+      <umbraco:Macro listId="rightWidgets" listClass="rightWidgets" propertyAlias="widgets" widgetGridId="widgetsRight" numberOfCols="1" Alias="WidgetsList" runat="server" />
+    </div>
+  </div>
+</asp:Content>

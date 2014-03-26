@@ -1,0 +1,466 @@
+2013-04-18 08:54:15,337 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-04-18 08:54:15,406 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-04-18 08:54:15,413 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 6ms)
+2013-04-18 08:54:16,151 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 728ms)
+2013-04-18 08:54:16,172 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 4ms)
+2013-04-18 08:54:16,177 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 3ms)
+2013-04-18 08:54:16,182 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 3ms)
+2013-04-18 08:54:16,192 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 3ms)
+2013-04-18 08:54:16,197 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 4ms)
+2013-04-18 08:54:16,231 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 886ms)
+2013-04-18 08:54:16,359 [5] INFO  umbraco.BusinessLogic.Log - [Thread 6] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-04-18 08:54:16,371 [5] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-04-18 08:54:16,384 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 7ms)
+2013-04-18 08:54:16,425 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 4ms)
+2013-04-18 08:54:16,684 [5] INFO  umbraco.content - [Thread 7] Loading content from disk cache...
+2013-04-18 08:54:17,040 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 4ms)
+2013-04-18 08:54:17,066 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 3ms)
+2013-04-18 08:54:17,368 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 4 (took 4ms)
+2013-04-18 08:54:17,468 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.MacroEngines.IRazorDataTypeModel, found 13 (took 4ms)
+2013-04-18 08:54:18,532 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 7] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 08:55:11,034 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 7] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 08:56:34,152 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 9] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:13:15,993 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 24] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:17,422 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 36] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:36,958 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 35] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:37,597 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 33] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:37,837 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 24] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:38,062 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 33] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:38,262 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 24] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:38,446 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 35] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:47,606 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 24] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:48,565 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 33] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:13:48,798 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 24] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:14:44,141 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 39] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:14:44,469 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 33] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:14:44,653 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 39] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:14:44,821 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 37] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:15:32,497 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 35] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:17:05,247 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 33] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:17:42,406 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 43] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:17:43,562 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 43] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:21:47,014 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:22:15,851 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:22:27,250 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 42] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:22:27,337 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 41] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:22:33,391 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 26] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:23:02,279 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 35] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:23:04,508 [5] ERROR Umbraco.Core.UmbracoApplicationBase - [Thread 47] An unhandled exception occurred
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at dotless.Core.Parser.Tokenizer.get_NextChar()
+   at dotless.Core.Parser.Parsers.Expect(Parser parser, Char expectedString, String message)
+   at dotless.Core.Parser.Parsers.Import(Parser parser)
+   at dotless.Core.Parser.Parsers.Directive(Parser parser)
+   at dotless.Core.Parser.Parsers.Primary(Parser parser)
+   at dotless.Core.Parser.Parser.Parse(String input, String fileName)
+   at dotless.Core.LessEngine.TransformToCss(String source, String fileName)
+   at dotless.Core.CacheDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.ParameterDecorator.TransformToCss(String source, String fileName)
+   at dotless.Core.HandlerImpl.Execute()
+   at dotless.Core.LessCssHttpHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-04-18 09:23:15,304 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:23:21,712 [5] INFO  Umbraco.Core.PluginManager - [Thread 40] Completed resolution of types of Umbraco.Web.BaseRest.RestExtensionAttribute, found 1 (took 12ms)
+2013-04-18 09:23:21,727 [5] INFO  Umbraco.Core.PluginManager - [Thread 40] Completed resolution of types of umbraco.presentation.umbracobase.RestExtension, found 3 (took 8ms)
+2013-04-18 09:23:31,369 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 47] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:23:32,606 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 40] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:26:24,413 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:30:40,985 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 40] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:30:42,941 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:34:19,908 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 44] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:35:59,334 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 40] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:36:02,083 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:37:26,787 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 33] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:37:32,130 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 41] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:39:15,770 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 35] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:39:32,457 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 48] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:41:02,324 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 44] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 09:57:53,909 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 33] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 10:05:36,305 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 33] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 10:12:14,777 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 34] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 10:23:57,301 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 32] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:23:32,545 [5] INFO  umbraco.BusinessLogic.Log - [Thread 14] Log scrubbed.  Removed all items older than 2013-02-17 11:23:32
+2013-04-18 11:23:32,546 [5] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 14] Application shutdown. Reason: MaxRecompilationsReached
+2013-04-18 11:23:35,825 [30] INFO  Umbraco.Core.CoreBootManager - [Thread 25] Umbraco application starting
+2013-04-18 11:23:35,883 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Determining hash of code files on disk
+2013-04-18 11:23:35,890 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Hash determined (took 6ms)
+2013-04-18 11:23:36,077 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 177ms)
+2013-04-18 11:23:36,096 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 4ms)
+2013-04-18 11:23:36,101 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 3ms)
+2013-04-18 11:23:36,106 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 3ms)
+2013-04-18 11:23:36,113 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 3ms)
+2013-04-18 11:23:36,117 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 3ms)
+2013-04-18 11:23:36,149 [30] INFO  Umbraco.Core.CoreBootManager - [Thread 25] Umbraco application startup complete (took 316ms)
+2013-04-18 11:23:36,272 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 7ms)
+2013-04-18 11:23:36,311 [30] INFO  Umbraco.Core.PluginManager - [Thread 25] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 4ms)
+2013-04-18 11:23:36,331 [30] ERROR Umbraco.Core.PluginManager - [Thread 25] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-04-18 11:23:36,347 [30] INFO  umbraco.BusinessLogic.Log - [Thread 42] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-04-18 11:23:36,567 [30] INFO  umbraco.content - [Thread 21] Loading content from disk cache...
+2013-04-18 11:23:36,926 [30] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 3ms)
+2013-04-18 11:23:36,939 [30] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 3ms)
+2013-04-18 11:23:38,315 [30] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 4 (took 3ms)
+2013-04-18 11:23:38,398 [30] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.MacroEngines.IRazorDataTypeModel, found 13 (took 4ms)
+2013-04-18 11:23:42,398 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 9] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:26:38,360 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 44] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:27:21,156 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 13] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:27:54,892 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 33] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:28:06,468 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 13] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:29:03,212 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 13] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:29:06,678 [30] INFO  Umbraco.Core.PluginManager - [Thread 13] Completed resolution of types of Umbraco.Web.BaseRest.RestExtensionAttribute, found 1 (took 11ms)
+2013-04-18 11:29:06,692 [30] INFO  Umbraco.Core.PluginManager - [Thread 13] Completed resolution of types of umbraco.presentation.umbracobase.RestExtension, found 3 (took 7ms)
+2013-04-18 11:29:17,770 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 13] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:30:11,626 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 42] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:30:13,442 [30] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 13] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 11:54:15,905 [30] INFO  umbraco.BusinessLogic.Log - [Thread 22] Log scrubbed.  Removed all items older than 2013-02-17 11:54:15
+2013-04-18 11:54:15,906 [30] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 22] Application shutdown. Reason: HostingEnvironment
+2013-04-18 12:40:03,089 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-04-18 12:40:03,157 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-04-18 12:40:03,165 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 6ms)
+2013-04-18 12:40:03,371 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 196ms)
+2013-04-18 12:40:03,392 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 4ms)
+2013-04-18 12:40:03,397 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 3ms)
+2013-04-18 12:40:03,401 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 3ms)
+2013-04-18 12:40:03,412 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 3ms)
+2013-04-18 12:40:03,416 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 4ms)
+2013-04-18 12:40:03,451 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 355ms)
+2013-04-18 12:40:03,584 [5] INFO  umbraco.BusinessLogic.Log - [Thread 6] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-04-18 12:40:03,597 [5] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-04-18 12:40:03,610 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 7ms)
+2013-04-18 12:40:03,652 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 4ms)
+2013-04-18 12:40:03,918 [5] INFO  umbraco.content - [Thread 7] Loading content from disk cache...
+2013-04-18 12:40:04,323 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 4ms)
+2013-04-18 12:40:04,349 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 3ms)
+2013-04-18 12:40:04,578 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 4 (took 4ms)
+2013-04-18 12:40:04,672 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.MacroEngines.IRazorDataTypeModel, found 13 (took 4ms)
+2013-04-18 12:42:40,678 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 10] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 12:44:22,446 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 18] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 12:58:10,505 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 51] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 12:58:16,573 [5] INFO  Umbraco.Core.PluginManager - [Thread 51] Completed resolution of types of Umbraco.Web.BaseRest.RestExtensionAttribute, found 1 (took 11ms)
+2013-04-18 12:58:16,588 [5] INFO  Umbraco.Core.PluginManager - [Thread 51] Completed resolution of types of umbraco.presentation.umbracobase.RestExtension, found 3 (took 8ms)
+2013-04-18 12:58:36,940 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 55] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 12:58:38,190 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 51] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 13:02:18,269 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 53] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 13:05:13,147 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 53] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 13:08:53,907 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 42] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 13:10:33,481 [5] INFO  Umbraco.Core.PluginManager - [Thread 50] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 3ms)
+2013-04-18 13:59:03,833 [5] INFO  umbraco.BusinessLogic.Log - [Thread 45] Log scrubbed.  Removed all items older than 2013-02-17 13:59:03
+2013-04-18 13:59:03,834 [5] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 45] Application shutdown. Reason: HostingEnvironment
+2013-04-18 14:43:32,501 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2013-04-18 14:43:32,569 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-04-18 14:43:32,577 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 6ms)
+2013-04-18 14:43:32,781 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 195ms)
+2013-04-18 14:43:32,801 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 4ms)
+2013-04-18 14:43:32,806 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 3ms)
+2013-04-18 14:43:32,811 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 3ms)
+2013-04-18 14:43:32,820 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 3ms)
+2013-04-18 14:43:32,824 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 3ms)
+2013-04-18 14:43:32,860 [5] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 350ms)
+2013-04-18 14:43:32,988 [5] INFO  umbraco.BusinessLogic.Log - [Thread 6] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2013-04-18 14:43:33,001 [5] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Umbraco.InstallStatistics.ui.UmbracoUIHook
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at Umbraco.InstallStatistics.ui.UmbracoUIHook..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-04-18 14:43:33,014 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 7ms)
+2013-04-18 14:43:33,056 [5] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 4ms)
+2013-04-18 14:43:33,317 [5] INFO  umbraco.content - [Thread 7] Loading content from disk cache...
+2013-04-18 14:43:33,672 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 4ms)
+2013-04-18 14:43:33,697 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 3ms)
+2013-04-18 14:43:33,970 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 4 (took 3ms)
+2013-04-18 14:43:34,062 [5] INFO  Umbraco.Core.PluginManager - [Thread 7] Completed resolution of types of umbraco.MacroEngines.IRazorDataTypeModel, found 13 (took 4ms)
+2013-04-18 14:43:35,042 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 7] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 14:44:24,375 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 9] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 14:44:25,186 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 10] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 14:44:25,828 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 9] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 14:44:27,301 [5] WARN  Umbraco.Web.Routing.NiceUrlProvider - [Thread 7] Couldn't find any page with nodeId=0. This is most likely caused by the page not being published.
+2013-04-18 15:05:33,249 [5] INFO  umbraco.BusinessLogic.Log - [Thread 38] Log scrubbed.  Removed all items older than 2013-02-17 15:05:33
+2013-04-18 15:05:33,251 [5] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 38] Application shutdown. Reason: HostingEnvironment

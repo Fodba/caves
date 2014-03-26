@@ -1,0 +1,73 @@
+@using umbraco.MacroEngines
+@using umbraco.NodeFactory
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+    string linkP="#";
+    if (Model.HasProperty("linkP") && !string.IsNullOrEmpty(Model.linkP))
+    {
+        linkP = Model.NodeById(Model.linkP).Url;
+    }
+    string linkD = "#";
+    if (Model.HasProperty("linkD") && !string.IsNullOrEmpty(Model.linkD))
+    {
+        linkD = Model.NodeById(Model.linkD).Url;
+    }
+    string linkO = "#";
+    if (Model.HasProperty("linkO") && !string.IsNullOrEmpty(Model.linkO))
+    {
+        linkO = Model.NodeById(Model.linkO).Url;
+    }
+    <div class="container-fluid" style="padding-top:12%">
+        <div class="row-fluid">
+            <div class="span4"  style="margin-bottom: 15px;">
+                <div class="row-fluid">
+                <div class="rubrique"><img src="/css/gfx/haut_bout.png"/><span>Découvrez<br /><strong>@Model.titreP</strong></span></div>
+                    <img  style="width: 100%;" src="@Model.NodeById(Model.imageP).Url"/>
+                <div class="textRub"><span>@Model.descriptionP</span></div>
+                <a class="linkDecouv" href="@linkP">
+                    <div class="decouvrir">
+                        <span>
+                            <img style="padding-bottom: 7px;"src="/css/gfx/bas_bout.png" />
+                            Découvrir
+                            <img style="padding-top:5px" src="/css/gfx/arrow_white.png" />
+                        </span>
+                    </div>
+                </a>
+                    </div>
+            </div>
+            <div class="span4"  style="margin-bottom: 15px;">
+                <div class="row-fluid">
+                <div class="rubrique"><img src="/css/gfx/haut_bout.png"/><span>Découvrez<br /><strong>@Model.titreD</strong></span></div>
+                <img  style="width: 100%;" src="@Model.NodeById(Model.imageD).Url"/>
+                <div class="textRub"><span>@Model.descriptionD</span></div>
+                <a class="linkDecouv" href="@linkD">
+                    <div class="decouvrir">
+                        <span>
+                            <img style="padding-bottom: 7px;"src="/css/gfx/bas_bout.png" />
+                            Découvrir
+                            <img style="padding-top:5px" src="/css/gfx/arrow_white.png" />
+                        </span>
+                    </div>
+                </a>
+            </div>
+                </div>
+            <div class="span4" >
+                <div class="row-fluid">
+                <div class="rubrique"><img src="/css/gfx/haut_bout.png"/><span>Découvrez<br /><strong>@Model.titreO</strong></span></div>
+                <img  style="width: 100%;" src="@Model.NodeById(Model.imageP).Url"/>
+                <div class="textRub"><span>@Model.descriptionO</span></div>
+                <a class="linkDecouv" href="@linkO">
+                    <div class="decouvrir">
+                        <span>
+                            <img style="padding-bottom: 7px;"src="/css/gfx/bas_bout.png" />
+                            Découvrir
+                            <img style="padding-top:5px" src="/css/gfx/arrow_white.png" />
+                        </span>
+                    </div>
+                </a>
+            </div>
+                </div>
+        </div>
+    </div>
+    
+}

@@ -1,0 +1,245 @@
+﻿@using umbraco.MacroEngines
+@using umbraco.NodeFactory
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+
+    string btn = "3";
+    string list="";
+    var nodes=Model.Children;
+    if (Request.QueryString["bt"]!=null)
+    {
+        btn = Request.QueryString["bt"];
+    }
+    //On vérifie si un tri a été fait
+    if (Request.QueryString["listid"]!=null)
+    {
+        list = Request.QueryString["listid"];
+    }
+    
+    //On récupère les ids de la région du département et de la ville(s'ils exsistent)
+    string[] indexes = list.Split('.');
+    
+    //On stocke les ids des régions,départements et villes compris dans le tri
+    List<string> listF = new List<string>();
+    //Si le tri est fait sur la région seulement
+    if (indexes.Length == 2)
+    {
+        nodes = Model.NodeById(indexes[1]).Descendants("Folder");
+        listF.Add(indexes[1]);
+        foreach (var item in nodes)
+        {
+            listF.Add(item.Id.ToString());
+        }
+    }
+    //si le tri est fait sur la région et le département
+    else if (indexes.Length == 3)
+    {
+        nodes = Model.NodeById(indexes[2]).Descendants("Folder");
+        listF.Clear();
+        listF.Add(indexes[2]);
+        foreach (var item in nodes)
+        {
+            listF.Add(item.Id.ToString());
+        }
+    }
+    //si le tri est fait sur la région, le département et la ville
+    else if (indexes.Length == 4)
+    {
+        nodes = Model.NodeById(indexes[3]).Descendants("Folder");
+        listF.Clear();
+        listF.Add(indexes[3]);
+        foreach (var item in nodes)
+        {
+            listF.Add(item.Id.ToString());
+        }
+    }
+ 
+    //Liste des noeuds compris dans le tri
+    List<DynamicNode> possibleNodes = new List<DynamicNode>();
+    int currentIndex = 0;
+    var count = 0;
+    foreach (var item in Model.Parent.Children)
+    {
+        //On vérifie si le lieu de l'élément est bien dans la liste
+        if (listF.Contains(item.lieu))
+        {
+            possibleNodes.Add(item);
+        }
+    }
+    foreach (var item in possibleNodes)
+    {
+        //on récupère la position de l'élément de la page actuelle
+        if (item.Id == Model.Id)
+        {
+            currentIndex = count;
+        }
+        count++;
+    }
+    var nextNode = Model.Next();
+    var prevNode = Model.Previous();
+
+    if (possibleNodes.Count() > 0)
+    {
+        if (currentIndex!=0)
+        {
+            prevNode = possibleNodes[currentIndex - 1];
+        }
+        else
+        {
+            prevNode = null;
+        }
+        if (currentIndex!=(possibleNodes.Count()-1))
+        {
+            nextNode = possibleNodes[currentIndex + 1];
+        }
+        else
+        {
+            nextNode = null;
+        }
+        
+    } 
+	<div class="row-fluid scroll-h">
+            <div class="offset1 span7  scroll-pane " id="source">
+                <div class="contenu" id="div1">
+                    <div class="visible-phone" >                       
+                          @if (prevNode != null)
+                          {
+                               <a style="color: #9b1230;"href="@prevNode.Url?listid=@list" class="btn btn-mini"><i class="icon-chevron-left"></i> Précédent</a>
+                          }
+                         @if (nextNode != null)
+                         {
+                             <a style="float:right;color: #9b1230;" href="@nextNode.Url?listid=@list" class="btn btn-mini">Suivant&nbsp;<i class="icon-chevron-right"></i></a>
+                         }
+                        <br /><br />
+                    </div>
+                    <div class="title">Domaine "@Model.domainName"</div>
+                    <div>
+                        <span style="font-size:19px"><strong>Le vigneron :&nbsp;</strong>@Model.nameV</span> 
+                    </div>
+                    <img src="@Model.NodeById(Model.imageV).Url"/>
+                    @Model.contentV<br />
+                    <div>
+                        <span style="font-size:19px"><strong>Sa méthode :</strong></span> 
+                    </div>
+                    @Model.ContentM<br />
+                    <div>
+                        <span style="font-size:19px"><strong>Ses vins :</strong></span> 
+                    </div>
+                    @Model.ContentW<br />
+                    <div class="visible-phone" >                       
+                          @if (prevNode != null)
+                          {
+                               <a style="color: #9b1230;"href="@prevNode.Url?listid=@list" class="btn btn-mini"><i class="icon-chevron-left"></i> Précédent</a>
+                          }
+                         @if (nextNode != null)
+                         {
+                             <a style="float:right;color: #9b1230;" href="@nextNode.Url?listid=@list" class="btn btn-mini">Suivant&nbsp;<i class="icon-chevron-right"></i></a>
+                         }
+                        <br /><br />
+                    </div>
+                </div>  
+            </div>
+        <div class="hidden-phone groupeBtn"> 
+        @if (nextNode != null)
+        {
+                 <a class="linkBtnR" href="@nextNode.Url?bt=1&listid=@list">
+                     <div class="btnR">
+                         <span><strong>Domaine</strong> suivant<img src="/css/gfx/arrow_right.png" /></span>
+                     </div>
+                 </a>
+        } 
+               @if (prevNode != null)
+               {
+                 <a class="linkBtnL" href="@prevNode.Url?bt=2&listid=@list">
+                     <div class="btnL">
+                         <span><img src="/css/gfx/arrow_left.png" /><strong>Domaine</strong> précédent</span>
+                     </div>
+                 </a>
+               }
+            </div>
+        </div>
+    <script type="text/javascript" src="/scripts/scroll.js"></script>
+    <script>
+        document.getElementsByTagName("html")[0].style['overflow-y'] = "hidden";
+        var body = document.getElementsByTagName("body")[0];
+        body.className = body.className + " scroll-h";
+        document.getElementById("content").className = "scroll-h";
+    </script>
+		<script type="text/javascript">
+
+		    $('.linkBtnR').click(function (e) {
+		        e.preventDefault();
+		        var thisLink = $(this);
+		        var distance = ($('#source').width() * 2).toString() + 'px';
+		        $('#source').animate({ marginLeft: '+=' + distance }, 300, function () { window.location = thisLink.attr('href'); });
+		    });
+
+		    $('.linkBtnL').click(function (e) {
+		        e.preventDefault();
+		        var thisLink = $(this);	     
+		        var distance = ($('#source').width() * 2).toString() + 'px';
+		        $('#source').animate({ marginLeft: '-=' + distance }, 300, function () { window.location = thisLink.attr('href'); });
+		    });
+		    $(window).load(function () {
+		        var distance = ($('#source').width() * 2).toString() + 'px';
+
+		        if (@btn=='1') 
+		        {
+		            $('#source').css({ marginLeft: '-=' + distance });
+		            $('#source').animate({ marginLeft: '+=' + distance }, 200);
+		        }
+		        else if (@btn=='2') 
+		        {
+		            $('#source').css({ marginLeft: '+=' + distance });
+		            $('#source').animate({ marginLeft: '-=' + distance }, 200);
+		        }
+		        else if (@btn=='3')
+		        {
+		        }
+
+		        setTimeout(function () { $('#source').fadeTo(300,1); }, 300);
+				if ($(".menu-phone").css("display")!='none') {
+		            $("html").css("overflow-y","visible");
+		            $(".scroll-h").css("overflow","visible");
+		        }
+
+		    });
+		    $(function () {
+		        $('.scroll-pane').each(
+                    function () {
+                        $(this).jScrollPane(
+                            {
+                                mouseWheelSpeed:50,
+                                autoReinitialise: true,
+                                showArrows: $(this).is('.arrow')
+                            }
+                        );
+                        var api = $(this).data('jsp');
+                        var throttleTimeout;
+                        $(window).bind(
+                            'resize',
+                            function () {
+                                // IE fires multiple resize events while you are dragging the browser window which
+                                // causes it to crash if you try to update the scrollpane on every one. So we need
+                                // to throttle it to fire a maximum of once every 50 milliseconds...
+                                
+                                if (!throttleTimeout) {
+                                    throttleTimeout = setTimeout(
+                                        function () {
+                                            api.reinitialise();
+                                            throttleTimeout = null;
+
+                                        },
+                                        50
+                                    );
+                                }
+                            }
+                        );
+                    }
+                )
+
+		    });
+
+		</script>
+
+}

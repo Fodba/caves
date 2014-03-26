@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>Red Wine.jpg</originalFileName>
+    <size>177588</size>
+    <dateLastModified>Mon, 17 Dec 2012 12:15:24 GMT</dateLastModified>
+    <width>526</width>
+    <height>913</height>
+    <cachedImage>
+      <fileName>somwf3yp.jpeg</fileName>
+      <dateCreated>Mon, 17 Dec 2012 12:26:02 GMT</dateCreated>
+      <dateLastAccessed>Fri, 03 May 2013 11:26:14 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>94</width>
+      <height>164</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>zdd0cmgc.jpeg</fileName>
+      <dateCreated>Tue, 18 Dec 2012 07:27:16 GMT</dateCreated>
+      <dateLastAccessed>Thu, 18 Apr 2013 09:04:35 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>218</width>
+      <height>378</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>fxokel5e.jpeg</fileName>
+      <dateCreated>Tue, 18 Dec 2012 08:06:29 GMT</dateCreated>
+      <dateLastAccessed>Tue, 18 Dec 2012 08:39:52 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>85</width>
+      <height>148</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>3bxwues4.jpeg</fileName>
+      <dateCreated>Tue, 18 Dec 2012 08:40:03 GMT</dateCreated>
+      <dateLastAccessed>Tue, 18 Dec 2012 08:56:05 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>116</width>
+      <height>201</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>dsmvcxd1.jpeg</fileName>
+      <dateCreated>Tue, 18 Dec 2012 10:33:42 GMT</dateCreated>
+      <dateLastAccessed>Fri, 03 May 2013 11:25:48 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>35</width>
+      <height>60</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

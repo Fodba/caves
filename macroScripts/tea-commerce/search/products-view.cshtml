@@ -1,0 +1,54 @@
+﻿@using Examine
+@using Examine.SearchCriteria
+@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using TeaCommerce.Api.Common
+@using UmbracoExamine
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  DynamicNode currentPage = Model;
+
+  //Product
+  string ProductTypeName = "Product";
+  
+  string searchString = HttpContext.Current.Request.QueryString[ "q" ];
+  ISearchResults searchResults = ExamineManager.Instance.SearchProviderCollection[ "ProductSearcher" ].Search( searchString, true );
+
+  IEnumerable<DynamicNode> products = searchResults.Select( sr => new DynamicNode( sr.Id ) ).Where( p => p.AncestorOrSelf( "Lang" ) != null && p.Parent.NodeTypeAlias != ProductTypeName );
+  decimal numberOfProducts = products.Count();
+  decimal numberOfColumns = 3;
+  decimal rows = Math.Ceiling( ( numberOfProducts / numberOfColumns ) );
+  int position = 0;
+  Currency currentCurrency = TC.GetCurrentCurrency( storeId );
+  
+}
+
+<div class="input-append">
+  <form action="@(currentPage.AncestorOrSelf( "Lang" ).Descendants( "SearchEcommerce" ).Items.First().Url)" method="get">
+    <input class="span8" name="q" id="appendedInputButton" type="text" value="@Request.QueryString["q"]" />
+    <input class="btn btn-dark-brown" type="submit" value="@Dictionary[ "Search" ]" />
+  </form>
+</div>
+<div id="products" class="productList" itemscope="" itemtype="http://schema.org/ItemList">
+  @foreach ( DynamicNode product in products ) {
+    decimal colcount = ( ( position + ( numberOfColumns ) ) % numberOfColumns ) + 1;
+    decimal rowcount = Math.Floor( ( position ) / numberOfColumns ) + 1;
+    string cssClass = string.Format( "product {0} col{1} row{2} ", product.NodeTypeAlias, colcount, rowcount );
+    cssClass += rowcount == 1 ? " firstRow" : "";
+    cssClass += rowcount == rows ? " lastRow" : "";
+    cssClass += colcount % numberOfColumns == 0 ? " lastCol" : "";
+
+    string id = "product" + product.Id;
+
+    <div class="@cssClass" id="@id">
+      @RenderPage( "~/macroScripts/product/list-view.cshtml", product, currentCurrency )
+    </div>
+    
+    position++;
+  }
+</div>

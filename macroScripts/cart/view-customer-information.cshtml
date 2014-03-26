@@ -1,0 +1,245 @@
+﻿@using TeaCommerce.Api.Services
+@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  
+  //Store id
+  long storeId = long.Parse( Model._Store );
+
+  //Cart template
+  //1198 = Cart content
+  //1201 = Accept
+  //1203 = Confirmation
+  int cartTemplateId = Model.template;
+
+  Order order = null;
+
+  if ( cartTemplateId != 1203 ) {
+    if ( TC.HasCurrentOrder( storeId ) ) {
+      order = TC.GetCurrentOrder( storeId );
+    }
+
+  } else {
+    if ( TC.HasCurrentFinalizedOrder( storeId ) ) {
+      order = TC.GetCurrentFinalizedOrder( storeId );
+    }
+  }
+
+}
+@if ( order != null ) {
+
+  //Countries
+  Country currentPaymentCountry = CountryService.Instance.Get(order.StoreId, order.PaymentInformation.CountryId);
+  Country currentShippingCountry = order.ShipmentInformation.CountryId != null ? CountryService.Instance.Get( order.StoreId, order.ShipmentInformation.CountryId.Value ) : null;
+  CountryRegion currentPaymentCountryRegion = order.PaymentInformation.CountryRegionId != null ? CountryRegionService.Instance.Get( order.StoreId, order.PaymentInformation.CountryRegionId.Value ) : null;
+  CountryRegion currentShippingCountryRegion = order.ShipmentInformation.CountryRegionId != null ? CountryRegionService.Instance.Get( order.StoreId, order.ShipmentInformation.CountryRegionId.Value ) : null;
+
+  //Properties
+  string company = order.Properties[ "company" ],
+         firstName = order.Properties[ "firstName" ],
+         lastName = order.Properties[ "lastName" ],
+         streetAddress = order.Properties[ "streetAddress" ],
+         zipCode = order.Properties[ "zipCode" ],
+         city = order.Properties[ "city" ],
+         phone = order.Properties[ "phone" ],
+         email = order.Properties[ "email" ],
+         comments = order.Properties[ "comments" ],
+         shipping_check = order.Properties[ "shipping_check" ],
+         shipping_company = order.Properties[ "shipping_company" ],
+         shipping_firstName = order.Properties[ "shipping_firstName" ],
+         shipping_lastName = order.Properties[ "shipping_lastName" ],
+         shipping_streetAddress = order.Properties[ "shipping_streetAddress" ],
+         shipping_zipCode = order.Properties[ "shipping_zipCode" ],
+         shipping_city = order.Properties[ "shipping_city" ];
+       
+  <div class="customerInformation">
+    <h2>
+      @Dictionary[ "CustomerInformation" ]
+    </h2>
+    <div id="paymentInformation" class="customerInformation form-horizontal">
+      <div class="control-group company">
+        <label class="control-label" for="company">
+          @Dictionary[ "Company" ]
+        </label>
+        <div class="controls">
+          @company
+        </div>
+      </div>
+      <div class="control-group streetAddress">
+        <label class="control-label" for="streetAddress">
+          <span class="required">*</span>
+          @Dictionary[ "Address" ]
+        </label>
+        <div class="controls">
+          @streetAddress
+        </div>
+      </div>
+      <div class="control-group firstName">
+        <label class="control-label" for="firstName">
+          <span class="required">*</span>
+          @Dictionary[ "FirstName" ]
+        </label>
+        <div class="controls">
+          @firstName
+        </div>
+      </div>
+      <div class="control-group zipCode">
+        <label class="control-label" for="zipCode">
+          <span class="required">*</span>
+          @Dictionary[ "ZipCode" ]
+        </label>
+        <div class="controls">
+          @zipCode
+        </div>
+      </div>
+      <div class="control-group lastName">
+        <label class="control-label" for="lastName">
+          <span class="required">*</span>
+          @Dictionary[ "LastName" ]
+        </label>
+        <div class="controls">
+          @lastName
+        </div>
+      </div>
+      <div class="control-group city">
+        <label class="control-label" for="city">
+          <span class="required">*</span>
+          @Dictionary[ "City" ]
+        </label>
+        <div class="controls">
+          @city
+        </div>
+      </div>
+      <div class="control-group email">
+        <label class="control-label" for="email">
+          <span class="required">*</span>
+          @Dictionary[ "Email" ]
+        </label>
+        <div class="controls">
+          @email
+        </div>
+      </div>
+      <div class="control-group country">
+        <label class="control-label" for="country">
+          <span class="required">*</span>
+          @Dictionary[ "Country" ]
+        </label>
+        <div class="controls">
+          @currentPaymentCountry.Name
+        </div>
+      </div>
+      @if ( currentPaymentCountryRegion != null ) {
+        <div class="control-group countryRegion">
+          <label class="control-label" for="countryRegion">
+            <span class="required">*</span>
+            @Dictionary[ "Region" ]
+          </label>
+          <div class="controls">
+            @currentPaymentCountryRegion.Name
+          </div>
+        </div>
+      }
+      <div class="control-group phone">
+        <label class="control-label" for="phone">
+          <span class="required">*</span>
+          @Dictionary[ "Telephone" ]
+        </label>
+        <div class="controls">
+          @phone
+        </div>
+      </div>
+      <div class="control-group comments">
+        <label class="control-label" for="comments">
+          @Dictionary[ "Comments" ]
+        </label>
+        <div class="controls">
+          @comments
+        </div>
+      </div>
+    </div>
+    @if ( shipping_check == "true" ) {
+      <h2>@Dictionary[ "ShippingInformation" ]</h2>
+      <div id="shippingInformation" class="customerInformation form-horizontal">
+        <div class="control-group company">
+          <label class="control-label" for="company">
+            @Dictionary[ "Company" ]
+          </label>
+          <div class="controls">
+            @shipping_company
+          </div>
+        </div>
+        <div class="control-group zipCode">
+          <label class="control-label" for="zipCode">
+            <span class="required">*</span>
+            @Dictionary[ "ZipCode" ]
+          </label>
+          <div class="controls">
+            @shipping_zipCode
+          </div>
+        </div>
+        <div class="control-group firstName">
+          <label class="control-label" for="firstName">
+            <span class="required">*</span>
+            @Dictionary[ "FirstName" ]
+          </label>
+          <div class="controls">
+            @shipping_firstName
+          </div>
+        </div>
+        <div class="control-group city">
+          <label class="control-label" for="city">
+            <span class="required">*</span>
+            @Dictionary[ "City" ]
+          </label>
+          <div class="controls">
+            @shipping_city
+          </div>
+        </div>
+        <div class="control-group lastName">
+          <label class="control-label" for="lastName">
+            <span class="required">*</span>
+            @Dictionary[ "LastName" ]
+          </label>
+          <div class="controls">
+            @shipping_lastName
+          </div>
+        </div>
+        @if ( currentShippingCountry != null ) {
+          <div class="control-group country">
+            <label class="control-label" for="country">
+              <span class="required">*</span>
+              @Dictionary[ "Country" ]
+            </label>
+            <div class="controls">
+              @currentShippingCountry.Name
+            </div>
+          </div>
+        }
+        <div class="control-group streetAddress">
+          <label class="control-label" for="streetAddress">
+            <span class="required">*</span>
+            @Dictionary[ "Address" ]
+          </label>
+          <div class="controls">
+            @shipping_streetAddress
+          </div>
+        </div>
+        @if ( currentShippingCountryRegion != null ) {
+          <div class="control-group countryRegion">
+            <label class="control-label" for="countryRegion">
+              <span class="required">*</span>
+              @Dictionary[ "Region" ]
+            </label>
+            <div class="controls">
+              @currentShippingCountryRegion.Name
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  
+}

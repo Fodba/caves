@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>White Wine.jpg</originalFileName>
+    <size>1060924</size>
+    <dateLastModified>Mon, 17 Dec 2012 12:15:25 GMT</dateLastModified>
+    <width>1949</width>
+    <height>4547</height>
+    <cachedImage>
+      <fileName>ks0oryh4.jpeg</fileName>
+      <dateCreated>Mon, 17 Dec 2012 12:33:35 GMT</dateCreated>
+      <dateLastAccessed>Wed, 17 Apr 2013 14:15:01 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>162</width>
+      <height>378</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>lctwruyf.jpeg</fileName>
+      <dateCreated>Mon, 17 Dec 2012 15:22:18 GMT</dateCreated>
+      <dateLastAccessed>Fri, 03 May 2013 11:24:50 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>70</width>
+      <height>164</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>tdjzqt0x.jpeg</fileName>
+      <dateCreated>Tue, 18 Dec 2012 08:06:29 GMT</dateCreated>
+      <dateLastAccessed>Tue, 18 Dec 2012 08:39:52 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>63</width>
+      <height>148</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>ietlbfvr.jpeg</fileName>
+      <dateCreated>Tue, 18 Dec 2012 08:40:03 GMT</dateCreated>
+      <dateLastAccessed>Tue, 18 Dec 2012 08:56:05 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>86</width>
+      <height>201</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+    <cachedImage>
+      <fileName>z4ewqyxs.jpeg</fileName>
+      <dateCreated>Wed, 16 Jan 2013 15:27:43 GMT</dateCreated>
+      <dateLastAccessed>Fri, 03 May 2013 11:25:49 GMT</dateLastAccessed>
+      <imageFormat>jpeg</imageFormat>
+      <compression>90</compression>
+      <rotate>0</rotate>
+      <flip />
+      <colorMode />
+      <crop />
+      <width>26</width>
+      <height>60</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>True</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

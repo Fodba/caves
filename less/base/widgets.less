@@ -1,0 +1,23 @@
+﻿/* */
+/* widgets.less */
+/* */
+
+ul.widgetList { 
+	& { margin:0; padding:0; list-style: none; overflow:hidden; }
+	
+	li.widget { 
+		& { border-top:solid 1px #ccc; padding:15px 0; }		
+		img.image.lastItem { margin-bottom:15px; }
+	}
+
+	&.rightWidgets li.widget.pos1 { border-top:0; padding-top:0; }
+	&.frontpageWidgets { 
+		& { padding: 20px 0; margin: 0; margin-top:5px; }
+		li.widget { 
+			& { float:left; width:32%; margin-right:2%; padding-top:20px; }
+			&.lastCol { margin-right:0; }
+			&.isList { width:100%; margin-right:0; }
+		}
+	}
+
+}

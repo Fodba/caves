@@ -1,0 +1,123 @@
+﻿body {
+    min-width:1200px;
+    height:auto;
+    max-height:900px;
+}
+
+.conteneu{
+    background-color:RGBa(255,255,255,0.9);
+    color:#9b1230;
+	width: 50%;
+}
+
+.conteneu h3{
+    font-weight:100;
+}
+
+.scrollBar{
+    z-index:5;
+}
+
+#source{
+    display:inline-block;
+    width:800px;
+}
+
+.conteneir{
+    width:1400px;
+    /*min-width:900px;*/
+    margin:auto;
+}
+
+.conteneu{
+    width:500px;
+    /*height:500px;*/
+    margin-left:25px;
+    display:inline-block;
+}
+
+.slider{
+    height:250px;
+    width:100%;
+    position:absolute;
+}
+
+#membresPro, #membresPart,.slider{
+    /*border:1px solid black;*/
+    height:200px;
+    margin-bottom:10px;
+}
+
+.detailMembre{
+    height:200px;
+    overflow:hidden;
+    margin-bottom:10px;
+    /*position:absolute;*/
+    /*display:none;*/
+}
+
+.detailMembre img{
+    width:100%;
+    height:180px;
+    overflow:hidden;
+    margin-bottom:0px;
+    position:absolute;
+}
+
+.detailMembre-text{
+    /*position:absolute;*/
+    text-align:center;
+    margin:auto;
+    margin-top:130px;
+    width:100%;
+    height:30px;
+    background-color:#c3c7cd;
+    /*bottom:10px;*/
+    opacity:0.8;
+    z-index:6;
+}
+
+.test,.poste{
+    /*border:1px solid red;*/
+    overflow:hidden;
+    display:inline-block;
+    vertical-align:bottom;
+    height:150px;
+}
+
+.test{
+    position:relative;
+    margin:10px 10px 0px 10px;
+    width:32%;
+}
+
+.poste h3{
+    margin:15px;
+}
+
+.poste p{
+    width:95%;
+    /*height:65%;*/
+}
+
+/*#descriptifPoste{
+    height:90%;
+}*/
+
+.poste{
+    /*position:absolute;*/
+    width:60%;
+    margin-right:0px;
+    margin-top:0;
+    /*border:1px solid red;*/
+    overflow:hidden;
+    display:inline-block;
+}
+
+.slide_link{
+    width:30%;
+}
+
+.slide_link img{
+    width:100%;
+}

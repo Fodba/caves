@@ -1,0 +1,20 @@
+2014-01-10 02:46:38,050 [5] INFO  umbraco.BusinessLogic.Log - [Thread 1] Log scrubbed.  Removed all items older than 2013-11-11 02:46:38
+2014-01-10 02:46:38,050 [5] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 1] Application shutdown. Reason: HostingEnvironment
+2014-01-10 10:55:24,912 [7] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application starting
+2014-01-10 10:55:25,256 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2014-01-10 10:55:25,287 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 39ms)
+2014-01-10 10:55:27,209 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 24 (took 1895ms)
+2014-01-10 10:55:27,318 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Models.IMacroPropertyType, found 0 (took 6ms)
+2014-01-10 10:55:27,334 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 9ms)
+2014-01-10 10:55:27,334 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 5ms)
+2014-01-10 10:55:27,349 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 5ms)
+2014-01-10 10:55:27,365 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 5ms)
+2014-01-10 10:55:27,896 [7] INFO  Umbraco.Core.CoreBootManager - [Thread 1] Umbraco application startup complete (took 2974ms)
+2014-01-10 10:55:28,849 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 11ms)
+2014-01-10 10:55:28,881 [7] INFO  umbraco.BusinessLogic.Log - [Thread 5] Redirected log call (please use Umbraco.Core.Logging.LogHelper instead of umbraco.BusinessLogic.Log) | Type: Custom | User: 0 | NodeId: -1 | Comment: [UmbracoExamine] Adding examine event handlers for index providers: 4
+2014-01-10 10:55:29,381 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 8ms)
+2014-01-10 10:55:32,537 [7] INFO  umbraco.content - [Thread 1] Loading content from disk cache...
+2014-01-10 10:55:33,818 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 4 (took 6ms)
+2014-01-10 10:55:35,318 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IDataType, found 81 (took 7ms)
+2014-01-10 10:55:35,365 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 47 (took 5ms)
+2014-01-10 10:55:35,615 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.MacroEngines.IRazorDataTypeModel, found 13 (took 8ms)

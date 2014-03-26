@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/PageLayout.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="PageLayoutContentPlaceHolder" runat="server">
+<%@ Master Language="C#" MasterPageFile="~/masterpages/PageLayout.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderId="BodyText" runat="server">
+  <umbraco:Macro newsListPage="" staticNumberOfNews="" newsPerPage="20" Alias="NewsList" runat="server" />
+</asp:Content>
+</asp:Content>

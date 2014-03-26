@@ -1,0 +1,112 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using TeaCommerce.Api.Common
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+            
+@{
+  //Store id
+  long storeId = long.Parse( Model._Store);
+  
+  //Product
+  string ProductTypeName = "Product";
+  DynamicNode currentPage = PageData[ 0 ] ?? Model;
+  DynamicNode mainProduct = currentPage.AncestorOrSelf( p => p.NodeTypeAlias == ProductTypeName && p.Parent.NodeTypeAlias != ProductTypeName );
+
+  //Variants
+  List<DynamicNode> variants = mainProduct.Descendants( p => !p.ChildrenAsList.Any( c => c.NodeTypeAlias == ProductTypeName ) ).Items;
+  bool hasVariants = variants.Count > 0;
+  bool isVariant = currentPage.Parent.NodeTypeAlias == ProductTypeName;
+  
+  //Product to show
+  DynamicNode product = hasVariants ? isVariant ? currentPage : variants.First() : mainProduct;
+  
+  //Currency
+  Currency currentCurrency = PageData[ 1 ] ?? TC.GetCurrentCurrency( storeId );
+
+  //Product data
+  string link = mainProduct.Url;
+  string name = TC.GetPropertyValue( storeId, mainProduct, "productName" );
+  string sku = TC.GetPropertyValue( storeId, product, "sku" );
+  int descriptionLength = hasVariants ? 80 : 130;
+  IHtmlString description = Library.Truncate( TC.GetPropertyValue( storeId, product, "description" ), descriptionLength );
+
+
+  //Image
+  string imageStr = TC.GetPropertyValue( storeId, product, "image" );
+  string[] imageIds = imageStr.Split( new char[] { ',' } );
+  string image = imageIds.Length > 0 ? Library.MediaById( imageIds[ 0 ] ).umbracoFile : "";
+
+  //TODO: Get stock
+  decimal? stock = TC.GetStock( storeId, product.Id.ToString() );
+
+  //Price
+  Price price = TC.GetPrice( storeId, product.Id.ToString() );
+
+  //Css class
+  string cssClass = "innerProduct" + (hasVariants ? " hasVariants" : "");
+}
+
+<div class="@cssClass" refreshwithtemplate="product/list-view.cshtml" productid="@product.Id" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">
+  <meta itemprop="productID" content="@sku" />
+  <meta itemprop="brand" content="" />
+  <meta itemprop="manufacturer" content="" />
+  <meta itemprop="image" content="@image" />
+
+  <form action="/base/TC/FormPost.aspx" method="post" class="ajaxForm">
+  <input name="storeId" type="hidden" value="@storeId" />
+  <input name="AddOrUpdateOrderLine" type="hidden" value="productIdentifier : productIdentifier , quantity : quantity" />
+
+  <a href="@link" class="productImageLink">
+    <img src="/ImageGen.ashx?Width=228&amp;Height=164&amp;Constrain=True&amp;Image=@image" class="productImage" alt="@name" title="@name" />
+  </a>
+  <div class="productContent">
+    <h2>
+      <a href="@link" itemprop="name url">@name</a>
+    </h2>
+    <div class="description">
+      @description
+    </div>
+    <span class="productPrice" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+      <span itemprop="price">
+        @price
+      </span>
+    </span>
+    <div class="variants">
+      @if ( hasVariants ) {
+        <select name="productIdentifier" class="productIdentifier">
+          <!-- loop through each of the variant products -->
+          @foreach ( DynamicNode variant in variants ) {
+            
+          
+            <!-- do whatever you like here -->
+            <option value="@variant.Id"
+              @if ( variant.Id == currentPage.Id ) {
+                @Html.Raw("selected=\"true\"")
+              }>
+
+              @variant.Name
+            </option>
+          }
+        </select>
+      } else { 
+        <input name="productIdentifier" class="productIdentifier" type="hidden" value="@product.Id" />
+      }
+
+      
+    </div>
+    <div class="actions">
+      @if ( stock == null || stock.Value > 0 ) {
+        <input type="submit" value="@Dictionary[ "AddToCart" ]" class="addToCart btn btn-addtocart btn-brown" />
+        <span class="addingToCart btn btn-addingtocart btn-brown">@Dictionary[ "AddingToCart" ]</span>
+      } else { 
+        <input type="button" value="@Dictionary[ "SoldOut" ]" class="soldout btn btn-danger btn-brown" />
+      }
+    </div>
+    <div class="quantity noPrint">
+      <input type="text" name="quantity" class="quantity" value="1" />
+    </div>
+  </div>
+  </form>
+</div>

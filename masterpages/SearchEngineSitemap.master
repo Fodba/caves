@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server">
+	<umbraco:Macro ignoreDocumentTypes="ExternalLink,NewsWidget,WidgetStandard,Widgets,Lang,MainMaster" Alias="GoogleSiteMap" runat="server" />
+</asp:Content>

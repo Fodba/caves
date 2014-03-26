@@ -1,0 +1,63 @@
+﻿@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@inherits TeaCommerce.Umbraco.Web.OrderContext
+
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext        
+
+
+@{
+    long storeId = long.Parse(Model._store);
+    
+    DynamicNode siteNameNode = Model.AncestorOrSelf("Lang");
+    string siteName = siteNameNode.GetProperty( "siteName" ).Value;
+
+    
+    Order finalizedOrder = TC.GetCurrentFinalizedOrder(storeId);
+    Currency currentCurrency = TC.GetCurrency(storeId,finalizedOrder.CurrencyId);
+
+    long countryId = finalizedOrder.PaymentInformation.CountryId;
+    Country country = TC.GetCountry(storeId, countryId);
+
+    Price totalPrice = finalizedOrder.TotalPrice;
+    string taxPrice = finalizedOrder.TotalPrice.VatFormattedWithoutSymbol;
+    string shippingPrice = finalizedOrder.ShipmentInformation.TotalPrice.WithVatFormattedWithoutSymbol;
+    string transactionId = finalizedOrder.OrderNumber;
+
+    string storeName = TC.GetStore(storeId).Name;
+
+<script type="text/javascript">
+_gaq.push(['_set', 'currencyCode', '@currentCurrency.IsoCode']);
+_gaq.push(['_addTrans',
+    '@transactionId',           // transaction ID - required
+    '@storeName',  // affiliation or store name
+    '@totalPrice.WithVatFormattedWithoutSymbol',          // total - required
+    '@taxPrice',           // tax
+    '@shippingPrice',              // shipping
+    '',       // city
+    '',     // state or province
+    ''             // country
+    ]);
+@foreach ( OrderLine orderLine in finalizedOrder.OrderLines ) {
+
+    DynamicNode product = Library.NodeById( orderLine.ProductIdentifier.ToString() );
+
+    DynamicNode category = product.AncestorOrSelf( "ProductCategory" );
+
+    string productName = orderLine.Name;
+    decimal quantity = orderLine.Quantity;
+    string sku = orderLine.ProductIdentifier;
+    string price = orderLine.UnitPrice.WithVatFormattedWithoutSymbol;
+        
+<text>_gaq.push(['_addItem',
+    '@transactionId', // transaction ID
+    '@sku', // SKU
+    '@productName', // product name
+    '@category.Name', // category
+    '@price', // price
+    '@quantity' // quantity
+]);</text>
+    }
+_gaq.push(['_trackTrans']);
+</script>
+}

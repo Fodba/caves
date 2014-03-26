@@ -1,0 +1,76 @@
+<TemplatesData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <AvgLevel>2</AvgLevel>
+  <Templates>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>2</Level>
+      <ParentId>1065</ParentId>
+      <Size>795</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>2</Level>
+      <ParentId>1065</ParentId>
+      <Size>745</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>2</Level>
+      <ParentId>1065</ParentId>
+      <Size>332</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>2</Level>
+      <ParentId>1065</ParentId>
+      <Size>608</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>2</Level>
+      <ParentId>1065</ParentId>
+      <Size>464</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>false</HasParent>
+      <Level>1</Level>
+      <ParentId>0</ParentId>
+      <Size>3184</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>3</Level>
+      <ParentId>1080</ParentId>
+      <Size>377</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>3</Level>
+      <ParentId>1081</ParentId>
+      <Size>385</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>3</Level>
+      <ParentId>1086</ParentId>
+      <Size>394</Size>
+      <Type i:nil="true" />
+    </Template>
+    <Template>
+      <HasParent>true</HasParent>
+      <Level>3</Level>
+      <ParentId>1084</ParentId>
+      <Size>385</Size>
+      <Type i:nil="true" />
+    </Template>
+  </Templates>
+  <Total>10</Total>
+</TemplatesData>

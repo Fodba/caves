@@ -1,0 +1,41 @@
+@using TeaCommerce.Umbraco.Web
+@using TeaCommerce.Api.Models
+@using TeaCommerce.Api.Common
+@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+
+  //Store id
+  long storeId = long.Parse( Model._Store );
+  
+  DynamicNode node = PageData[ 0 ];
+
+  IEnumerable<DynamicNode> products = node.GetPropertyValue( "products" ).Split( new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries ).Select( id => (DynamicNode)Library.NodeById( id ) );
+
+  decimal numberOfProducts = products.Count();
+  decimal numberOfColumns = 4;
+  decimal rows = Math.Ceiling( ( numberOfProducts / numberOfColumns ) );
+  int position = 0;
+  Currency currentCurrency = TC.GetCurrentCurrency( storeId );
+
+}
+
+<div id="products" class="productList" itemscope="" itemtype="http://schema.org/ItemList">
+  @foreach ( DynamicNode product in products ) {
+    decimal colcount = ( ( position + ( numberOfColumns ) ) % numberOfColumns ) + 1;
+    decimal rowcount = Math.Floor( ( position ) / numberOfColumns ) + 1;
+    string cssClass = string.Format( "product {0} col{1} row{2} ", product.NodeTypeAlias, colcount, rowcount );
+    cssClass += rowcount == 1 ? " firstRow" : "";
+    cssClass += rowcount == rows ? " lastRow" : "";
+    cssClass += colcount % numberOfColumns == 0 ? " lastCol" : "";
+
+    string id = "product" + product.Id;
+
+    <div class="@cssClass" id="@id">
+      @RenderPage( "~/macroScripts/product/list-view.cshtml", product, currentCurrency )
+    </div>
+    
+    position++;
+  }
+</div>

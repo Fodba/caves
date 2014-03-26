@@ -1,0 +1,25 @@
+<DocumentData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <Levels>
+    <DocumentLevel>
+      <Count>1</Count>
+      <Level>1</Level>
+    </DocumentLevel>
+    <DocumentLevel>
+      <Count>1</Count>
+      <Level>2</Level>
+    </DocumentLevel>
+    <DocumentLevel>
+      <Count>2</Count>
+      <Level>3</Level>
+    </DocumentLevel>
+    <DocumentLevel>
+      <Count>1</Count>
+      <Level>4</Level>
+    </DocumentLevel>
+    <DocumentLevel>
+      <Count>1</Count>
+      <Level>5</Level>
+    </DocumentLevel>
+  </Levels>
+  <Total>6</Total>
+</DocumentData>

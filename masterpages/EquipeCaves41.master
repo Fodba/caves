@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderId="backgroundImage" runat="server">
+	<umbraco:Macro Alias="BackgroundImage" runat="server"></umbraco:Macro>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="CphMain2" runat="server">
+	<div class="container-fluid scroll-h conteneir" style="margin-top: 50px;">
+        <div class="row-fluid scroll-h page41">
+            <div class="span7 scroll-pane" id="source">
+                <div class="contenu">
+                    <div class="title"><umbraco:Item ID="Item1" field="pageHeading" runat="server" /></div>
+                  <div><umbraco:Item ID="Item2" field="pageContent" runat="server" /><br/><br/></div>
+                </div>
+                 
+            </div> 
+            <div class="conteneu">
+                <%--<h3>L'équipe Caves Quarante et un</h3>--%>
+
+				<umbraco:Macro Alias="AfficheMembre" runat="server"></umbraco:Macro>
+            </div>
+        </div>
+	</div>
+	<script type="text/javascript" src="/scripts/scroll.js"></script>
+    <script type="text/javascript">
+        document.getElementsByTagName("html")[0].style['overflow-y'] = "hidden";
+        var body = document.getElementsByTagName("body")[0];
+        body.className = body.className + " scroll-h";
+        document.getElementById("content").className = "scroll-h";
+    </script>
+    <script type="text/javascript">
+
+        $(function () {
+            $('.scroll-pane').jScrollPane(
+            {
+                autoReinitialise: true
+            }
+        );
+            if ($(".menu-phone").css("display") != 'none') {
+                $("html").css("overflow-y", "visible");
+                $(".scroll-h").css("overflow", "visible");
+                $("body").css("overflow-x", "visible");
+                //$(".scroll-h").css("overflow", "visible");
+            }
+        }
+        );
+</script>
+</asp:Content>

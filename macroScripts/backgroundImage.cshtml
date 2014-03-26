@@ -1,0 +1,21 @@
+﻿@using umbraco.MacroEngines
+@using umbraco.NodeFactory
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+    if (!string.IsNullOrEmpty(Model.backgroundImage))
+    {
+        var link = "style=\"background:url(" + Model.NodeById(Model.backgroundImage).Url + ") no-repeat repeat fixed;background-size:cover\">";
+	    @Html.Raw(link)
+    }
+    else if (!string.IsNullOrEmpty(Model.Parent.backgroundImage))
+    {
+        var link = "style=\"background:url(" + Model.NodeById(Model.Parent.backgroundImage).Url + ") no-repeat repeat fixed;background-size:cover\">";
+	    @Html.Raw(link)
+    }
+    else
+    {
+        var link = "style=\"background:url(" + Model.NodeById(Model.NodeById(1365).backgroundImage).Url + ") no-repeat  repeat fixed;background-size:cover\">";
+	    @Html.Raw(link)
+    }
+
+}

@@ -1,0 +1,182 @@
+﻿body {
+}
+
+/* ------------------------------------ PORTFOLIO ----------------------------------------*/
+
+.portfolio{
+    overflow:hidden;
+    position:absolute;
+    background-color:#000000;
+	width:98%;
+	top:80px;
+	overflow:visible !important;
+    padding:0;
+}
+
+.portfolio isotope-item{
+    padding:0;
+    margin:0 !important;
+}
+
+.isotope,.isotope-item{
+    padding:0px;
+    margin:0px !important;
+}
+
+.portfolio li{
+    padding:0px;
+    margin-right:0 !important;
+}
+
+/* ------------------------------------ THUMB ---------------------------------------------*/
+
+ .vignette{
+    list-style-type:none;
+    display:inline-block;
+    width:150px;
+    height:150px;
+    position:absolute;
+    overflow:hidden;
+    -webkit-transition:2s;
+    background-color:white;
+    z-index:2;
+    opacity:0.3;
+ }
+ .vignette{
+	background-color: rgba(255,255,255,0.9);
+ }
+
+.vignette:hover{
+    opacity:1;
+    -webkit-transition: width 200ms;
+    width:450px;
+    z-index:3;
+}
+/* ------------------------------------ LINK_DOMAIN ---------------------------------------------*/
+.linkDomain{
+    margin:0;
+    padding:0;
+}
+ .linkDomain{
+	text-decoration:none;
+	color: #9e1237;
+	font-weight: bold;
+	font-size: 12px;
+	
+ }
+
+/* ------------------------------------ INFOSSUP ---------------------------------------------*/
+.infosSup{
+    position:absolute;
+    left:150px;
+    width:300px;
+    height:150px;
+}
+
+
+.infosSup,.photoVigneron{
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.infosSup p{
+    width:100%;
+    /*height:70%;*/
+}
+/* ------------------------------------ VOILE ---------------------------------------------*/
+
+.voile{
+    /*width:100%;
+    height:25%;
+    vertical-align:bottom;
+    text-align:center;*/
+}
+.voile{
+	height:25%;
+	width:100%;
+	background-color: #9e1237 !important;
+	/*position:absolute;*/
+	display:none;
+	/*bottom: 12px;*/
+	text-align:center;
+	opacity: 0.9;
+    z-index:5;
+	display:block
+}
+ .voile div{
+	color:white;
+	margin-top: 12px;
+	font-weight: normal;
+	letter-spacing: 4px;
+ }
+ .portfolio li a:hover .voile{
+ }
+/* ------------------------------------ PHOTO_VIGNERON ---------------------------------------------*/
+
+.photoVigneron{
+    filter: url('/scripts/filters.svg#grayscale'); /* Firefox 3.5+ */
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */  
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Webkit Nightlies & Google Chrome Canary */
+    z-index:3;
+    /*width:333px !important;*/
+    height:150px;
+    width:150px;
+}
+.photoVigneron{
+    height:150px;
+    width:150px;
+    position:absolute;
+    left:0;
+}
+.photoVigneron:hover{
+    filter:none;
+    -webkit-filter:none;
+}
+
+
+/* ------------------------------------- FORMULAIRE INSCRIPTION/CONNEXION ------------------------------ */
+
+.formContent{
+    width:98%;
+    margin:auto;
+    position:relative;
+	margin-top: 100px;
+}
+.formulaire{
+    display:inline-block;
+    vertical-align:middle;
+    width:49%;
+    /*border:1px solid red;*/
+    margin:auto;
+    margin-top:50px;
+    min-width:500px;
+}
+
+
+/* ------------------------------------ NOTRE pHILOSOPHIE ------------------------------------------*/
+.conteneur{
+    width:50%;
+    margin:20px;
+    display:inline-block;
+    min-height:300px;
+    background-color:white;
+    border:1px solid red;
+}.contener{
+    width:50%;
+    margin:20px;
+    display:inline-block;
+    min-height:300px;
+    background-color:blue;
+    border:1px solid red;
+}
+
+
+
+
+
+
+
+
+
+

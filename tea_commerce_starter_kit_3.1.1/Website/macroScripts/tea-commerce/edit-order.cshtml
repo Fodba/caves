@@ -1,0 +1,406 @@
+﻿@using TeaCommerce.Api.Models
+@using TeaCommerce.Umbraco.Web;
+@inherits TeaCommerce.Umbraco.Web.OrderContext
+@if ( Model != null ) {
+  Country paymentCountry = TC.GetCountry( Model.StoreId, Model.PaymentInformation.CountryId );
+  CountryRegion paymentCountryRegion = Model.PaymentInformation.CountryRegionId != null ? TC.GetCountryRegion( Model.StoreId, Model.PaymentInformation.CountryRegionId.Value ) : null;
+  Country shippingCountry = Model.ShipmentInformation.CountryId != null ? TC.GetCountry( Model.StoreId, Model.ShipmentInformation.CountryId.Value ) : null;
+  CountryRegion shippingCountryRegion = Model.ShipmentInformation.CountryRegionId != null ? TC.GetCountryRegion( Model.StoreId, Model.ShipmentInformation.CountryRegionId.Value ) : null;
+
+  PaymentMethod paymentMethod = Model.PaymentInformation.PaymentMethodId != null ? TC.GetPaymentMethod( Model.StoreId, Model.PaymentInformation.PaymentMethodId.Value ) : null;
+  ShippingMethod shippingMethod = Model.ShipmentInformation.ShippingMethodId != null ? TC.GetShippingMethod( Model.StoreId, Model.ShipmentInformation.ShippingMethodId.Value ) : null;
+  
+  <h2 class="propertypaneTitel">Order details</h2>
+  <div class="propertypane">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td style="width: 150px;">Order number
+          </td>
+          <td>
+            @(string.IsNullOrEmpty( Model.OrderNumber ) ? Model.CartNumber : Model.OrderNumber)
+          </td>
+        </tr>
+        <tr>
+          <td>Created
+          </td>
+          <td>
+            @(( Model.DateFinalized ?? Model.DateCreated ).ToString( "ddd, dd MMM yyyy HH:mm" ))
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px;">
+      <tbody>
+        <tr valign="top">
+          <td width="50%">
+            <table width="100%">
+              <tbody>
+                <tr>
+                  <td style="width: 150px;">
+                    <b>Billing information</b>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Company
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "company" ]" name="company" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>First name
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.PaymentInformation.FirstName" name="firstName" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Last name
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.PaymentInformation.LastName" name="lastName" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Address
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "streetAddress" ]" name="streetAddress" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip code
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "zipCode" ]" name="zipCode" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>City
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "city" ]" name="city" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Phone
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "phone" ]" name="phone" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Email
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.PaymentInformation.Email" name="email" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Country
+                  </td>
+                  <td>
+                    @paymentCountry.Name
+                  </td>
+                </tr>
+                @if ( paymentCountryRegion != null ) {
+                  <tr>
+                    <td>Country region
+                    </td>
+                    <td>
+                      @paymentCountryRegion.Name
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <table width="100%">
+              <tbody>
+                <tr>
+                  <td style="width: 150px;">
+                    <b>Shipping information</b>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Company
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "shipping_company" ]" name="shipping_company" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>First name
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "shipping_firstName" ]" name="shipping_firstName" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Last name
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "shipping_lastName" ]" name="shipping_lastName" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Address
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "shipping_streetAddress" ]" name="shipping_streetAddress" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zip code
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "shipping_zipCode" ]" name="shipping_zipCode" class="orderProperty" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>City
+                  </td>
+                  <td>
+                    <input type="text" value="@Model.Properties[ "shipping_city" ]" name="shipping_city" class="orderProperty" />
+                  </td>
+                </tr>
+                @if ( shippingCountry != null ) {
+                  <tr>
+                    <td>Country
+                    </td>
+                    <td>
+                      @shippingCountry.Name
+                    </td>
+                  </tr>
+                }
+                @if ( shippingCountryRegion != null ) {
+                  <tr>
+                    <td>Country region
+                    </td>
+                    <td>
+                      @shippingCountryRegion.Name
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2 class="propertypaneTitel">Order lines</h2>
+  <div class="propertypane">
+    <table width="100%" id="orderLines">
+      <thead>
+        <tr>
+          <th style="width: 150px !important;">SKU
+          </th>
+          <th style="width: 590px !important;">Name
+          </th>
+          <th style="text-align: center; width: 110px !important;">Quantity
+          </th>
+          <th style="text-align: right; width: 120px !important;">Unit price
+          </th>
+          <th style="text-align: right; width: 120px !important;">Total
+          </th>
+          <th style="width: 40px !important;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ( OrderLine orderLine in @Model.OrderLines ) {
+          <tr>
+            <td>@orderLine.Sku</td>
+            <td>@orderLine.Name</td>
+            <td align="center">
+              <button class="orderLinePlus dontPrint">
+                +</button>
+              <input type="text" class="orderLineQuantity" orderlineid="@orderLine.Id" value="@orderLine.Quantity.ToString( "0.####" )" originalquantity="@orderLine.Quantity.ToString( "0.####" )" />
+              <button class="orderLineMinus dontPrint">
+                -</button>
+            </td>
+            <td align="right">@orderLine.UnitPrice</td>
+            <td align="right">@orderLine.TotalPrice</td>
+            <td align="right">
+              <button class="orderLineDelete dontPrint">
+                x</button>
+            </td>
+          </tr>
+        }
+        <tr>
+          <td style="border-top: solid 1px #000;" colspan="4" align="right">Subtotal
+          </td>
+          <td style="border-top: solid 1px #000;" align="right">
+            @Model.SubtotalPrice
+          </td>
+          <td></td>
+        </tr>
+        @if ( shippingMethod != null ) {
+          <tr>
+            <td colspan="4" align="right">Shipping&nbsp;:&nbsp;(@shippingMethod.Name)
+            </td>
+            <td align="right">
+              @Model.ShipmentInformation.TotalPrice
+            </td>
+            <td></td>
+          </tr>
+        }
+        @if ( paymentMethod != null ) {
+          <tr>
+            <td colspan="4" align="right">Payment&nbsp;:&nbsp;(@paymentMethod.Name)
+            </td>
+            <td align="right">
+              @Model.PaymentInformation.TotalPrice
+            </td>
+            <td></td>
+          </tr>
+        }
+        @if ( @Model.TransactionInformation.TransactionFee.Value > 0M ) {
+          <tr>
+            <td colspan="4" align="right">Transaction fee
+            </td>
+            <td align="right">
+              @Model.TransactionInformation.TransactionFee
+            </td>
+          </tr>
+        }
+        <tr>
+          <td colspan="4" align="right">VAT
+          </td>
+          <td align="right">
+            @Model.TotalPrice.VatFormatted
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4" align="right">
+            <b>Total</b>
+          </td>
+          <td align="right">
+            <b>
+              @Model.TotalPrice
+            </b>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="propertypaneTitel">Additional info</h2>
+  <div class="propertypane">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td style="width: 150px;" valign="top">Customer comments
+          </td>
+          <td>
+            <textarea id="comments" name="comments" class="umbEditorTextFieldMultiple dontPrint orderProperty"
+              rows="10" cols="40">@Model.Properties[ "comments" ]</textarea>
+            <div class="onlyPrint">
+              @Model.Properties[ "comments" ]
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Order notes
+          </td>
+          <td>
+            <textarea id="orderNotes" name="OrderNotes" class="umbEditorTextFieldMultiple dontPrint orderProperty"
+              rows="10" cols="40">@Model.Properties[ "OrderNotes" ]</textarea>
+            <div class="onlyPrint">
+              @Model.Properties[ "OrderNotes" ]
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <script type="text/javascript" src="/scripts/tea-commerce.min.js"></script>
+  <script type="text/javascript">
+
+    var _storeId = @Model.StoreId;
+
+    /*************************************************************
+    - ON SAVE EVENT
+    *************************************************************/
+    onSaving(function () {
+
+      var adminOrderId = '@Model.Id',
+          orderPropertyElements = jQuery('.orderProperty'),
+          orderLineQuantities = jQuery('.orderLineQuantity'),
+          orderProperties = {};
+      orderPropertyElements.each(function () {
+        var orderPropertyElement = jQuery(this);
+        orderProperties[orderPropertyElement.attr('name')] = orderPropertyElement.val();
+      });
+
+      //Update order properties
+      TC.addOrUpdateOrderProperties({ properties: orderProperties, adminOrderId: adminOrderId, async: false });
+
+      //Update order lines
+      orderLineQuantities.each(function () {
+        var orderLineQuantityElement = jQuery(this),
+            originalquantity = orderLineQuantityElement.attr('originalquantity'),
+            orderlineid = orderLineQuantityElement.attr('orderlineid'),
+            currentQuantity = orderLineQuantityElement.val();
+        if(originalquantity !== currentQuantity){
+          TC.addOrUpdateOrderLine({ orderLineId: orderlineid, quantity: currentQuantity, overwriteQuantity: true, adminOrderId: adminOrderId, async: false });
+        }
+      });
+
+    });
+
+    /*************************************************************
+    - ORDER LINE BUTTONS
+    *************************************************************/
+    jQuery(function(){
+      jQuery('#orderLines').on('click', '.orderLinePlus', function(){
+        var btn = jQuery(this),
+            quantityInput = btn.parent().children('.orderLineQuantity'),
+            quantity = parseInt(quantityInput.val());
+        quantityInput.val(quantity + 1);
+        return false;
+      });
+
+      jQuery('#orderLines').on('click', '.orderLineMinus', function(){
+        var btn = jQuery(this),
+            quantityInput = btn.parent().children('.orderLineQuantity'),
+            quantity = parseInt(quantityInput.val()),
+            newQuantity = quantity > 0 ? quantity - 1 : 0;
+        quantityInput.val(newQuantity);
+
+        return false;
+      });
+
+      jQuery('#orderLines').on('click', '.orderLineDelete', function(){
+        var btn = jQuery(this),
+            quantityInput = btn.closest('tr').find('.orderLineQuantity');
+        quantityInput.val(0);
+        alert('The order line will be deleted when you save the order');
+        return false;
+      });
+    });
+  </script>
+  
+  <style type="text/css">
+    input[type=text] {
+      width: 250px;
+    }
+
+    input.orderLineQuantity {
+      width: 30px;
+      text-align: center;
+    }
+
+    .onlyPrint {
+      display: none;
+    }
+  </style>
+  
+}

@@ -1,0 +1,20 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+  
+  DynamicNode node = PageData[ 0 ];
+
+  string itemsListPage = node.GetPropertyValue("itemsListPage"),
+         staticNumberOfItems = node.GetPropertyValue("staticNumberOfItems"),
+         itemsPerPage = node.GetPropertyValue("itemsPerPage");
+  
+  string hideFirstAndLast = node.GetPropertyValue("hideFirstAndLast"),
+         hideNextAndPrev = node.GetPropertyValue("hideNextAndPrev"),
+         hideNumbers = node.GetPropertyValue("hideNumbers");
+  
+
+    @RenderPage( "~/macroScripts/news/list.cshtml", itemsListPage, staticNumberOfItems, itemsPerPage, hideFirstAndLast, hideNextAndPrev, hideNumbers )
+
+}
+

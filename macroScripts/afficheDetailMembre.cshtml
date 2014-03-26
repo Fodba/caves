@@ -1,0 +1,43 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using umbraco.NodeFactory;
+
+@*
+	Model = The current page the macro is executed on
+			@Model.bodyText
+
+	Parameter = collection of parameter values passed from the macro
+			@Paramter.myParam
+
+    Library = utillity library with common methods
+    		@Library.NodeById(1233)
+*@
+
+
+
+@* The fun starts here *@
+@{
+    <script>
+        $(window).load(function(){
+            $("#descriptifPoste").slimScroll({
+                height: "200px",
+                size: "15px",
+                color: "#9b1230",
+                distance:"1px",
+                railVisible: true,
+                alwaysVisible: true
+            })
+        })
+    </script>
+}
+<div class="detailMembre">
+    <h3>@SelectedMembre.departement</h3>
+    <div class="test">
+        @{var nom = SelectedMembre.nom.ToString().ToUpper() + " " + SelectedMembre.prenom.ToString().ToUpper();}
+        <img src="@Library.MediaById(@SelectedMembre.photo.ToString()).UmbracoFile" alt="@SelectedMembre.Nom" width="200" height="200" />
+        <div class="detailMembre-text"><p class="item-texte">@nom</p></div>
+    </div>
+    <div class="poste">
+        <h3>@SelectedMembre.poste</h3>
+        <p id="descriptifPoste">@SelectedMembre.descriptif</p>
+    </div>
+</div>

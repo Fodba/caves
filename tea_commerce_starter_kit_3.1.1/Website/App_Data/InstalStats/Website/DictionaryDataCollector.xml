@@ -1,0 +1,22 @@
+<DictionaryData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <Languages xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:string>en-GB</d2p1:string>
+    <d2p1:string>da-DK</d2p1:string>
+    <d2p1:string>en-US</d2p1:string>
+  </Languages>
+  <Levels>
+    <DictionaryLevel>
+      <Count>3</Count>
+      <Level>1</Level>
+    </DictionaryLevel>
+    <DictionaryLevel>
+      <Count>13</Count>
+      <Level>2</Level>
+    </DictionaryLevel>
+    <DictionaryLevel>
+      <Count>76</Count>
+      <Level>3</Level>
+    </DictionaryLevel>
+  </Levels>
+  <TotalCount>92</TotalCount>
+</DictionaryData>

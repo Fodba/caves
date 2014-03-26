@@ -1,0 +1,15 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/MainMaster.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="CphMain" runat="server">
+  <div id="pageThreeCol" class="container">
+    <div id="left" class="noPrint">
+      <umbraco:Macro fromLevel="4" sortDesc="false" useSelfAsRoot="false"  navigationId="submenu" numberOfLevels="5" rootPage="" showOnlyCurrentPath="true" isSitemap="false" alias="Navigation" imageProperty="" ignoreDocumentTypes="News" isDropDown="false" runat="server" />
+    </div>
+    <div class="main" id="main">
+      <asp:ContentPlaceHolder Id="BodyText" runat="server" />
+    </div>
+    <div id="right" class="noPrint">
+      <umbraco:Macro ID="Macro1" listId="rightWidgets" listClass="rightWidgets" propertyAlias="widgets" widgetGridId="widgetsRight" numberOfCols="1" Alias="WidgetsList" runat="server" />
+    </div>
+  </div>
+</asp:content>

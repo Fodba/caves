@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/MainMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderId="CphMain" runat="server">
+  <div id="pageOneCol" class="container">
+    <div class="main" id="main">
+      <asp:ContentPlaceHolder Id="BodyText" runat="server" />
+    <umbraco:Macro ID="Macro1" Alias="Login" runat="server" />
+    </div>
+  </div>
+</asp:Content>

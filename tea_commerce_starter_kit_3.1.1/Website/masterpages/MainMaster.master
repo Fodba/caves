@@ -1,0 +1,94 @@
+<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+<asp:Content id="MasterLayoutcontent" ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+  <title id="TitleTag" visible="false" runat="server"><%-- hack to turn the auto title off or Umbraco will use it --%></title>
+  <!-- META TAGS -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <umbraco:Macro Alias="MetaDescription" runat="server" />
+  
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" type="text/css" href="/less/bootstrap.less" />
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+
+  <!-- JAVASCRIPT -->
+  <script type="text/javascript">
+    var _nodeId = <umbraco:Item field="pageID" runat="server" />,
+        _storeId = <umbraco:Item field="store" recursive="true" runat="server" />;
+
+  </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/jquery.form.js"></script>
+  <script type="text/javascript" src="/scripts/tea-commerce.min.js"></script>
+  <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/scripts/default.js"></script>
+  <script type="text/javascript" src="/scripts/ecommerce.js"></script>
+  <script type="text/javascript" src="http://www.epay.dk/js/standardwindow.js"></script>
+  <%--<script type="text/javascript" src="http://cssrefresh.frebsite.nl/js/cssrefresh.js"></script>--%>
+
+  <!-- PAGE SPECIFIC -->
+  <asp:ContentPlaceHolder Id="CphHeader" runat="server"/> 
+  
+  <!-- GOOGLE ANALYTICS -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'ANALYTICS ID']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+</head>
+
+<body class="<umbraco:Item field="nodeTypeAlias" runat="server" />">
+  <div id="wrapper">
+	
+    <div id="top" class="noPrint">
+      <div class="container top-stuff">
+        <umbraco:Macro Alias="CartMiniCart" runat="server" />
+        <a href="/" alt="<umbraco:Item field="#BackToFrontpage" runat="server" />" title="<umbraco:Item field="#BackToFrontpage" runat="server" />" id="logo" class="brand">
+          <img src="/css/gfx/logo.png" alt="<umbraco:Item field="#BackToFrontpage" runat="server" />" title="<umbraco:Item field="#BackToFrontpage" runat="server" />" />
+        </a>
+      <umbraco:Macro listId="serviceMenu" listClass="serviceMenu" propertyAlias="serviceMenu" Alias="ServiceMenu" runat="server" />
+      </div>
+      <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+          <div class="container">
+			<div class="search-simple">
+              <umbraco:Macro Alias="SearchProductFormSimple" runat="server" />
+            </div>
+            <umbraco:Macro fromLevel="3" sortDesc="false" navigationId="mainmenu" useSelfAsRoot="false" numberOfLevels="2" rootPage="" showOnlyCurrentPath="false" isSitemap="false" alias="Navigation" imageProperty="" ignoreDocumentTypes="News" isDropDown="true" runat="server" />
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <asp:ContentPlaceHolder Id="CphMain" runat="server" />
+    </div>
+    <div class="push"></div>
+  </div>
+
+  <div id="subfooter" class="noPrint">
+    <div class="container">
+      <umbraco:Macro Alias="Footer" runat="server" />
+    </div>
+  </div>
+
+  <div class="footer noPrint">
+    <div class="container">
+      <umbraco:Macro fromLevel="3" sortDesc="false" navigationId="sitemap" useSelfAsRoot="false" numberOfLevels="2" rootPage="" showOnlyCurrentPath="false" isSitemap="true" alias="Navigation" imageProperty="" ignoreDocumentTypes="News" runat="server" isDropDown="false" />
+    </div>
+  </div>
+  
+</body>
+</html>
+</asp:Content>

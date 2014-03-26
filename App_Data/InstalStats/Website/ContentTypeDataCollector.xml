@@ -1,0 +1,500 @@
+<ContentTypesData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <AvgLevel>2</AvgLevel>
+  <Levels>
+    <ContentTypeLevel>
+      <Count>1</Count>
+      <Level>2</Level>
+    </ContentTypeLevel>
+    <ContentTypeLevel>
+      <Count>3</Count>
+      <Level>3</Level>
+    </ContentTypeLevel>
+    <ContentTypeLevel>
+      <Count>2</Count>
+      <Level>1</Level>
+    </ContentTypeLevel>
+  </Levels>
+  <Total>6</Total>
+  <Types>
+    <ContentType>
+      <AllowedChildren>0</AllowedChildren>
+      <CustomIcon>true</CustomIcon>
+      <HasMaster>true</HasMaster>
+      <Level>2</Level>
+      <Properties>8</Properties>
+      <PropertyTypes>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from menu</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from site map</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Redirect to</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Show content from</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Title</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Specific Url</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Keywords</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Description</Name>
+          <Type>Textbox multiple</Type>
+        </PropertyType>
+      </PropertyTypes>
+      <Tabs>0</Tabs>
+      <masterId>1044</masterId>
+    </ContentType>
+    <ContentType>
+      <AllowedChildren>0</AllowedChildren>
+      <CustomIcon>true</CustomIcon>
+      <HasMaster>true</HasMaster>
+      <Level>3</Level>
+      <Properties>11</Properties>
+      <PropertyTypes>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Content</Name>
+          <Type>TinyMCE v3 wysiwyg</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Image rotation folder</Name>
+          <Type>Digibiz Advanced Media Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>false</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>menuImage</Name>
+          <Type>Media Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from menu</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from site map</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Redirect to</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Show content from</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Title</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Specific Url</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Keywords</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Description</Name>
+          <Type>Textbox multiple</Type>
+        </PropertyType>
+      </PropertyTypes>
+      <Tabs>0</Tabs>
+      <masterId>1046</masterId>
+    </ContentType>
+    <ContentType>
+      <AllowedChildren>2</AllowedChildren>
+      <CustomIcon>true</CustomIcon>
+      <HasMaster>true</HasMaster>
+      <Level>3</Level>
+      <Properties>12</Properties>
+      <PropertyTypes>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Website name</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>404 page</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Top image</Name>
+          <Type>Digibiz Advanced Media Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Footer text</Name>
+          <Type>TinyMCE v3 wysiwyg</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from menu</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from site map</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Redirect to</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Show content from</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Title</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Specific Url</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Keywords</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Description</Name>
+          <Type>Textbox multiple</Type>
+        </PropertyType>
+      </PropertyTypes>
+      <Tabs>0</Tabs>
+      <masterId>1046</masterId>
+    </ContentType>
+    <ContentType>
+      <AllowedChildren>1</AllowedChildren>
+      <CustomIcon>true</CustomIcon>
+      <HasMaster>false</HasMaster>
+      <Level>1</Level>
+      <Properties>1</Properties>
+      <PropertyTypes>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Fav icon</Name>
+          <Type>Digibiz Advanced Media Picker</Type>
+        </PropertyType>
+      </PropertyTypes>
+      <Tabs>0</Tabs>
+      <masterId>0</masterId>
+    </ContentType>
+    <ContentType>
+      <AllowedChildren>0</AllowedChildren>
+      <CustomIcon>true</CustomIcon>
+      <HasMaster>false</HasMaster>
+      <Level>1</Level>
+      <Properties>4</Properties>
+      <PropertyTypes>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Title</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Specific Url</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Keywords</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Description</Name>
+          <Type>Textbox multiple</Type>
+        </PropertyType>
+      </PropertyTypes>
+      <Tabs>0</Tabs>
+      <masterId>0</masterId>
+    </ContentType>
+    <ContentType>
+      <AllowedChildren>1</AllowedChildren>
+      <CustomIcon>true</CustomIcon>
+      <HasMaster>true</HasMaster>
+      <Level>3</Level>
+      <Properties>10</Properties>
+      <PropertyTypes>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Heading</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Content</Name>
+          <Type>TinyMCE v3 wysiwyg</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from menu</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Hide from site map</Name>
+          <Type>True/False (Ja/Nej)</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Redirect to</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Show content from</Name>
+          <Type>Content Picker</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Title</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Specific Url</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Keywords</Name>
+          <Type>Textbox</Type>
+        </PropertyType>
+        <PropertyType>
+          <HasDescription>false</HasDescription>
+          <HasTab>true</HasTab>
+          <HasValidation>false</HasValidation>
+          <IsMandatory>false</IsMandatory>
+          <MultiLingualName>false</MultiLingualName>
+          <Name>Description</Name>
+          <Type>Textbox multiple</Type>
+        </PropertyType>
+      </PropertyTypes>
+      <Tabs>0</Tabs>
+      <masterId>1046</masterId>
+    </ContentType>
+  </Types>
+</ContentTypesData>

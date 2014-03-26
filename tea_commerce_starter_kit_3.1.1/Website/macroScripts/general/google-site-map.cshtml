@@ -1,0 +1,7 @@
+﻿@{
+	HttpContext.Current.Response.ContentType = "text/xml";
+	string siteMapUrl = umbraco.library.RequestServerVariables("HTTPS") != "on" ? "http://" + umbraco.library.RequestServerVariables("HTTP_HOST") : "https://" + umbraco.library.RequestServerVariables("HTTP_HOST"),
+		   ignoreDocumentTypes = Parameter.ignoreDocumentTypes;
+
+
+}

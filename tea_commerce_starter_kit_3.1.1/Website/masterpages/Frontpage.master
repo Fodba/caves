@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/MainMaster.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderId="CphMain" runat="server">
+  <div class="container">
+    <div id="main">
+      <umbraco:Macro imagesFrom="[$imageSliderFolder]" irWidth="940" irHeight="" showCaptions="false" Alias="ImageCarousel" runat="server" />
+      <div class="bodyText">
+        <umbraco:Item field="bodyText" runat="server" />
+      </div>
+      <umbraco:Macro listId="frontpageWidgets" listClass="frontpageWidgets" propertyAlias="widgets" widgetGridId="widgetsBottom" numberOfCols="3" Alias="WidgetsList" runat="server" />
+    </div>
+  </div>
+</asp:Content>

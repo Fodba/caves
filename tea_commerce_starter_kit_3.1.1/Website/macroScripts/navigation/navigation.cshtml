@@ -1,0 +1,115 @@
+﻿@using umbraco.MacroEngines
+@using System.Linq
+@using System.Linq.Dynamic
+@using System.Dynamic
+@using System.Collections
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{ 
+
+  var imageProperty = Parameter.ImageProperty;
+  bool sortDesc = bool.Parse( Parameter.SortDesc );
+  bool useSelfAsRoot = bool.Parse( Parameter.useSelfAsRoot );
+  string[] ignoreDocumentTypes = Parameter.IgnoreDocumentTypes.Split( ',' );
+
+  int rootNodeId = Parameter.RootPage != "" ? int.Parse( Parameter.RootPage ) : Model.Id;
+  
+  DynamicNode rootNode = Library.NodeById( rootNodeId );
+  
+  int fromLevel = Parameter.RootPage != "" ? rootNode.Level + 1 : Parameter.FromLevel != "" ? int.Parse( Parameter.FromLevel ) : 1;
+  int toLevel = Parameter.NumberOfLevels != "" ? fromLevel + int.Parse( Parameter.NumberOfLevels ) - 1 : 1000;
+  bool showOnlyCurrentPath = bool.Parse( Parameter.ShowOnlyCurrentPath );
+  bool isSitemap = bool.Parse( Parameter.IsSitemap );
+  bool isDropDown = bool.Parse( Parameter.IsDropDown );
+  
+  DynamicNode parentNode = !useSelfAsRoot ? rootNode.AncestorOrSelf( fromLevel - 1 ) : rootNode;
+  
+  List<DynamicNode> nodes = GetChildren( parentNode, fromLevel, ignoreDocumentTypes, isSitemap, sortDesc );
+}
+
+@MenuItems( nodes, fromLevel, 1, ignoreDocumentTypes, showOnlyCurrentPath, isSitemap, sortDesc, fromLevel, toLevel, isDropDown, false, 1 )
+
+
+@helper MenuItems( IEnumerable<DynamicNode> nodes, int currentLevel, int levelCounter, string[] ignoreDocumentTypes, bool showOnlyCurrentPath, bool isSitemap, bool sortDesc, int fromLevel, int toLevel, bool isDropDown, bool ulIsDropDown, int ulCount ) {
+  
+  if ( nodes != null && nodes.Any() ) {
+
+    string ulCssClass = "lvl" + levelCounter;
+    ulCssClass += levelCounter == 1 ? " nav" : "";
+    ulCssClass += ulIsDropDown ? " dropdown-menu" : "";
+
+    string ulId = levelCounter == 1 ? "id=" + Parameter.NavigationId : "";
+    string labelledByAttr = ulIsDropDown ? "aria-labelledby=drop" + ulCount: "";
+
+    int count = 1;
+
+  <ul @ulId class="@ulCssClass" @labelledByAttr>
+
+    @foreach ( DynamicNode node in nodes ) {
+      bool runNextLevel = currentLevel < toLevel && ( node.IsAncestorOrSelf( Model ) && showOnlyCurrentPath || !showOnlyCurrentPath );
+
+      IEnumerable<DynamicNode> children = null;
+      if ( runNextLevel ) {
+        children = GetChildren( node, currentLevel + 1, ignoreDocumentTypes, isSitemap, sortDesc );
+      }
+
+      bool showDropDown = isDropDown && runNextLevel && children != null && children.Any();
+
+      string generalCssClass = "lvl" + levelCounter + " pos" + count + " " + node.NodeTypeAlias;
+      generalCssClass += node.IsAncestorOrSelf( Model ) ? " inpath" : "";
+      generalCssClass += node.Id == Model.Id ? " active" : "";
+      generalCssClass += count == 1 ? " firstitem" : "";
+      generalCssClass += count == nodes.Count() ? " lastitem" : "";
+      generalCssClass += node.GetChildrenAsList.Items.Any() ? " hasChildren" : "";
+      generalCssClass += runNextLevel && children != null && children.Any() ? " childrenShown" : "";
+
+      string liCssClass = generalCssClass;
+      liCssClass += showDropDown ? " dropdown" : "";
+
+      string aCssClass = generalCssClass;
+      aCssClass += showDropDown ? " dropdown-toggle" : "";
+
+      string aId = showDropDown ? "drop" + count : "";
+      string aToggleAttr = showDropDown ? "data-toggle=dropdown" : "";
+
+      <li class="@liCssClass">
+        <a
+            class="@aCssClass"
+            @aToggleAttr
+            id="@aId"
+            href="@(node.NodeTypeAlias != "ExternalLink" ? node.NiceUrl : node.GetPropertyValue( "externalURL" ))"
+            target="@(node.NodeTypeAlias != "ExternalLink" ? "_self" : "_blank")"
+            @if ( Parameter.ImageProperty != "" && node.HasValue( Parameter.ImageProperty ) ) {
+              @Html.Raw( string.Format( "style=\"background-image:url({0});\"", node.Media( Parameter.ImageProperty ).UmbracoFile ) )  
+            }
+          >
+          @node.Name
+      @if ( showDropDown ) {
+            <b class="caret"></b>
+          }
+        </a>
+        @if ( runNextLevel ) {
+          @MenuItems( children, currentLevel + 1, levelCounter + 1, ignoreDocumentTypes, showOnlyCurrentPath, isSitemap, sortDesc, fromLevel, toLevel, isDropDown, showDropDown, count )
+        }
+      </li>
+            
+        count++;
+    }
+  </ul>
+    
+  }
+  
+}
+
+@functions{ 
+
+  internal List<DynamicNode> GetChildren( DynamicNode parentNode, int currentLevel, string[] ignoreDocumentTypes, bool isSitemap, bool sortDesc ) {
+    List<DynamicNode> nodes = parentNode.GetChildrenAsList.Items.Where( (Func<DynamicNode, bool>)( n => !ignoreDocumentTypes.Contains( n.NodeTypeAlias ) && n.HasAccess && ( ( !isSitemap && n.GetPropertyValue( "umbracoNaviHide" ) == "0" ) || ( isSitemap && n.GetPropertyValue( "umbracoSitemapHide" ) == "0" ) ) ) ).ToList();
+    if ( sortDesc ) {
+      nodes = nodes.OrderByDescending( (Func<DynamicNode, int>)( n => n.SortOrder ) ).ToList();
+    } else {
+      nodes = nodes.OrderBy( (Func<DynamicNode, int>)( n => n.SortOrder ) ).ToList();
+    }
+    return nodes;
+  }
+  
+}

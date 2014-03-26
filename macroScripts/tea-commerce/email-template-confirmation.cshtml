@@ -1,0 +1,259 @@
+﻿@using TeaCommerce.Api.Models
+@using TeaCommerce.Umbraco.Web
+@inherits TeaCommerce.Umbraco.Configuration.Infrastructure.Templating.OrderContext
+@if ( Model.Id != null ) {
+
+  Country paymentCountry = TC.GetCountry( Model.StoreId, Model.PaymentInformation.CountryId );
+  CountryRegion paymentCountryRegion = Model.PaymentInformation.CountryRegionId != null ? TC.GetCountryRegion( Model.StoreId, Model.PaymentInformation.CountryRegionId.Value ) : null;
+  Country shippingCountry = Model.ShipmentInformation.CountryId != null ? TC.GetCountry( Model.StoreId, Model.ShipmentInformation.CountryId.Value ) : null;
+  CountryRegion shippingCountryRegion = Model.ShipmentInformation.CountryRegionId != null ? TC.GetCountryRegion( Model.StoreId, Model.ShipmentInformation.CountryRegionId.Value ) : null;
+
+  PaymentMethod paymentMethod = Model.PaymentInformation.PaymentMethodId != null ? TC.GetPaymentMethod( Model.StoreId, Model.PaymentInformation.PaymentMethodId.Value ) : null;
+  ShippingMethod shippingMethod = Model.ShipmentInformation.ShippingMethodId != null ? TC.GetShippingMethod( Model.StoreId, Model.ShipmentInformation.ShippingMethodId.Value ) : null;
+  
+  <h2>Your order @Model.OrderNumber (@Model.DateFinalized.Value.ToString( "ddd, dd MMM yyyy HH:mm" ))</h2>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="50%" valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td colspan="2">
+              <h3>Billing information</h3>
+            </td>
+          </tr>
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "company" ] ) ) {
+            <tr>
+              <td>Company
+              </td>
+              <td>
+                @Model.Properties[ "company" ]
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.PaymentInformation.FirstName ) || !string.IsNullOrEmpty( Model.PaymentInformation.LastName ) ) {
+            <tr>
+              <td>Name
+              </td>
+              <td>
+                @Model.PaymentInformation.FirstName&nbsp;@Model.PaymentInformation.LastName
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "streetAddress" ] ) ) {
+            <tr>
+              <td>Address
+              </td>
+              <td>
+                @Model.Properties[ "streetAddress" ]
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "zipCode" ] ) || !string.IsNullOrEmpty( Model.Properties[ "city" ] ) ) {
+            <tr>
+              <td>Zip code / City
+              </td>
+              <td>
+                @Model.Properties[ "zipCode" ] / @Model.Properties[ "city" ]
+              </td>
+            </tr>
+          }
+          <tr>
+            <td>Country
+            </td>
+            <td>
+              @paymentCountry.Name
+            </td>
+          </tr>
+          @if ( paymentCountryRegion != null ) {
+            <tr>
+              <td>Country region
+              </td>
+              <td>
+                @paymentCountryRegion.Name
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "phone" ] ) ) {
+            <tr>
+              <td>Phone
+              </td>
+              <td>
+                @Model.Properties[ "phone" ]
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "email" ] ) ) {
+            <tr>
+              <td>Email
+              </td>
+              <td>
+                @Model.PaymentInformation.Email
+              </td>
+            </tr>
+          }
+        </table>
+      </td>
+      <td width="50%" valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td colspan="2">
+              <h3>Shipping information</h3>
+            </td>
+          </tr>
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "shipping_company" ] ) ) {
+            <tr>
+              <td>Company
+              </td>
+              <td>
+                @Model.Properties[ "shipping_company" ]
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "shipping_firstName" ] ) || !string.IsNullOrEmpty( Model.Properties[ "shipping_lastName" ] ) ) {
+            <tr>
+              <td>Name
+              </td>
+              <td>
+                @Model.Properties[ "shipping_firstName" ]&nbsp;@Model.Properties[ "shipping_lastName" ]
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "shipping_streetAddress" ] ) ) {
+            <tr>
+              <td>Address
+              </td>
+              <td>
+                @Model.Properties[ "shipping_streetAddress" ]
+              </td>
+            </tr>
+          }
+          @if ( !string.IsNullOrEmpty( Model.Properties[ "shipping_zipCode" ] ) || !string.IsNullOrEmpty( Model.Properties[ "shipping_city" ] ) ) {
+            <tr>
+              <td>Zip code / City
+              </td>
+              <td>
+                @Model.Properties[ "shipping_zipCode" ] / @Model.Properties[ "shipping_city" ]
+              </td>
+            </tr>
+          }
+          @if ( shippingCountry != null ) {
+            <tr>
+              <td>Country
+              </td>
+              <td>
+                @shippingCountry.Name
+              </td>
+            </tr>
+          }
+          @if ( shippingCountryRegion != null ) {
+            <tr>
+              <td>Country region
+              </td>
+              <td>
+                @shippingCountryRegion.Name
+              </td>
+            </tr>
+          }
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top: 15px;">
+    @if ( !string.IsNullOrEmpty( Model.Properties[ "comments" ] ) ) {
+      <tr>
+        <td colspan="5" style="color: Red;">
+          <h3>Comments:</h3>
+          @Model.Properties[ "comments" ]
+        </td>
+      </tr>
+    }
+    <tr>
+      <td colspan="5">
+        <br />
+        <h3>Order lines</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>SKU
+      </td>
+      <td>Name
+      </td>
+      <td align="center">Quantity
+      </td>
+      <td align="right">Unit price
+      </td>
+      <td align="right">Total
+      </td>
+    </tr>
+    @foreach ( OrderLine orderLine in Model.OrderLines ) {
+      <tr>
+        <td>
+          @orderLine.Sku
+        </td>
+        <td>
+          @orderLine.Name
+        </td>
+        <td align="center">
+          @orderLine.Quantity.ToString( "0.####" )
+        </td>
+        <td align="right">
+          @orderLine.UnitPrice
+        </td>
+        <td align="right">
+          @orderLine.TotalPrice
+        </td>
+      </tr>
+    }
+    <tr>
+      <td style="border-top: solid 1px #000;" colspan="4" align="right">Subtotal
+      </td>
+      <td style="border-top: solid 1px #000;" align="right">
+        @Model.SubtotalPrice
+      </td>
+    </tr>
+    @if ( shippingMethod != null ) {
+      <tr>
+        <td colspan="4" align="right">Shipping&nbsp;:&nbsp;(@shippingMethod.Name)
+        </td>
+        <td align="right">
+          @Model.ShipmentInformation.TotalPrice
+        </td>
+      </tr>
+    }
+    @if ( paymentMethod != null ) {
+      <tr>
+        <td colspan="4" align="right">Payment&nbsp;:&nbsp;(@paymentMethod.Name)
+        </td>
+        <td align="right">
+          @Model.PaymentInformation.TotalPrice
+        </td>
+      </tr>
+    }
+    @if ( @Model.TransactionInformation.TransactionFee.Value > 0M ) {
+      <tr>
+        <td colspan="4" align="right">Transaction fee
+        </td>
+        <td align="right">
+          @Model.TransactionInformation.TransactionFee
+        </td>
+      </tr>
+    }
+    <tr>
+      <td colspan="4" align="right">VAT
+      </td>
+      <td align="right">
+        @Model.TotalPrice.VatFormatted
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" align="right">
+        <b>Total</b>
+      </td>
+      <td align="right">
+        <b>
+          @Model.TotalPrice
+        </b>
+      </td>
+    </tr>
+  </table>
+}

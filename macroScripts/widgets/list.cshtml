@@ -1,0 +1,62 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+  //Parameters
+  string listId = Parameter.listId,
+         listClass = Parameter.listClass,
+         propertyAlias = Parameter.propertyAlias,
+         widgetGridId = Parameter.widgetGridId;
+  int numberOfCols = !string.IsNullOrEmpty( Parameter.numberOfCols ) ? int.Parse( Parameter.numberOfCols ) : 1;
+
+  List<DynamicNode> list = Model.XPath( "./ancestor-or-self::* [" + propertyAlias + " != ''][1]" ).Items;
+
+  if ( list.Count > 0 ) {
+    var widgetsProperty = list.FirstOrDefault().GetPropertyValue( propertyAlias );
+
+    if ( widgetsProperty != null ) {
+      DynamicXml widgets = new DynamicXml( widgetsProperty );
+      DynamicXml nodeIds = widgets.XPath( widgetGridId + "/nodeId" );
+
+      listClass += " numberOfWidgets" + nodeIds.Count() + " numberOfCols" + numberOfCols;
+
+      int count = 1, colCount = 1;
+      int numberOfItems = nodeIds.Count();
+
+      if ( nodeIds.InnerText != "" ) {
+  <ul id="@listId" class="widgetList @listClass">
+
+    @foreach ( DynamicXml nodeId in nodeIds ) {
+
+      DynamicNode node = Library.NodeById( nodeId.InnerText );
+      string cssClass = "widget " + node.NodeTypeAlias + " pos" + count + " col" + colCount + ( numberOfItems == count ? " lastitem" : "" );
+      cssClass += node.NodeTypeAlias == "WidgetProductList" ? " isList" : "";
+      cssClass += colCount % numberOfCols == 0 ? " lastCol" : "";
+        
+      <li class="@cssClass">
+        @switch ( node.NodeTypeAlias ) {
+          case "WidgetStandard":
+          @RenderPage( "~/macroScripts/widgets/box.cshtml", node, count, numberOfItems, colCount )
+            break;
+          case "NewsWidget":
+          @RenderPage( "~/macroScripts/widgets/news-list.cshtml", node, count, numberOfItems, colCount )
+            break;
+          case "WidgetProductList":
+          @RenderPage( "~/macroScripts/widgets/product-list.cshtml", node, count, numberOfItems, colCount )
+            colCount = 0;
+            break;
+        }
+      </li>
+        
+        colCount++;
+        if ( colCount > numberOfCols ) {
+          colCount = 1;
+        }
+
+        count++;
+    }
+  </ul>
+      }
+    }
+  }
+}

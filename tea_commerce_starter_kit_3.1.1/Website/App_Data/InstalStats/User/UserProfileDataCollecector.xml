@@ -1,0 +1,6 @@
+<UserProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Umbraco.InstallStatistics.Models">
+  <Agent>Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0</Agent>
+  <ScreenHeight>1043</ScreenHeight>
+  <ScreenWidth>1170</ScreenWidth>
+  <UserType>admin</UserType>
+</UserProfile>

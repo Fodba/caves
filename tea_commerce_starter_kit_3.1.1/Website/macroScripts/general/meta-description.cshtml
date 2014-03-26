@@ -1,0 +1,39 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+  
+  DynamicNode currentPage = Model;
+
+  string metaTitle = !string.IsNullOrEmpty( currentPage.GetPropertyValue( "metaTitle" ) ) ? currentPage.GetPropertyValue( "metaTitle" ) : currentPage.Name;
+  var favIconProp = Model._favIcon;
+
+  string metaDescription = currentPage.GetPropertyValue( "metaDescription" );
+
+  string viewPortMetaTag = currentPage.GetPropertyValue( "viewPortMetaTag", true );
+  
+  <title>@metaTitle</title>
+    
+  if ( !string.IsNullOrEmpty( metaDescription ) ) { <meta name="description" content="@metaDescription" /> }
+
+  <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+  
+  if ( !string.IsNullOrEmpty( viewPortMetaTag ) ) {
+  <meta name="viewport" content="@viewPortMetaTag">
+  }
+  if ( currentPage.GetPropertyValue( "noIndex" ) == "1" ) { <meta name="robots" content="noindex, follow" /> }
+  if ( favIconProp != null ) {
+    var favIcon = favIconProp.mediaItem.Icon;
+  <!-- Standard fav icon -->
+  <link rel="shortcut icon" href="@favIcon.favIcon" type="image/x-icon" />
+    string appleTouchRel = favIcon.isPrecomposed == "1" ? "apple-touch-icon" : "apple-touch-icon-precomposed";
+  <!-- Standard iPhone -->
+  <link rel="apple-touch-icon" sizes="57x57" href="@favIcon.appleTouch114" />
+  <!-- Retina iPhone --> 
+  <link rel="apple-touch-icon" sizes="114x114" href="@favIcon.appleTouch114" />
+  <!-- Standard iPad --> 
+  <link rel="apple-touch-icon" sizes="72x72" href="@favIcon.umbracoFile" />
+  <!-- Retina iPad --> 
+  <link rel="apple-touch-icon" sizes="144x144" href="@favIcon.umbracoFile" />
+  }
+
+}
