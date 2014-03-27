@@ -37,6 +37,7 @@
     height:150px;
     position:absolute;
     overflow:hidden;
+    transition:2s;
     -webkit-transition:2s;
     background-color:white;
     z-index:2;
@@ -48,6 +49,7 @@
 
 .vignette:hover{
     opacity:1;
+    transition: width 200ms;
     -webkit-transition: width 200ms;
     width:450px;
     z-index:3;

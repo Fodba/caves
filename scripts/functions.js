@@ -55,7 +55,7 @@ $(window).load(function() {
 		$('img').hover(
 			function () {
 			    $(this).fadeTo(100, 0);
-			    $(this).addClass("absolue");
+			    //$(this).addClass("absolue");
 			    $('#clone' + $(this).attr('id')).show();
 
 			    //$(this).parent().find('img:first').stop().animate({ opacity: 1 }, 200).css("width", "100%").css("height", "100%");
@@ -64,7 +64,7 @@ $(window).load(function() {
 			    var that = this;
 			    $(this).fadeTo(100, 1, function () {
 			        $('#clone' + $(that).attr('id')).hide();
-			        $(that).removeClass("absolue");
+			        //$(that).removeClass("absolue");
 			    });
 			
 			    //$('.img_grayscale').stop().animate({opacity:0}, 200);

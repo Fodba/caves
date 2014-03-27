@@ -43,7 +43,8 @@
         }
     }
     //var membres = equipes.Descendants("Membre");
-    var SelectedMembre = equipes.Descendants().First(); ;
+    var SelectedMembre = equipes.Descendants().First();
+    var nombre=0;
 
     <div>
         <h3>L'équipe Caves Quarante et un</h3>
@@ -73,12 +74,32 @@
                         if (item.departement == "Professionnels")
                         {
                             <li class="als-item">
-                                @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                <a class="slide_link" id="@item.id" href="#">
-                                    <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                </a>
-                                <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                <div class="membreEquipe"id="@nombre">
+                                    @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                    <a class="slide_link" id="@item.id" href="#">
+                                        <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                        <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                    </a>
+
+                                    <div class="detailMembre" class="">
+                                        <p>@item.id.GetType()</p>
+                                        @*@detailleMembre(SelectedMembre.id);*@
+                                        <h3>@item.departement</h3>
+                                        <div class="test">
+                                            @{nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                            <img src="@Library.MediaById(item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                            <div class="detailMembre-text"><p class="item-texte">@nom</p></div>
+                                        </div>
+                                        <div class="poste">
+                                            <h3>@item.poste</h3>
+                                            <div id="descriptifPoste">
+                                                <p>@item.descriptif</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
+                            nombre++;
                         }
                     }
                 </ul>
@@ -114,11 +135,22 @@
     <link href="~/css/als_style.css" rel="stylesheet" />
     <script>
         $(window).load(function () {
-            $(".slide_link").click(function () {
-                var elem = $(this).attr("id");
-                $(".conteneu").find("#detailMembre").removeClass();
+            $(".membreEquipe").click(function () {
+                var elem = $(this);
+                elem.css("width", "450px");
+                //elem.find(".slide_link").css("display", "inline-block").css("margin", "0px");
+                //elem.find(".detailMembre").css("display", "inline-block");
+                //elem.find("#detailMembre").
+                @*$(".conteneu").find("#detailMembre").removeClass();
                 $(".conteneu").find("#detailMembre").addClass(elem);
-                $("#(@SelectedMembre.id)") = elem;
+                $("#(@SelectedMembre.id)") = elem;*@
+                var nombre = elem.attr("id");
+                $("#membresPro").als({
+                    visible_items: 1,
+                    scrolling_items: 1,
+                    orientation: "horizontal",
+                    start_from: nombre
+                });
             });
 
 
@@ -130,7 +162,7 @@
                     scrolling_items: 1,
                     orientation: "horizontal",
                     circular: "yes",
-                    autoscroll: "yes",
+                    autoscroll: "no",
                     start_from: 0
                 });
                 $("#membresPart").als({
@@ -138,7 +170,7 @@
                     scrolling_items: 1,
                     orientation: "horizontal",
                     circular: "yes",
-                    autoscroll: "yes",
+                    autoscroll: "no",
                     start_from: 0
                 });
             }

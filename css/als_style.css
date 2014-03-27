@@ -9,6 +9,10 @@
     min-width:25px;
     text-align:center;
 }
+
+.als-item a{
+    /*display:inline-block;*/
+}
 /*************************************
  * styling generico elementi als
  ************************************/
@@ -36,7 +40,7 @@
 
 .als-item {
 	position: relative;
-	display: block;
+	display: inline-block;
 	text-align: center;
 	cursor: pointer;
 	float: left;
@@ -53,6 +57,8 @@
 	/*clear: both;*/
     /*opacity:0.8;*/
     z-index:8;
+    width:30px;
+    height:30px;
 }
 
 .als-prev{
@@ -93,16 +99,16 @@
 
 #membresPro .als-prev, #membresPro .als-next,
 #membresPart .als-prev, #membresPart .als-next{
-	top: 100px;
+	top: 75px;
     display:inline-block;
 }
 
 #membresPro .als-prev, #membresPart .als-prev{
-	left: -10px;
+	left: -5px;
 }
 
 #membresPro .als-next, #membresPart .als-next{
-	right: -10px;
+	right: -5px;
 }
 
 
@@ -129,6 +135,12 @@
 .als-item img{
     width:150px;
     height:150px;
+    margin:0px;
 }
 
 
+
+/*-----------------------------------------------------------------------------------------*/
+.slide_link,.membreEquipe,#detailMembre{
+    border:1px solid black;
+}

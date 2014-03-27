@@ -1,8 +1,9 @@
-﻿body {
-    min-width:1200px;
-    height:auto;
+﻿/*body {
+    min-width:1400px;
+    height:900px;
+    margin:auto;
     max-height:900px;
-}
+}*/
 
 .conteneu{
     background-color:RGBa(255,255,255,0.9);
@@ -49,11 +50,13 @@
 }
 
 .detailMembre{
-    height:200px;
+    visibility:hidden;
+    height:150px;
     overflow:hidden;
     margin-bottom:10px;
     /*position:absolute;*/
-    /*display:none;*/
+    display:none;
+    left:0;
 }
 
 .detailMembre img{
@@ -115,8 +118,12 @@
 }
 
 .slide_link{
-    width:30%;
+    width:150px;
 }
+
+/*.slide_link.click{
+    width:450px;
+}*/
 
 .slide_link img{
     width:100%;
