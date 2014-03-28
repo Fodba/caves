@@ -44,62 +44,35 @@
     }
     //var membres = equipes.Descendants("Membre");
     var SelectedMembre = equipes.Descendants().First();
-    var nombre=0;
+    var nombre = 0;
 
     <div>
-        <h3>L'équipe Caves Quarante et un</h3>
-        @*<div id="detailMembre" class="">
-            <p>@SelectedMembre.id.GetType()</p>
-            @detailleMembre(SelectedMembre.id);
-            <h3>@SelectedMembre.departement</h3>
-            <div class="test">
-                @{var nom = SelectedMembre.nom.ToString().ToUpper() + " " + SelectedMembre.prenom.ToString().ToUpper();}
-                <img src="@Library.MediaById(SelectedMembre.photo.ToString()).UmbracoFile" alt="@SelectedMembre.Nom" />
-                <div class="detailMembre-text"><p class="item-texte">@nom</p></div>
-            </div>
-            <div class="poste">
-                <h3>@SelectedMembre.poste</h3>
-                <div id="descriptifPoste">
-                    <p>@SelectedMembre.descriptif</p>
-                </div>
-            </div>
-        </div>*@
+        <h2>L'équipe Caves Quarante et un</h2>
         <div id="membresPro" class="als-container">
             <h3>PROFESSIONNELS</h3>
             <span class="als-prev"><img src="~/media/images/leftarrow.png" /></span>
-            <div class="slider als-viewport">
-                <ul class="als-wrapper">
+            <div class="slider als-viewport Vdiv" id="viewportPro">
+                <ul class="als-wrapper typeMembre" id="wrapperPro">
                     @foreach (var item in equipes.Descendants())
                     {
                         if (item.departement == "Professionnels")
                         {
                             <li class="als-item">
-                                <div class="membreEquipe"id="@nombre">
+                                <div class="membreEquipe" id="membre @nombre">
                                     @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                    <a class="slide_link" id="@item.id" href="#">
+                                    @*<a class="slide_link" id="@item.id" href="#">*@
                                         <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                        <div class="zone-item-text"><p class="item-texte">@nom</p></div>
-                                    </a>
-
-                                    <div class="detailMembre" class="">
-                                        <p>@item.id.GetType()</p>
-                                        @*@detailleMembre(SelectedMembre.id);*@
-                                        <h3>@item.departement</h3>
-                                        <div class="test">
-                                            @{nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                            <img src="@Library.MediaById(item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                            <div class="detailMembre-text"><p class="item-texte">@nom</p></div>
-                                        </div>
-                                        <div class="poste">
-                                            <h3>@item.poste</h3>
-                                            <div id="descriptifPoste">
-                                                <p>@item.descriptif</p>
-                                            </div>
-                                        </div>
+                                        <div class="zone-item-text"><p class="item-texte">@*@nom +": "+*@ @nombre</p></div>
+                                    @*</a>*@
+                                </div>
+                                <div class="detailMembre" id="@item.id">
+                                    <div class="poste">
+                                        <h3>@item.poste</h3>
+                                        <div class="descriptifPoste">@item.descriptif</div>
                                     </div>
                                 </div>
+                                @{nombre++; }
                             </li>
-                            nombre++;
                         }
                     }
                 </ul>
@@ -109,18 +82,28 @@
         <div id="membresPart" class="als-container">
             <h3>PARTICULIERS</h3>
             <span class="als-prev"><img src="~/media/images/leftarrow.png" /></span>
-            <div class="slider als-viewport">
-                <ul class="als-wrapper">
+            <div class="slider als-viewport Vdiv" id="viewportPart">
+                <ul class="als-wrapper typeMembre" id="wrapperPart">
                     @foreach (var item in equipes.Descendants())
                     {
                         if (item.departement == "Particuliers")
                         {
                             <li class="als-item">
-                                @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                <a class="slide_link" id="@item.id" href="#">
-                                    <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                </a>
-                                <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                <div class="membreEquipe" id="membre @nombre">
+                                    @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                    @*<a class="slide_link" id="@item.id" href="#">*@
+                                        <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                        <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                    @*</a>*@
+
+                                </div>
+                                <div class="detailMembre" id="@item.id">
+                                    <div class="poste">
+                                        <h3>@item.poste</h3>
+                                        <div class="descriptifPoste">@item.descriptif</div>
+                                    </div>
+                                </div>
+                                @{nombre++; }
                             </li>
                         }
                     }
@@ -135,23 +118,6 @@
     <link href="~/css/als_style.css" rel="stylesheet" />
     <script>
         $(window).load(function () {
-            $(".membreEquipe").click(function () {
-                var elem = $(this);
-                elem.css("width", "450px");
-                //elem.find(".slide_link").css("display", "inline-block").css("margin", "0px");
-                //elem.find(".detailMembre").css("display", "inline-block");
-                //elem.find("#detailMembre").
-                @*$(".conteneu").find("#detailMembre").removeClass();
-                $(".conteneu").find("#detailMembre").addClass(elem);
-                $("#(@SelectedMembre.id)") = elem;*@
-                var nombre = elem.attr("id");
-                $("#membresPro").als({
-                    visible_items: 1,
-                    scrolling_items: 1,
-                    orientation: "horizontal",
-                    start_from: nombre
-                });
-            });
 
 
 
@@ -163,50 +129,96 @@
                     orientation: "horizontal",
                     circular: "yes",
                     autoscroll: "no",
-                    start_from: 0
+                    //start_from: 0
                 });
                 $("#membresPart").als({
-                    visible_items: 3,
+                    visible_items: 2,
                     scrolling_items: 1,
                     orientation: "horizontal",
                     circular: "yes",
                     autoscroll: "no",
-                    start_from: 0
-                });
-            }
-            else {
-                $(".conteneu").css("display", "block");
-                $("#membresPro").als({
-                    visible_items: 1,
-                    scrolling_items: 1,
-                    orientation: "horizontal",
-                    circular: "yes",
-                    autoscroll: "yes",
-                    start_from: 0
-                });
-                $("#membresPart").als({
-                    visible_items: 1,
-                    scrolling_items: 1,
-                    orientation: "horizontal",
-                    circular: "yes",
-                    autoscroll: "yes",
-                    start_from: 0
+                    //start_from: 0
                 });
             };
-            $("#descriptifPoste").slimScroll({
-                height: "90px",
+            //else {
+            //    $(".conteneu").css("display", "block");
+            //    $("#membresPro").als({
+            //        visible_items: 1,
+            //        scrolling_items: 1,
+            //        orientation: "horizontal",
+            //        circular: "yes",
+            //        autoscroll: "yes",
+            //        start_from: 0
+            //    });
+            //    $("#membresPart").als({
+            //        visible_items: 1,
+            //        scrolling_items: 1,
+            //        orientation: "horizontal",
+            //        circular: "yes",
+            //        autoscroll: "yes",
+            //        start_from: 0
+            //    });
+            //};
+            $(".descriptifPoste").slimScroll({
+                height: "120px",
+                width:"250px",
                 size: "15px",
                 color: "#9b1230",
-                distance: "1px",
+                distance: "-10px",
                 wheelStep: 2,
                 railVisible: true,
                 alwaysVisible: true
+            });
+
+
+
+            $(".membreEquipe").click(function () {
+                var elem = $(this);
+                var id = elem.id;
+                var parent = elem.parent();
+                parent.closest(".als-wrapper").find(".membreEquipe:not(#membre +" + id + ")").css("display", "none");
+                elem.css("display", "inline-block").css("overflow", "hidden");
+                parent.css("width", "450px").css("overflow", "hidden");
+                elem.css("overflow", "hidden");
+                parent.find(".detailMembre").position({
+                    my: "left",
+                    at: "right",
+                    of: elem,
+                    whitin: parent
+                })
+                parent.find(".detailMembre").css("display", "inline-block").css("visibility", "visible");
+                elem.closest(".Vdiv").css("width", "450px");
+                elem.closest(".typeMembre").css("width", "450px");
+                elem.find("img").css("margin-left", "0px");
+                elem.closest(".typeMembre").css("width", elem.size + "150px");
+                elem.closest(".typeMembre").hide().fadeIn("fast");
+            //    $(".membreEquipe").hover(function () {
+            //        var elem = $(this);
+            //        var parent = elem.parent();
+            //        elem.css("width", "450px");
+            //        elem.closest(".Vdiv").css("width", "450px");
+            //        elem.closest(".typeMembre").css("width", "450px");
+            //        elem.find("img").css("margin-left", "0px");
+            //        elem.closest(".typeMembre").css("width", elem.size + "150px");
+            //        elem.parents(".typeMembre").hide().fadeIn("fast");
+            //    },
+            //    function () {
+            //        var elem = $(this);
+            //        var parent = elem.parent();
+            //        elem.css("width", "150px");
+            //        elem.closest(".Vdiv").css("width", "150px");
+            //        elem.closest(".typeMembre").css("width", "150px");
+            //        elem.find("img").css("margin-left", "0px");
+            //        elem.closest(".typeMembre").css("width", "auto");
+            //        elem.closest(".typeMembre").hide().fadeIn("fast");
+            //    });
             });
         })
     </script>
 }
 
-@helper detailleMembre(int itemPar) {
+@*@helper detailleMembre(int itemPar)
+{
     var ancetre = Model.AncestorsOrSelf().First();
     var dos = ancetre.Descendants("Folder");
     var equipes = Model;
@@ -217,19 +229,19 @@
         {
             equipes = item;
         }
-    //}
-    //foreach (var item1 in equipes.Descendants())
-    //{
-    //    if (itemPar != 0) { 
-    //        if (item1.id == itemPar)
-    //        {
-    //            SelectedMembre = item1;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        SelectedMembre = equipes.Descendants().First();
-    //    }
+        //}
+        //foreach (var item1 in equipes.Descendants())
+        //{
+        //    if (itemPar != 0) { 
+        //        if (item1.id == itemPar)
+        //        {
+        //            SelectedMembre = item1;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        SelectedMembre = equipes.Descendants().First();
+        //    }
     }
     
     
@@ -239,5 +251,5 @@
         <img src="@Library.MediaById(SelectedMembre.photo.ToString()).UmbracoFile" alt="@SelectedMembre.Nom" />
         <div class="detailMembre-text"><p class="item-texte">@nom</p></div>
     </div>
-}
+}*@
 

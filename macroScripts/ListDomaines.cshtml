@@ -7,8 +7,12 @@
     List<string> villes = new List<string>();//Liste auquelle les villes vont être ajoutés
     <script src="~/scripts/functions.js"></script>
     <script src="~/scripts/grayscale.js"></script>
-    @*<link href="~/css/domaine2.css" rel="stylesheet" />*@
+    
+    <link href="~/css/Menulistdomain.css" rel="stylesheet" />
+    <link href="~/css/domaine2.css" rel="stylesheet" />
+    <script src="/scripts/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="/scripts/domaine.js"></script>
+    
 
     foreach (var item in Model.Children.Where("Visible"))
     {
@@ -51,8 +55,9 @@
     }
     var i = 0;
     var k = 0;
-    <div class="row-fluid">
-        <ul class="portfolioFilter hidden-phone">
+    //BreadCrumb Desactivé
+    @*<div class="row-fluid">*@
+        @*<ul class="portfolioFilter hidden-phone">
             <li><a href="#" data-filter="*" class="active" onclick="reset()" style="color:#9e1237;padding-left: 4px;">Toutes les régions</a></li>
             @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
             {
@@ -104,9 +109,9 @@
                 }
                 i++;
             }
-        </ul>
+        </ul>*@
         
-        <div class="portfolioPhone visible-phone">
+        @*<div class="portfolioPhone visible-phone">
             <select class="visible-phone">
                 <option value="*" class="active" >Toutes les régions</option>
             @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
@@ -135,7 +140,8 @@
                 k++;
             }
             </select>
-        </div>
+        </div>*@
+    <div id="global" class="divport">
         <ul class="portfolio">
             @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
             {
@@ -150,23 +156,65 @@
                 {
                     classe = classe + " " + element.Parent.Id.ToString() + " " + element.Parent.Parent.Id.ToString();
                 }
-                 <li class="@classe vignette" data-id="@item.Id">
-                     <div class="thumb">
-                         <a href="@item.Url"  class="linkDomain">
-                             <div class="infosSup">
-                                 <p>@item.id</p>
-                                 <h2>Domaine @item.domainName </h2>
-                                 <div class="voile">
-                                     <div>Découvrir le domaine</div>
-                                 </div>
-                             </div>
-                             <img class="photoVigneron" src="@image"  />
-                        </a>             
-                     </div>               
+                <li class="@classe vignette" data-id="@item.Id">
+                    <div class="thumb">
+                        <a href="@item.Url" class="linkDomain">
+                            <img class="photoVigneron" src="@image" />
+                        </a>
+                        <div id="info" class="infosSup">
+                            <p>@item.id</p>
+                            <h2>Domaine @item.domainName </h2>
+                            <div class="voile">
+                                <div>Découvrir le domaine</div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
+
             }
         </ul>
     </div>
+
+    @*</div>*@
+    @*<script>
+        $('.infosSup').position({
+            my: 'right',
+            at: 'left ',
+            of: ".infosSup",
+            collision: '#menua'
+            
+            
+            
+        });
+    </script>*@
+    
+        <div   class="menud">
+            &nbsp;
+            <div id="menua">
+                <h3 style="color:white;text-align:center;">LISTE DES DOMAINES</h3>
+                <a>>Mas Bruguière</a>
+                <a>>Mas Espanet</a>
+                <a>>Domaine Cavaillès</a>
+                <a>>Mas Espanet</a>
+                <a>>Domaine Gauby</a>
+                <a>>Mas Espanet</a>
+                <a>>Domaine Gauby</a>
+                <a>>Roc d'anglade</a>
+                <a>>Mas Bruguière</a>
+                <a>>Mas Espanet</a>
+                <a>>Domaine Gauby</a>
+                <a>>Roc d'anglade</a>
+                <a>>Mas Bruguière</a>
+                <a>>Mas Espanet</a>
+                <a>>Domaine Gauby</a>
+                <a>>Roc d'anglade</a>
+                <a>>Mas Bruguière</a>
+                <a>>Mas Espanet</a>
+                <a>>Mas Bruguière</a>
+                <a>>Mas Bruguière</a>
+            </div>
+    </div>
+  
 
     <script src='/scripts/jquery.isotope.js'></script>
 

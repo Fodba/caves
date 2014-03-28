@@ -1,5 +1,18 @@
+#contient {
+	position: relative;
+	margin: 50px auto;
+	/*width: 960px;*/
+}
 
+.als-item p{
+    margin:5px;
+    min-width:25px;
+    text-align:center;
+}
 
+.als-item a{
+    /*display:inline-block;*/
+}
 /*************************************
  * styling generico elementi als
  ************************************/
@@ -14,73 +27,70 @@
 .als-viewport {
 	position: relative;
 	overflow: hidden;
+    /*max-width:90%;*/
 	margin: 0px auto;
-    max-width:90%;
 }
+
 
 .als-wrapper {
 	position: absolute;
 	list-style: none;
-    height:150px;
-    padding:0;
-    /*min-width:450px;*/
-    margin:0;
-    /*border:1px solid black;*/
+    margin:auto;
+    /*max-width:450px;*/
 }
 
 .als-item {
 	position: relative;
 	display: inline-block;
-    margin:0px;
-	/*text-align: center;*/
+	text-align: center;
 	cursor: pointer;
-	float: left;
-    max-height:150px;
-}
-
-.als-item img{
-    width:150px;
-    height:150px;
-    margin:0px;
-}
-
-.als-item img{
-    overflow:hidden;
+	/*float: left;*/
+    margin:0;
 }
 
 .als-prev, .als-next {
 	position: absolute;
 	cursor: pointer;
-	clear: both;
-    width:30px;
-    height:30px;
+    border:1px solid #9b1230;
+    background-color:#9b1230;
     overflow:hidden;
     border-radius:300px;
-    background-color:#9b1230;
-    border:1px solid #9b1230;
+	/*clear: both;*/
+    /*opacity:0.8;*/
     z-index:8;
+    width:30px;
+    height:30px;
 }
 
 .als-prev{
     /*border:1px solid #9b1230;*/
+    border-radius:300px;
     box-shadow:5px 5px 4px #333;
 }
 
 .als-next {
     /*border:1px solid #9b1230;*/
+    border-radius:300px;
     box-shadow:-5px 5px 4px #333;
 }
 
-
 /***********************************
  * styling specifico elementi als
- * di content e delle demo
+ * di contient e delle demo
  **********************************/
 
 #membresPro,#membresPart{
-    overflow:hidden;
+    /*overflow:hidden;*/
     position:relative;
 }
+
+/*#membresPro .als-item {
+	margin: 5px 5px;
+	padding: 1px 0px;
+	height: 50px;
+	min-width: 10px;
+	text-align: center;
+}*/
 
 #membresPro .als-item p, #membresPart .als-item p {
 	display: block;
@@ -95,12 +105,13 @@
 }
 
 #membresPro .als-prev, #membresPart .als-prev{
-	left: 5px;
+	left: -5px;
 }
 
 #membresPro .als-next, #membresPart .als-next{
-	right: 5px;
+	right: -5px;
 }
+
 
 .zone-item-text{
     position:absolute;
@@ -114,13 +125,23 @@
 }
 
 .item-texte{
+    background-color:#c3c7cd;
     bottom:0px;
     color:#9b1230;
     opacity:1;
-    position:absolute;
 }
 
+
+
+.als-item img{
+    width:150px;
+    height:150px;
+    margin:0px;
+}
+
+
+
 /*-----------------------------------------------------------------------------------------*/
-.slide_link,.membreEquipe,#detailMembre,.slider{
-    /*border:1px solid black;*/
+.slide_link,.membreEquipe,#detailMembre{
+    border:1px solid black;
 }

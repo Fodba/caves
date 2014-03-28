@@ -7,15 +7,19 @@
     overflow:hidden;
     position:absolute;
     background-color:#000000;
-	width:98%;
-	top:80px;
-	overflow:visible !important;
+	width:100%;
+	top:0px;
+    overflow:visible !important;
     padding:0;
+    float:right;
+    
 }
 
 .portfolio isotope-item{
     padding:0;
     margin:0 !important;
+    margin-right:200px;
+    
 }
 
 .isotope,.isotope-item{
@@ -24,35 +28,51 @@
 }
 
 .portfolio li{
+    position:relative;
     padding:0px;
-    margin-right:0 !important;
+    margin-right:50px;
+    
 }
 
 /* ------------------------------------ THUMB ---------------------------------------------*/
 
  .vignette{
+     
+    
     list-style-type:none;
     display:inline-block;
     width:150px;
     height:150px;
     position:absolute;
     overflow:hidden;
-    transition:2s;
     -webkit-transition:2s;
-    background-color:white;
+    -moz-transition:2s;
+    -o-transition:2s;
+    -khtml-transition:2s;
+    -ms-transition:2s;
+    /*background-color:white;*/
     z-index:2;
     opacity:0.3;
+    
  }
  .vignette{
-	background-color: rgba(255,255,255,0.9);
+	/*background-color: rgba(255,255,255,0.9);*/
  }
 
 .vignette:hover{
+    
+    -ms-opacity:1;
     opacity:1;
-    transition: width 200ms;
     -webkit-transition: width 200ms;
-    width:450px;
+    -moz-transition: width 200ms;
+    -ms-transition: width 200ms;
+    -o-transition: width 200ms;
+    -khtml-transition: width 200ms;
+    /*width:450px;*/
     z-index:3;
+    overflow:visible;
+    
+    
 }
 /* ------------------------------------ LINK_DOMAIN ---------------------------------------------*/
 .linkDomain{
@@ -68,11 +88,22 @@
  }
 
 /* ------------------------------------ INFOSSUP ---------------------------------------------*/
+.infosSupa{
+    z-index:5;
+    position:absolute;
+    left:-300px;
+    width:300px;
+    height:150px;
+    display:inline-block;
+    vertical-align:middle;
+    background-color:white;
+}
 .infosSup{
     position:absolute;
     left:150px;
     width:300px;
     height:150px;
+    background-color:white;
 }
 
 
@@ -116,10 +147,16 @@
 /* ------------------------------------ PHOTO_VIGNERON ---------------------------------------------*/
 
 .photoVigneron{
+    
     filter: url('/scripts/filters.svg#grayscale'); /* Firefox 3.5+ */
+    -ms-filter: url('/scripts/filters.svg#grayscale');
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */  
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(1); /* Webkit Nightlies & Google Chrome Canary */
+    -ms-filter: grayscale(1);
+    -o-filter: grayscale(1);
+    -khtml-filter: grayscale(1);
+    -moz-filter: grayscale(1);
     z-index:3;
     /*width:333px !important;*/
     height:150px;
@@ -134,6 +171,10 @@
 .photoVigneron:hover{
     filter:none;
     -webkit-filter:none;
+    -ms-filter:none;
+    -moz-filter:none;
+    -khtml-filter:none;
+    -o-filter:none;
 }
 
 

@@ -1,0 +1,36 @@
+﻿.menud{
+    z-index:1;
+    position:absolute;
+    float:right;
+    
+    /*top:0%;*/
+    right:0px;
+    width:20%;
+    min-width:200px;
+    height:100%;
+    background-color:#9e1237
+}
+#content{
+    /*position:relative;
+    width:100%;*/
+    
+    
+}
+.divport,.menud{
+    display:inline-block !important;
+}
+.divport{
+    position:absolute;
+    width:80%;
+    /*left:0px;*/
+    /*overflow:hidden;*/
+}
+#menua a{
+    color:white;
+    margin-left:50px;
+    text-align:left;
+    display:block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
