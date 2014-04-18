@@ -5,6 +5,7 @@ body{
 	background:#3b0d03;
 	min-width:1000px;
 	position:relative;
+    z-index:1;
 }
 img{border:0;}
 a{

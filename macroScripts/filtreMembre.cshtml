@@ -1,0 +1,25 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using umbraco.NodeFactory;
+
+@*
+	Model = The current page the macro is executed on
+			@Model.bodyText
+
+	Parameter = collection of parameter values passed from the macro
+			@Paramter.myParam
+
+    Library = utillity library with common methods
+    		@Library.NodeById(1233)
+*@
+
+@*<script src="~/scripts/equipePro.js"></script>*@
+
+@{
+    <div class="filtreService">
+        <button id="filtreParticuliers" class="filtre">PARTICULIERS</button>
+        <button id="filtreProfessionnels" class="filtre">PROFESSIONNELS</button>
+    </div>
+}
+
+
+

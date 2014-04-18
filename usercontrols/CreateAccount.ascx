@@ -8,10 +8,12 @@
         height: 30px;
     }
 </style>
+<link href="/css/domaine2.css" rel="stylesheet" />
+<div class="inscriptionConnection">
 <form runat="server">
     <div class="formContent">
     
-        <div class="row formulaire">
+        <div class=" formulaire">
             <div class="inscription">
 
                 <span class="title">Se connecter</span>
@@ -90,7 +92,7 @@
             </div>
         </div>
 
-        <div class="row formulaire">
+        <div class="formulaire">
             <div class="inscription">
 
                 <span class="title">Créez votre compte</span>
@@ -177,3 +179,4 @@
 
     </div>
 </form>
+    </div>
