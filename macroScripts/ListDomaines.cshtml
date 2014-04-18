@@ -5,14 +5,17 @@
     List<string> regions = new List<string>();//Liste auquelle les régions vont être ajoutés
     List<string> departs = new List<string>();//Liste auquelle les départements vont être ajoutés
     List<string> villes = new List<string>();//Liste auquelle les villes vont être ajoutés
-    <script src="~/scripts/functions.js"></script>
-    <script src="~/scripts/grayscale.js"></script>
-    
-    <link href="~/css/Menulistdomain.css" rel="stylesheet" />
-    <link href="~/css/domaine2.css" rel="stylesheet" />
-    <script src="/scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    List<string> listeLieux = new List<string>();//Liste auquelle les régions vont être ajoutés
+
+
+
+    <link href="/css/Menulistdomain.css" rel="stylesheet" />
+    <link href="/css/domaine2.css" rel="stylesheet" />
     <script type="text/javascript" src="/scripts/domaine.js"></script>
-    
+    @*<script src="/scripts/jquery-1.10.2.js"></script>*@
+    <script src="/scripts/jquery-ui-1.10.4.min.js"></script>
+
+
 
     foreach (var item in Model.Children.Where("Visible"))
     {
@@ -53,296 +56,497 @@
             }
         }
     }
-    var i = 0;
-    var k = 0;
-    //BreadCrumb Desactivé
-    @*<div class="row-fluid">*@
-        @*<ul class="portfolioFilter hidden-phone">
-            <li><a href="#" data-filter="*" class="active" onclick="reset()" style="color:#9e1237;padding-left: 4px;">Toutes les régions</a></li>
-            @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
-            {
-                var j = 0;
-                var depa = "dep" + i;
-                bool testD = false;
-                if (regions.Contains(reg.Id.ToString()))
-                {
-                    <li class="divider-vertical">&nbsp;&nbsp;</li>
-                    <li><a href="#" data-filter=".@reg.Id" onclick="toggle_dep('@depa');">@Model.NodeById(reg.Id).Name</a>
-                    <ul class="depart" id="@depa">
-                        @foreach (var dep in Model.NodeById(reg.Id).Children.OrderBy("Name"))
-                        {
-                            var ville = "vil" + j;
-                            bool testV = false;
-                            if (departs.Contains(dep.Id.ToString()))
-                            {
-                                if (testD == false)
-                                {
-                                        <li style="color:#9e1237;padding-right: 40px;padding-left: 4px;">Départements</li>
-                                    testD = true;
-                                }
-                                <li class="divider-vertical">&nbsp;&nbsp;</li>
-                                <li><a href="#"  data-filter=".@dep.Id" onclick="toggle_ville('@ville');">@dep.Name</a>
-                                <ul class="ville" id="@ville">
-                                    
-                                    @foreach (var vil in Model.NodeById(dep.Id).Children.OrderBy("Name"))
-                                    {
 
-                                        if (villes.Contains(vil.Id.ToString()))
-                                        {
-                                            if (testV == false)
-                                            {
-                                            <li style="color:#9e1237;padding-right: 100px;padding-left: 4px;">Villes</li>
-                                                testV = true;
-                                            }
-                                            <li class="divider-vertical">&nbsp;&nbsp;</li>
-                                        <li><a href="#"  data-filter=".@vil.Id">@vil.Name</a></li>
-                               
-                                        }
-                                    }
-                                </ul>
-                            </li>                               
-                            }
-                            j++;
-                        }
-                    </ul>
-                </li> 
-                }
-                i++;
-            }
-        </ul>*@
-        
-        @*<div class="portfolioPhone visible-phone">
-            <select class="visible-phone">
-                <option value="*" class="active" >Toutes les régions</option>
-            @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
-            {
-                var j = 0;
-                var depaP = "dep" + k;
-                if (regions.Contains(reg.Id.ToString()))
-                {
-                    <option class="regionP" value=".@reg.Id">@Model.NodeById(reg.Id).Name
-                        @foreach (var dep in Model.NodeById(reg.Id).Children.OrderBy("Name"))
+
+
+    /////MENU LISTE DES DOMAINES
+    ///
+    //
+    <div class="resp">
+        <div class="menud sameclass" id="divl">
+            &nbsp;
+            <div id="menua">
+                <input id="topb" class="triangletop" type="image" src="/css/triangletop.png" alt="asc" onclick="gobot()" />
+                <div id="scroll">
+
+                    <div id="ancrescroll" style="border:solid;top:0px;visibility:hidden;"> </div>
+                    <br />
+                    <h3 id="ancer" style="color: white; text-align: center; word-wrap: break-word; padding-left: 15px;">LISTE DES DOMAINES</h3>
+                    <br />
+                    @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
+                    {
+                        var image = Model.NodeById(item.imageV).Url;
+                        string classe = item.lieu.ToString();
+                        var element = Model.NodeById(item.lieu);
+                        if (element.Level == 4)
                         {
-                            var villeP = "vil" + j;
-                            if (departs.Contains(dep.Id.ToString()))
-                            {
-                            <option class="departP" value=".@dep.Id">- @dep.Name                                
-                                    @foreach (var vil in Model.NodeById(dep.Id).Children.OrderBy("Name"))
-                                    {
-                                        <option  class="villeP" value=".@vil.Id">-- @vil.Name</option>
-                                    }
-                            </option>                               
-                            }
-                            j++;
+                            classe = classe + " " + element.Parent.Id.ToString();
                         }
-                </option> 
-                }
-                k++;
-            }
-            </select>
-        </div>*@
-    <div id="global" class="divport">
-        <ul class="portfolio">
-            @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
-            {
-                var image = Model.NodeById(item.imageV).Url;
-                string classe = item.lieu.ToString();
-                var element = Model.NodeById(item.lieu);
-                if (element.Level == 4)
-                {
-                    classe = classe + " " + element.Parent.Id.ToString();
-                }
-                if (element.Level == 5)
-                {
-                    classe = classe + " " + element.Parent.Id.ToString() + " " + element.Parent.Parent.Id.ToString();
-                }
-                <li class="@classe vignette" data-id="@item.Id">
-                    <div class="thumb">
-                        <a href="@item.Url" class="linkDomain">
-                            <img class="photoVigneron" src="@image" />
-                        </a>
-                        <div id="info" class="infosSup">
-                            <p>@item.id</p>
-                            <h2>Domaine @item.domainName </h2>
-                            <div class="voile">
-                                <div>Découvrir le domaine</div>
+                        if (element.Level == 5)
+                        {
+                            classe = classe + " " + element.Parent.Id.ToString() + " " + element.Parent.Parent.Id.ToString();
+                        }
+                        if (item.prefixe.ToLower() == "roc")
+                        {
+                            <div class="leftb">
+                                <a class="texthover">
+                                    <p class="textb" style="font-weight:lighter;">></p>
+                                    &nbsp;
+                                    <p class="textb special">@item.prefixe.Substring(0, 1).ToUpper()</p>
+                                    <p class="textb">@item.prefixe.Substring(1)</p>
+                                    <p class="special texta">@item.domainName.Substring(0, 1).ToUpper()</p>
+                                    <p class="texta ">@item.domainName.Substring(1)</p>
+                                </a>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="leftb">
+                                <a class="texthover">
+                                    <p class="textb" style="font-weight:lighter;">></p>
+                                    &nbsp;
+                                    <p class="textb ">@item.prefixe</p>
+                                    <p class="special texta">@item.domainName.Substring(0, 1).ToUpper()</p>
+                                    <p class="texta ">@item.domainName.Substring(1)</p>
+                                </a>
+                            </div>
+                        }
+
+
+                    }
+
+                </div>
+                <input id="downb" class="triangle" type="image" src="/css/triangleee.png" alt="desc" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="global" class="divport sameclassa">
+        <div style="background-color:black;height:1024px;width:100%;z-index:-20;">
+            <ul id="divr" class="portfolio">
+
+                <li id="start" class="sep sepa">
+
+
+                    @*1er Séparateur Région LANGUEDOC-ROUSSILLON *@
+
+
+                    <div class="sepinter">
+                        <p class="textsepa">NOS DOMAINES DU</p>
+                        <p class="textsepb">LANGUEDOC-ROUSSILLON</p>
+                    </div>
+
+
+
+                    @*Affichage vignette pour ISOTOPE *@
+
+
+                </li>
+                @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
+                {
+                    if (reg.name == "Languedoc-Roussillon")
+                    {
+                        listeLieux.Add(reg.id.ToString());
+                        foreach (var reg2 in reg.Children.OrderBy("Name"))
+                        {
+                            listeLieux.Add(reg2.id.ToString());
+                        }
+                    }
+                }
+                @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
+                {
+                    var image = Model.NodeById(item.imageV).Url;
+                    string classe = item.lieu.ToString();
+                    var element = Model.NodeById(item.lieu);
+                    if (listeLieux.Contains(classe))
+                    {
+                        <li id="lisep" class="@classe vignette sep sepa" data-id="@item.Id">
+                            <div class="sizevignette">
+                                <a href="@item.Url" class="linkDomain">
+
+
+                                    <div class="filtergray" data-image="img_@item.id">
+                                        <img class="photoVigneron" src="@Library.MediaById(@item.imageV.ToString()).UmbracoFile" id="img_@item.id" />
+                                    </div>
+                                </a>
+
+                                @*Info bulle sur le hover de chaque vignette domaine*@
+
+                                <div id="info" class="infosSup">
+                                    <p>@element.name</p>
+                                    <h2 class="domainsup">Domaine "@item.domainName" </h2>
+                                    <br />
+                                    <h2 class="namesup">@item.nameV</h2>
+
+                                    <div class="voile">
+                                        <a style="height:100%;width:100%;z-index:40;" href="#">
+                                            <div class="textinfo">>Découvrir le domaine</div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </li>
+                    }
+                }
+
+                @*Second séparateur pour les autes Domaines*@
+
+                <li id="lisep" class="sep sepa">
+
+                    <div id="separa" class="sepinter">
+                        <p class="textsepa">NOS DOMAINES DES</p>
+                        <p class="textsepb">AUTRES REGIONS DE FRANCE</p>
                     </div>
                 </li>
 
-            }
-        </ul>
-    </div>
 
-    @*</div>*@
-    @*<script>
-        $('.infosSup').position({
-            my: 'right',
-            at: 'left ',
-            of: ".infosSup",
-            collision: '#menua'
-            
-            
-            
-        });
-    </script>*@
-    
-        <div   class="menud">
-            &nbsp;
-            <div id="menua">
-                <h3 style="color:white;text-align:center;">LISTE DES DOMAINES</h3>
-                <a>>Mas Bruguière</a>
-                <a>>Mas Espanet</a>
-                <a>>Domaine Cavaillès</a>
-                <a>>Mas Espanet</a>
-                <a>>Domaine Gauby</a>
-                <a>>Mas Espanet</a>
-                <a>>Domaine Gauby</a>
-                <a>>Roc d'anglade</a>
-                <a>>Mas Bruguière</a>
-                <a>>Mas Espanet</a>
-                <a>>Domaine Gauby</a>
-                <a>>Roc d'anglade</a>
-                <a>>Mas Bruguière</a>
-                <a>>Mas Espanet</a>
-                <a>>Domaine Gauby</a>
-                <a>>Roc d'anglade</a>
-                <a>>Mas Bruguière</a>
-                <a>>Mas Espanet</a>
-                <a>>Mas Bruguière</a>
-                <a>>Mas Bruguière</a>
-            </div>
+
+                @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
+                {
+                    var image = Model.NodeById(item.imageV).Url;
+                    string classe = item.lieu.ToString();
+                    var element = Model.NodeById(item.lieu);
+                    if (!listeLieux.Contains(classe))
+                    {
+                        <li id="lisep" class="@classe vignette sep sepa" data-id="@item.Id">
+                            <div class="sizevignette">
+                                <a href="@item.Url" class="linkDomain">
+
+
+                                    <div class="filtergray" data-image="img_@item.id">
+                                        <img class="photoVigneron" src="@Library.MediaById(@item.imageV.ToString()).UmbracoFile" id="img_@item.id" />
+                                    </div>
+                                </a>
+
+                                <div id="info" class="infosSup">
+                                    <p>@element.name</p>
+                                    <h2 class="domainsup">Domaine "@item.domainName" </h2>
+                                    <br />
+                                    <h2 class="namesup">@item.nameV</h2>
+                                    <div class="voile">
+                                        <a style="height:100%;width:100%;z-index:40;" href="#">
+                                            <div class="textinfo">>Découvrir le domaine</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    }
+                }
+
+                }
+
+
+            </ul>
+        </div>
     </div>
-  
 
     <script src='/scripts/jquery.isotope.js'></script>
 
+    ///
+    /// SCRIPT SCROLL MENU + ANIMATION
+    ///
+
+
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".depart").hide();
-            $(".ville").hide();
-        });
-    function toggle_dep(id) {
-        var e = document.getElementById(id);
-        $(".depart").fadeOut();
-        $(".ville").fadeOut();
-        $("#" + id).fadeIn('slow');
-        if (e.childElementCount != 0) {
-            e.style.display = 'block';
-        }
-        else {
-            e.style.display = 'none';
-        }
+            var scrolla = $('#scroll').scrollTop();
+            $("#downb").click(function () {
 
-    }
-    function toggle_ville(id) {
-        var e = document.getElementById(id);
-        $(".ville").fadeOut();
-        $("#" + id).fadeIn('slow');
-        if (e.childElementCount != 0) {
-            e.style.display = 'flex';
-        }
-        else {
-            e.style.display = 'none';
-        }
+                $('#scroll').animate({
+                    scrollTop: $("p:last").offset().top
+                }, 2000);
+                $("#downb").animate({ opacity: 0, duration: 1 });
+                $("#topb").animate({ opacity: 1, duration: 1 });
 
-    }
-    function reset() {
-        $(".depart").fadeOut();
-        $(".ville").fadeOut();
-    }
+            });
+
+            $("#topb").click(function () {
+                var scrolla = $('#scroll').scrollTop();
+                if (scrolla > 30) {
+                    $("#scroll").animate({
+                        scrollTop: $("#ancrescroll").offset().top
+                    }, 800);
+                    $("#topb").animate({ opacity: 0, duration: 1 });
+                    $("#downb").animate({ opacity: 1, duration: 1 });
+
+
+
+
+                }
+
+
+
+            });
+        })
 
     </script>
+
+
+
+    //
+    ///FILTRE GRAYSCALE CROSSBROWSER
+    //
+    <script type="text/javascript">
+
+        $(window).load(function () {
+            $(".filtergray").each(function (index, obj) {
+                $("#" + $(obj).attr("data-image")).pixastic("desaturate");
+            });
+
+            $(".filtergray").mouseenter(function (e) {
+                var self = document.getElementById($(e.currentTarget).attr("data-image"));
+                Pixastic.revert(self);
+            });
+
+            $(".filtergray").mouseleave(function (e) {
+
+                $("#" + $(e.currentTarget).attr("data-image")).pixastic("desaturate");
+
+            });
+        });
+    </script>
+    ////------------///
+    <script src="/scripts/pixastic.jquery.js"></script>
+    <script src="/scripts/pixastic.core.js"></script>
+    <script src="/scripts/desaturate.js"></script>
+
 
 
     <script type="text/javascript">
         $(window).load(function () {
+            $(".depart").hide();
+            $(".ville").hide();
+
+
+            function toggle_dep(id) {
+                var e = document.getElementById(id);
+                $(".depart").fadeOut();
+                $(".ville").fadeOut();
+                $("#" + id).fadeIn('slow');
+                if (e.childElementCount != 0) {
+                    e.style.display = 'block';
+                }
+                else {
+                    e.style.display = 'none';
+                }
+
+            }
+            function toggle_ville(id) {
+                var e = document.getElementById(id);
+                $(".ville").fadeOut();
+                $("#" + id).fadeIn('slow');
+                if (e.childElementCount != 0) {
+                    e.style.display = 'flex';
+                }
+                else {
+                    e.style.display = 'none';
+                }
+
+            }
+            function reset() {
+                $(".depart").fadeOut();
+                $(".ville").fadeOut();
+            }
+
             var $container = $('.portfolio');
-                $container.imagesLoaded(function () {
+
+            $container.imagesLoaded(function () {
                 $container.isotope({
+                    layoutMode: 'masonry',
+                    itemSelector: '.sepa',
                     masonry: {
-                        columnWidth: 0
+                        columnWidth: 1,
+                        isFitWidth: true
+
+
+
                     }
-                });
-                });
-                $('.portfolioFilter a').click(function () {
-                    var $this = $(this);
-                    $('.portfolioFilter a').removeClass('active');
-                    $(this).addClass('active');
-                    var selector = $(this).attr('data-filter');
-                    $container.isotope({ filter: selector });
-                    return false;
 
                 });
-                $('.portfolioPhone select').change(function () {
-                    var $this = $(this);
-                    $('.portfolioPhone option').removeClass('active');
-                    $(this).addClass('active');
-                    
-                    var selector = $(this).val();
-                    $container.isotope({ filter: selector });
-                    return false;
+            });
 
-                });
+
+
+            $('.portfolioFilter a').click(function () {
+                var $this = $(this);
+                $('.portfolioFilter a').removeClass('active');
+                $(this).addClass('active');
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+
+            });
+            $('.portfolioPhone select').change(function () {
+                var $this = $(this);
+                $('.portfolioPhone option').removeClass('active');
+                $(this).addClass('active');
+
+                var selector = $(this).val();
+                $container.isotope({ filter: selector });
+                return false;
+
+            });
         });
+        $(document).ready(function () {
 
-        $(".linkDomain").click(function (e) {
-            e.preventDefault();
-            var link = '';
-            var href = $(this).attr('href');
-            //Filter desktop active
-            if ($(".portfolioFilter").css("display") != 'none') {
 
-                if ($(".portfolioFilter li a.active").attr("data-filter") != '*') {
-                    if ($(".ville li a.active").length != 0) {
-                        var region = $(".ville li a.active").closest(".depart").parent().find("a").first().attr("data-filter");
-                        var depart = $(".ville li a.active").closest(".ville").parent().find("a").first().attr("data-filter");
-                        link = region + depart + $(".ville li a.active").attr("data-filter");
-                    }
-                    else if ($(".depart li a.active").length != 0) {
-                        var region = $(".depart li a.active").closest(".depart").parent().find("a").first().attr("data-filter");
-                        link = region + $(".depart li a.active").attr("data-filter");
-                    }
-                    else {
-                        link = $(".portfolioFilter li a.active").attr("data-filter");
+            $(".linkDomain").click(function (e) {
+                e.preventDefault();
+                var link = '';
+                var href = $(this).attr('href');
+                //Filter desktop active
+                if ($(".portfolioFilter").css("display") != 'none') {
+
+                    if ($(".portfolioFilter li a.active").attr("data-filter") != '*') {
+                        if ($(".ville li a.active").length != 0) {
+                            var region = $(".ville li a.active").closest(".depart").parent().find("a").first().attr("data-filter");
+                            var depart = $(".ville li a.active").closest(".ville").parent().find("a").first().attr("data-filter");
+                            link = region + depart + $(".ville li a.active").attr("data-filter");
+                        }
+                        else if ($(".depart li a.active").length != 0) {
+                            var region = $(".depart li a.active").closest(".depart").parent().find("a").first().attr("data-filter");
+                            link = region + $(".depart li a.active").attr("data-filter");
+                        }
+                        else {
+                            link = $(".portfolioFilter li a.active").attr("data-filter");
+                        }
                     }
                 }
-            }
-            //Filter phone active
-            else {
-                var selected = $(".portfolioPhone option:selected");
-                
-                if (selected.val() != '*') {
-                    //Si région selectionnée 
-                    if (selected.attr("class") == 'regionP') {
-                        link = selected.val();
+                    //Filter phone active
+                else {
+                    var selected = $(".portfolioPhone option:selected");
+
+                    if (selected.val() != '*') {
+                        //Si région selectionnée
+                        if (selected.attr("class") == 'regionP') {
+                            link = selected.val();
+                        }
+                            //Si département selectionné
+                        else if (selected.attr("class") == 'departP') {
+                            var idRegion = "[value='" + selected.val() + "']";
+                            var region = $(".portfolioPhone option" + idRegion).prevAll(".regionP:first");
+                            link = region.val() + selected.val();
+                        }
+                            //Si ville selectionnée
+                        else if (selected.attr("class") == 'villeP') {
+                            var idDepart = "[value='" + selected.val() + "']";
+                            var depart = $(".portfolioPhone option" + idDepart).prevAll(".departP:first");
+                            var idRegion = "[value='" + depart.val() + "']";
+                            var region = $(".portfolioPhone option" + idRegion).prevAll(".regionP:first");
+                            link = region.val() + depart.val() + selected.val();
+                        }
                     }
-                    //Si département selectionné 
-                    else if (selected.attr("class") == 'departP') {
-                        var idRegion="[value='" +selected.val()+"']";
-                        var region = $(".portfolioPhone option" + idRegion).prevAll(".regionP:first");
-                        link = region.val() + selected.val();
-                    }
-                    //Si ville selectionnée 
-                    else if (selected.attr("class") == 'villeP') {
-                        var idDepart = "[value='" + selected.val() + "']";
-                        var depart = $(".portfolioPhone option" + idDepart).prevAll(".departP:first");
-                        var idRegion = "[value='" + depart.val() + "']";
-                        var region = $(".portfolioPhone option" + idRegion).prevAll(".regionP:first");
-                        link = region.val() + depart.val() + selected.val();
-                    }     
                 }
-            }
-            
-            if (link!='') {
-                window.location = href + '?listid=' + link;
-            }
-            else {
-                window.location = href
-            }
-            
-        });
-        
+
+                if (link != '') {
+                    window.location = href + '?listid=' + link;
+                }
+                else {
+                    window.location = href
+                }
+
+            });
+        })
     </script>
 }
+
+@*BreadCrumb Desactivé
+
+    var i = 0;
+    var k = 0;*@
+
+
+@*<div class="row-fluid">*@
+@*<ul class="portfolioFilter hidden-phone">
+        <li><a href="#" data-filter="*" class="active" onclick="reset()" style="color:#9e1237;padding-left: 4px;">Toutes les régions</a></li>
+        @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
+        {
+            var j = 0;
+            var depa = "dep" + i;
+            bool testD = false;
+            if (regions.Contains(reg.Id.ToString()))
+            {
+                <li class="divider-vertical">&nbsp;&nbsp;</li>
+                <li><a href="#" data-filter=".@reg.Id" onclick="toggle_dep('@depa');">@Model.NodeById(reg.Id).Name</a>
+                <ul class="depart" id="@depa">
+                    @foreach (var dep in Model.NodeById(reg.Id).Children.OrderBy("Name"))
+                    {
+                        var ville = "vil" + j;
+                        bool testV = false;
+                        if (departs.Contains(dep.Id.ToString()))
+                        {
+                            if (testD == false)
+                            {
+                                    <li style="color:#9e1237;padding-right: 40px;padding-left: 4px;">Départements</li>
+                                testD = true;
+                            }
+                            <li class="divider-vertical">&nbsp;&nbsp;</li>
+                            <li><a href="#"  data-filter=".@dep.Id" onclick="toggle_ville('@ville');">@dep.Name</a>
+                            <ul class="ville" id="@ville">
+
+                                @foreach (var vil in Model.NodeById(dep.Id).Children.OrderBy("Name"))
+                                {
+
+                                    if (villes.Contains(vil.Id.ToString()))
+                                    {
+                                        if (testV == false)
+                                        {
+                                        <li style="color:#9e1237;padding-right: 100px;padding-left: 4px;">Villes</li>
+                                            testV = true;
+                                        }
+                                        <li class="divider-vertical">&nbsp;&nbsp;</li>
+                                    <li><a href="#"  data-filter=".@vil.Id">@vil.Name</a></li>
+
+                                    }
+                                }
+                            </ul>
+                        </li>
+                        }
+                        j++;
+                    }
+                </ul>
+            </li>
+            }
+            i++;
+        }
+    </ul>*@
+
+@*<div class="portfolioPhone visible-phone">
+        <select class="visible-phone">
+            <option value="*" class="active" >Toutes les régions</option>
+        @foreach (var reg in Model.NodeById(1396).Children.OrderBy("Name"))
+        {
+            var j = 0;
+            var depaP = "dep" + k;
+            if (regions.Contains(reg.Id.ToString()))
+            {
+                <option class="regionP" value=".@reg.Id">@Model.NodeById(reg.Id).Name
+                    @foreach (var dep in Model.NodeById(reg.Id).Children.OrderBy("Name"))
+                    {
+                        var villeP = "vil" + j;
+                        if (departs.Contains(dep.Id.ToString()))
+                        {
+                        <option class="departP" value=".@dep.Id">- @dep.Name
+                                @foreach (var vil in Model.NodeById(dep.Id).Children.OrderBy("Name"))
+                                {
+                                    <option  class="villeP" value=".@vil.Id">-- @vil.Name</option>
+                                }
+                        </option>
+                        }
+                        j++;
+                    }
+            </option>
+            }
+            k++;
+        }
+        </select>
+    </div>*@

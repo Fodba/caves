@@ -116,7 +116,7 @@
 
 
 
-            <div id="membresPart" class="als-container posteDetail typeSlider membresPro">
+            <div id="membresPart" class="als-container posteDetail typeSlider membresPro slideOwl">
                 <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
                 <div class="cont" id="viewportPart">
                     <h3 class="titrePro styleBold">PARTICULIERS</h3>
@@ -129,20 +129,20 @@
                             {
                                 if (item.departement == "Particuliers")
                                 {
-                                    <div class="als-item">
-                                        <div class="membreEquipe span12" id="membre_@item.id">
-                                            @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                            <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                            <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                            <div class="als-item">
+                                <div class="membreEquipe span12" id="membre_@item.id">
+                                    @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                    <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                    <div class="zone-item-text"><p class="item-texte">@nom</p></div>
 
-                                        </div>
-                                        <div class="detailMembre" id="detail_@item.id">
-                                            <div class="poste">
-                                                <h3>@item.poste</h3>
-                                                <div class="descriptifPoste">@item.descriptif</div>
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="detailMembre" id="detail_@item.id">
+                                    <div class="poste">
+                                        <h3>@item.poste</h3>
+                                        <div class="descriptifPoste">@item.descriptif</div>
                                     </div>
+                                </div>
+                            </div>
                                 }
                             }
                         </div>

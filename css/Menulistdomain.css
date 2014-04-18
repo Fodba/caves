@@ -1,36 +1,245 @@
-﻿.menud{
-    z-index:1;
-    position:absolute;
-    float:right;
+﻿body {
+	/*font-family: Verdana, Arial, Helvetica, Sans-serif;*/
+	font-size: 75%;
+	color: black;
+	background-color: #eeeeee;
+	/*text-align: center;*/
+	padding: 0px !important;
+	margin: 0px;
+    /*height:100%;*/
+    /*min-height:100%;*/
+    position:relative;
     
-    /*top:0%;*/
-    right:0px;
-    width:20%;
-    min-width:200px;
-    height:100%;
-    background-color:#9e1237
+    
+    
+    
+}
+.menud{
+    z-index:5;
+    position:relative;
+    overflow:hidden;
+    /*left:80%;*/
+    width:100%;
+    /*right:0%!important;*/
+    height:1024px;
+    background-color:#9e1237;
+    display:table;
+    
+    
 }
 #content{
-    /*position:relative;
-    width:100%;*/
     
+    position:relative;
+    width:100% !important;
+    margin:0;
+    /*overflow:hidden;*/
+    height:100%;
     
 }
 .divport,.menud{
     display:inline-block !important;
 }
+.resp{
+    display:inline-block;
+    float:right;
+    width:20%;
+}
 .divport{
-    position:absolute;
+    height:auto;
+    
+    /*height:auto;*/
+    position:relative;
     width:80%;
-    /*left:0px;*/
-    /*overflow:hidden;*/
+    /*right:20%;*/
+   
 }
 #menua a{
     color:white;
-    margin-left:50px;
+    position:relative;
     text-align:left;
     display:block;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    vertical-align:baseline;
+}
+.triangle {
+    position:absolute;
+    zoom:20%;
+    bottom:1000px;
+    right:5%;
+    
+    -moz-transform: scale(0.2);
+    
+    z-index:50;
+    
+}
+.triangletop{
+    position:absolute;
+    zoom:20%;
+    top:30px;
+    right:5%;
+    
+    -moz-transform: scale(0.2);
+    z-index:50;
+}
+.sep{
+    background-color:#9e1237;
+    list-style-type:none;
+    display:inline-block;
+    width:240px;
+    height:150px;
+    position:absolute;
+   
+}
+.sepinter{
+    position:absolute;
+    text-align:center;
+    top:55px;
+}
+.sepinter p{
+    position:relative;
+    color:white;
+    -webkit-text-shadow: rgba(0,0,0,01) 0 0 1px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-left: 8px;
+}
+.grid-sizer {
+  width: 20%;
+  height: 110px;
+}
+
+p.special{
+    display:inline-block;
+    font-weight:900;
+    font-family: Verdana, Arial, Helvetica, Sans-serif;
+    z-index:0;
+    font-size:200%;
+  
+}
+
+.texta{
+    
+    word-wrap:break-word;
+    position:relative;
+    font-family: Verdana, Arial, Helvetica, Sans-serif;
+    display:inline-block;
+    
+    
+
+}
+p.textb{
+    display:inline-block;
+    font-weight:900;
+    font-family: Verdana, Arial, Helvetica, Sans-serif;
+    word-wrap:break-word;
+    position:relative; 
+}
+
+
+.sizevignette{
+    height:150px;
+}
+a.texthover{
+    margin-right:0px !important;
+    width:70%;
+    
+    
+}
+a.texthover:hover {
+     text-decoration:none;
+     cursor:pointer;
+     color:#C04B66 !important;
+}
+
+.test{
+    background-color:white;
+    color:black;
+}
+#topa {
+    position: absolute;
+    top: 0;
+}
+
+#bottoma {
+    position: absolute;
+    top: 900px;
+}
+#scroll {
+    overflow:hidden;
+    position:relative;
+    height:760px;
+    width:100%;
+
+}
+.textsepa{
+    font-size:20px;
+    font-weight:lighter;
+    float:left;
+    margin-left:10px; 
+}
+.textsepb{
+    font-size:14px;
+    font-weight:900;
+    top:-13px;
+    float:left;
+    margin-left:10px;
+}
+
+.leftb{
+   
+    width:90%;
+    padding-left:50px;
+   
+}
+.textinfo{
+    font-weight:100;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;*/
+}
+h2.namesup{
+    position: relative; 
+    float: left !important; 
+    margin-left: 2px; 
+    /*top: 80px;*/ 
+    font-weight: 100;
+    font-size:22px;
+    /*word-wrap:break-word;*/
+    /*text-overflow:ellipsis;*/
+    display:inline-block;
+    line-break: auto;
+    text-align:left;
+    
+    
+   
+    
+}
+.domainsup{
+    
+    text-align:left;
+    /*display:inline-block;*/
+    position:   relative;
+    font-size:22px;
+    /*word-wrap:break-word;*/
+    color:#C04B66;
+    font-weight:100;
+    float:left !important;
+    margin-left:2px;
+    /*text-overflow:ellipsis;*/
+    line-break:strict;
+      
+}
+@media only screen and (max-width: 600px) {
+    .menud {
+        position: relative;
+        height: 2600px;
+    }
+
+    .leftb {
+        padding-left: 5px;
+    }
+
+    .triangle {
+        top: 35%;
+    }
 }
 
 
