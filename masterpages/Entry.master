@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="/less/bootstrap.less" />
   <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />
+    <link href="/css/fonts/OpenSans/OpenSans.css" rel="stylesheet" />
  
 </head>
 
@@ -33,7 +34,7 @@
     <div id="content" >
       <asp:ContentPlaceHolder Id="CphMain" runat="server" />
         <div >
-            <a class="linkEnter" href="fr/accueil/"><div class="enter"><span><strong>ENTREZ</strong>DANS LA CAVE<img src="/css/gfx/arrow_enter.png" /></span></div></a>
+            <a class="linkEnter" href="fr/accueil/"><div class="enter styleBold"><span><strong>ENTREZ</strong>DANS LA CAVE<img src="/css/gfx/arrow_enter.png" /></span></div></a>
         </div>        
     </div>
 	</div> 

@@ -4,26 +4,23 @@
 @*
     Model = The current page the macro is executed on
             @Model.bodyText
-
     Parameter = collection of parameter values passed from the macro
             @Paramter.myParam
-
     Library = utillity library with common methods
             @Library.NodeById(1233)
 *@
 
-
-
-@* The fun starts here *@
-
-<script src="/scripts/jquery.als-1.3.min.js"></script>
-
 @{
+    /// on récupère le noeud de plus haut niveau,
     var ancetre = Model.AncestorsOrSelf().First();
+    ///on liste tous ses descendants de type "Folder".
     var dos = ancetre.Descendants("Folder");
     var equipes = Model;
     var membresPro = Model;
     var membresPart = Model;
+    
+    
+    /// on récupère le descendant qui se nomme "Equipe",
     foreach (var item in dos)
     {
         if (item.name == "Equipe")
@@ -31,6 +28,7 @@
             equipes = item;
         }
     }
+    /// on trie les descendants d'Equipe en fonctions du service.
     foreach (var item1 in equipes.Descendants())
     {
         if (item1.departement == "professionnels")
@@ -42,214 +40,128 @@
             membresPart = item1;
         }
     }
-    //var membres = equipes.Descendants("Membre");
+    
+    
+    /// affichage des données.
     var SelectedMembre = equipes.Descendants().First();
-    var nombre = 0;
+    var model = Model;
+    <div class="divSlider row-fluid">
+        <h2 class="span13 titreSection styleLight">L'EQUIPE CAVES QUARANTE ET UN</h2>
+        <div class=" divGlobal">
+            <div id="membresPro" class="typeSlider ">
+                <div class="slideOwl membresPro">
+                    <span class="slider-prev"><img class="imageBouton" src="~/media/images/leftarrow.png" /></span>
 
-    <div>
-        <h2>L'équipe Caves Quarante et un</h2>
-        <div id="membresPro" class="als-container">
-            <h3>PROFESSIONNELS</h3>
-            <span class="als-prev"><img src="~/media/images/leftarrow.png" /></span>
-            <div class="slider als-viewport Vdiv" id="viewportPro">
-                <ul class="als-wrapper typeMembre" id="wrapperPro">
+                    <div id="sliderPro" class="als-container posteDetail">
+                        <h3 class="titrePro styleBold">VENTES AUPRES DES PROFESSIONNELS</h3>
+                        <div class="slider">
+
+
+                            <div class="cont row owl-carousel" id="viewportPro">
+
+                                @foreach (var item in equipes.Descendants())
+                                {
+                                    if (item.departement == "Professionnels")
+                                    {
+                                        <div class="als-item">
+                                            <div class="zoneMembre" id="membre_@item.id">
+                                                <div class="membreEquipe span12">
+                                                    @{var nom = item.nom.ToString().ToUpper();}
+                                                    <img class="" src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                                    <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                                </div>
+                                            </div>
+                                            <div class="detailMembre" id="detail_@item.id">
+                                                <div class="poste">
+                                                    <h3 class="styleSemiBold">@item.poste</h3>
+                                                    <div class="descriptifPoste">@item.descriptif</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <span class="slider-next"><img class="imageBouton" src="~/media/images/rightarrow.png" /></span>
+                </div>
+
+                <div id="accueilTel" class="posteDetail membresPro">
+                    <h3 class="styleBold">ACCUEIL TELEPHONIQUE</h3>
                     @foreach (var item in equipes.Descendants())
                     {
-                        if (item.departement == "Professionnels")
+                        if (item.nom.ToString().ToLower() == "havez")
                         {
-                            <li class="als-item">
-                                <div class="membreEquipe" id="membre @nombre">
-                                    @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                    @*<a class="slide_link" id="@item.id" href="#">*@
-                                        <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                        <div class="zone-item-text"><p class="item-texte">@*@nom +": "+*@ @nombre</p></div>
-                                    @*</a>*@
-                                </div>
-                                <div class="detailMembre" id="@item.id">
-                                    <div class="poste">
-                                        <h3>@item.poste</h3>
-                                        <div class="descriptifPoste">@item.descriptif</div>
-                                    </div>
-                                </div>
-                                @{nombre++; }
-                            </li>
+                            <div class="membreEquipe" id="membre_@item.id">
+                                @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                            </div>
                         }
                     }
-                </ul>
-            </div>
-            <span class="als-next"><img src="~/media/images/rightarrow.png" /></span>
-        </div>
-        <div id="membresPart" class="als-container">
-            <h3>PARTICULIERS</h3>
-            <span class="als-prev"><img src="~/media/images/leftarrow.png" /></span>
-            <div class="slider als-viewport Vdiv" id="viewportPart">
-                <ul class="als-wrapper typeMembre" id="wrapperPart">
-                    @foreach (var item in equipes.Descendants())
-                    {
-                        if (item.departement == "Particuliers")
-                        {
-                            <li class="als-item">
-                                <div class="membreEquipe" id="membre @nombre">
-                                    @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                    @*<a class="slide_link" id="@item.id" href="#">*@
-                                        <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                        <div class="zone-item-text"><p class="item-texte">@nom</p></div>
-                                    @*</a>*@
+                </div>
 
-                                </div>
-                                <div class="detailMembre" id="@item.id">
-                                    <div class="poste">
-                                        <h3>@item.poste</h3>
-                                        <div class="descriptifPoste">@item.descriptif</div>
-                                    </div>
-                                </div>
-                                @{nombre++; }
-                            </li>
-                        }
-                    }
-                </ul>
+                <div class="divA">
+                    <div class="flecheBas">
+                        <button>
+                            <img class="imageBouton" src="~/media/images/flechebas.png" />
+                        </button>
+                    </div>
+                </div>
             </div>
-            <span class="als-next"><img src="~/media/images/rightarrow.png" /></span>
+
+
+
+            <div id="membresPart" class="als-container posteDetail typeSlider membresPro">
+                <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
+                <div class="cont" id="viewportPart">
+                    <h3 class="titrePro styleBold">PARTICULIERS</h3>
+
+
+                    <div class="slider">
+
+                        <div class="row typeMembre owl-carousel" id="wrapperPart">
+                            @foreach (var item in equipes.Descendants())
+                            {
+                                if (item.departement == "Particuliers")
+                                {
+                                    <div class="als-item">
+                                        <div class="membreEquipe span12" id="membre_@item.id">
+                                            @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                            <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                            <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+
+                                        </div>
+                                        <div class="detailMembre" id="detail_@item.id">
+                                            <div class="poste">
+                                                <h3>@item.poste</h3>
+                                                <div class="descriptifPoste">@item.descriptif</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <span class="slider-next"><img src="~/media/images/rightarrow.png" /></span>
+            </div>
+
         </div>
     </div>
-
-    <script src="~/scripts/jquery.als-1.3.min.js"></script>
-    <script src="~/scripts/jquery.slimscroll.min.js"></script>
-    <link href="~/css/als_style.css" rel="stylesheet" />
-    <script>
-        $(window).load(function () {
-
-
-
-
-            if ($(".conteneu").width >= "650px") {
-                $("#membresPro").als({
-                    visible_items: 3,
-                    scrolling_items: 1,
-                    orientation: "horizontal",
-                    circular: "yes",
-                    autoscroll: "no",
-                    //start_from: 0
-                });
-                $("#membresPart").als({
-                    visible_items: 2,
-                    scrolling_items: 1,
-                    orientation: "horizontal",
-                    circular: "yes",
-                    autoscroll: "no",
-                    //start_from: 0
-                });
-            };
-            //else {
-            //    $(".conteneu").css("display", "block");
-            //    $("#membresPro").als({
-            //        visible_items: 1,
-            //        scrolling_items: 1,
-            //        orientation: "horizontal",
-            //        circular: "yes",
-            //        autoscroll: "yes",
-            //        start_from: 0
-            //    });
-            //    $("#membresPart").als({
-            //        visible_items: 1,
-            //        scrolling_items: 1,
-            //        orientation: "horizontal",
-            //        circular: "yes",
-            //        autoscroll: "yes",
-            //        start_from: 0
-            //    });
-            //};
-            $(".descriptifPoste").slimScroll({
-                height: "120px",
-                width:"250px",
-                size: "15px",
-                color: "#9b1230",
-                distance: "-10px",
-                wheelStep: 2,
-                railVisible: true,
-                alwaysVisible: true
-            });
-
-
-
-            $(".membreEquipe").click(function () {
-                var elem = $(this);
-                var id = elem.id;
-                var parent = elem.parent();
-                parent.closest(".als-wrapper").find(".membreEquipe:not(#membre +" + id + ")").css("display", "none");
-                elem.css("display", "inline-block").css("overflow", "hidden");
-                parent.css("width", "450px").css("overflow", "hidden");
-                elem.css("overflow", "hidden");
-                parent.find(".detailMembre").position({
-                    my: "left",
-                    at: "right",
-                    of: elem,
-                    whitin: parent
-                })
-                parent.find(".detailMembre").css("display", "inline-block").css("visibility", "visible");
-                elem.closest(".Vdiv").css("width", "450px");
-                elem.closest(".typeMembre").css("width", "450px");
-                elem.find("img").css("margin-left", "0px");
-                elem.closest(".typeMembre").css("width", elem.size + "150px");
-                elem.closest(".typeMembre").hide().fadeIn("fast");
-            //    $(".membreEquipe").hover(function () {
-            //        var elem = $(this);
-            //        var parent = elem.parent();
-            //        elem.css("width", "450px");
-            //        elem.closest(".Vdiv").css("width", "450px");
-            //        elem.closest(".typeMembre").css("width", "450px");
-            //        elem.find("img").css("margin-left", "0px");
-            //        elem.closest(".typeMembre").css("width", elem.size + "150px");
-            //        elem.parents(".typeMembre").hide().fadeIn("fast");
-            //    },
-            //    function () {
-            //        var elem = $(this);
-            //        var parent = elem.parent();
-            //        elem.css("width", "150px");
-            //        elem.closest(".Vdiv").css("width", "150px");
-            //        elem.closest(".typeMembre").css("width", "150px");
-            //        elem.find("img").css("margin-left", "0px");
-            //        elem.closest(".typeMembre").css("width", "auto");
-            //        elem.closest(".typeMembre").hide().fadeIn("fast");
-            //    });
-            });
-        })
-    </script>
 }
 
-@*@helper detailleMembre(int itemPar)
-{
-    var ancetre = Model.AncestorsOrSelf().First();
-    var dos = ancetre.Descendants("Folder");
-    var equipes = Model;
-    var SelectedMembre = equipes.Descendants().First();
-    foreach (var item in dos)
-    {
-        if (item.name == "Equipe")
-        {
-            equipes = item;
-        }
-        //}
-        //foreach (var item1 in equipes.Descendants())
-        //{
-        //    if (itemPar != 0) { 
-        //        if (item1.id == itemPar)
-        //        {
-        //            SelectedMembre = item1;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        SelectedMembre = equipes.Descendants().First();
-        //    }
-    }
-    
-    
-    <h3>@SelectedMembre.departement</h3>
-    <div class="test">
-        @{var nom = SelectedMembre.nom.ToString().ToUpper() + " " + SelectedMembre.prenom.ToString().ToUpper();}
-        <img src="@Library.MediaById(SelectedMembre.photo.ToString()).UmbracoFile" alt="@SelectedMembre.Nom" />
-        <div class="detailMembre-text"><p class="item-texte">@nom</p></div>
-    </div>
-}*@
+
+
+
+
+
 

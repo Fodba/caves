@@ -10,6 +10,7 @@
   <umbraco:Macro Alias="MetaDescription" runat="server" />
   
   <!-- STYLESHEETS -->
+    <link href="/css/fonts/OpenSans/OpenSans.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="/less/bootstrap.less" />
   <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 

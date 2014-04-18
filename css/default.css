@@ -22,7 +22,7 @@ a, a:link { text-decoration: none; outline: none; }
 /****************************************************
    - MASTER SETUP
 ****************************************************/
-html, body { height: 100%; }
+html, body { height: 100%; font-family:"OpenSans"; }
 body { background: url('/css/gfx/bg.jpg') repeat-x; }
 div#wrapper { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -500px; }
 div#wrapper div.push { height:500px; }

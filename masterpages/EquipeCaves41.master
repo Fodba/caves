@@ -5,21 +5,19 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="CphMain2" runat="server">
-    <div class="container-fluid scroll-h conteneir" style="margin-top: 50px;">
-        <div class="row-fluid scroll-h page41">
-            <div class="span7 scroll-pane" id="source">
-                <div class="contenu">
-                    <div class="title">
-                        <umbraco:Item ID="Item1" Field="pageHeading" runat="server" />
-                    </div>
-                    <div>
-                        <umbraco:Item ID="Item2" Field="pageContent" runat="server" />
-                        <br />
-                        <br />
-                    </div>
+    <div class="container-fluid scroll-h conteneir row-fluid" style="margin-top: 50px;">
+
+
+        <div class="row-fluid scroll-h contet">
+            <div class=" scroll-pane span9" id="source">
+                <div class="contenu span11">
+                    <umbraco:Macro Alias="afficheSection" runat="server"></umbraco:Macro>
                 </div>
             </div>
-            <div class="conteneu">
+
+
+
+            <div class="conteneu span4">
                 <umbraco:Macro Alias="AfficheMembre" runat="server"></umbraco:Macro>
             </div>
         </div>
