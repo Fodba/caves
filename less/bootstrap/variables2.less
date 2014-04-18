@@ -1,4 +1,4 @@
-//
+﻿//
 // Variables
 // --------------------------------------------------
 
@@ -44,9 +44,9 @@
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+@sansFontFamily:        'OpenSans';//,"Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       'OpenSans';//,Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        'OpenSans';//,Monaco, Menlo, Consolas, "Courier New", monospace;
 
 @baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
@@ -395,9 +395,9 @@
 .rubrique span{
 	color:#9f1536;
 	text-transform:uppercase;
-	font-size: 18px;
+	font-size: 22px;
 	letter-spacing: 3px;
-	text-align:left;
+	text-align:justify;
 	display:block;
 	
 }
@@ -527,8 +527,9 @@
 }
 .scroll-h
 {
-height:100%;
-overflow:hidden;
+    height:850px;
+    width:100%;
+    overflow:hidden;
 }
 
 .portfolioFilter{
@@ -553,11 +554,9 @@ overflow:hidden;
 	
 }
  .portfolio{
-     
-	/*width:80%;*/
+	width:98%;
 	top:80px;
 	overflow:visible !important;
-    
  }
  .portfolio li div a{
 	
@@ -566,7 +565,7 @@ overflow:hidden;
 	font-size: 12px;
  }
  .portfolio li{
-	/*background-color: rgba(255,255,255,0.9);*/
+	background-color: rgba(255,255,255,0.9);
  }
  .portfolio li div a{
 	text-decoration:none;
@@ -648,19 +647,17 @@ overflow:hidden;
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
-    -ms-transition-duration: 0.8s;
+ 
     -webkit-transition-duration: 0.8s;
     -moz-transition-duration: 0.8s;
     transition-duration: 0.8s;
 }
 .isotope {
-    -ms-transition-property: height, width;
     -webkit-transition-property: height, width;
     -moz-transition-property: height, width;
     transition-property: height, width;
 }
 .isotope .isotope-item {
-    -ms-transition-property: -webkit-transform, opacity;
     -webkit-transition-property: -webkit-transform, opacity;
     -moz-transition-property: -moz-transform, opacity;
     transition-property: transform, opacity;
@@ -699,5 +696,6 @@ overflow:hidden;
 		padding: 16px 10px 16px 30px;
 	}
 }
+
 
 html { overflow: -moz-scrollbars-horizontal !important; } 

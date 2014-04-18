@@ -17,15 +17,19 @@
     <%--<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />--%>
     <link href="/css/fonts/OpenSans/OpenSans.css" rel="stylesheet" />
 	<link type="text/css" href="/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
-    <link href="/css/domaine.css" rel="stylesheet" />
+    <link href="/css/domaine2.css" rel="stylesheet" />
     <link href="/css/Equipe2.css" rel="stylesheet" />
     <link href="/css/owl.carousel.css" rel="stylesheet" />
+    <link href="/css/connection.css" rel="stylesheet" />
 
 	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
     <script src="/scripts/jquery-2.1.0.min.js"></script>
     <script src="/scripts/jquery.ui.position.js"></script>
     <script src="/scripts/owl.carousel.min.js"></script>
     <script src="/scripts/bowser.min.js"></script>
+    <script src="/scripts/pixastic.core.js"></script>
+    <script src="/scripts/pixastic.jquery.js"></script>
+    <script src="/scripts/desaturate.js"></script>
     <script src="/scripts/equipePro.js"></script>
 
 </head>

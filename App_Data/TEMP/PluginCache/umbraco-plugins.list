@@ -1,19 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <plugins>
   <baseType type="umbraco.interfaces.IApplicationStartupHandler" resolutionType="FindAllTypes">
-    <add type="DigibizAdvancedMediaPicker.DAMP_ApplicationBase, DigibizAdvancedMediaPicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="umbraco.BusinessLogic.ApplicationRegistrar, businesslogic, Version=1.0.4869.18013, Culture=neutral, PublicKeyToken=null" />
-    <add type="umbraco.BusinessLogic.ApplicationTreeRegistrar, businesslogic, Version=1.0.4869.18013, Culture=neutral, PublicKeyToken=null" />
-    <add type="TheOutfield.UmbExt.MediaIcons.Logic.AppBase, TheOutfield.UmbExt.MediaIcons, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="UmbracoExamine.UmbracoEventManager, UmbracoExamine, Version=0.1.42.2941, Culture=neutral, PublicKeyToken=null" />
-    <add type="vipperod_events.jesperEasyValues, App_Code.7vvdntsr, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="umbraco.editorControls.PickerRelations.PickerRelationsEventHandler, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.MultiPickerRelations.MultiPickerRelationsEventHandler, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.ApplicationStartup, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="Our.Umbraco.StructureExtensions.Events.CleanupConfig, Our.Umbraco.StructureExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="Our.Umbraco.StructureExtensions.Events.RegisterModules, Our.Umbraco.StructureExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="Our.Umbraco.StructureExtensions.Events.InjectExtensions, Our.Umbraco.StructureExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="ContextQuickLink.QuickLinkMenu, ContextQuickLink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Strategies.DataTypes.LegacyUploadFieldWorkaround, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Strategies.Migrations.PublishAfterUpgradeToVersionSixth, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Strategies.Publishing.UpdateCacheAfterPublish, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
@@ -23,8 +10,21 @@
     <add type="umbraco.presentation.nodeFactory.UmbracoSiteMapProviderAccessUpdate, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.presentation.EnsureSystemPathsApplicationStartupHandler, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.presentation.umbraco.Search.ExamineEvents, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
+    <add type="TheOutfield.UmbExt.MediaIcons.Logic.AppBase, TheOutfield.UmbExt.MediaIcons, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="InfoCaster.Umbraco._301UrlTracker.Base301URLTracker, InfoCaster.Umbraco._301UrlTracker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="ContextQuickLink.QuickLinkMenu, ContextQuickLink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.editorControls.PickerRelations.PickerRelationsEventHandler, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
+    <add type="DigibizAdvancedMediaPicker.DAMP_ApplicationBase, DigibizAdvancedMediaPicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.InstallStatistics.ui.UmbracoUIHook, Umbraco.InstallStatistics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="vipperod_events.jesperEasyValues, App_Code.qz3op0x5, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="UmbracoExamine.UmbracoEventManager, UmbracoExamine, Version=0.1.42.2941, Culture=neutral, PublicKeyToken=null" />
+    <add type="Our.Umbraco.StructureExtensions.Events.CleanupConfig, Our.Umbraco.StructureExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Our.Umbraco.StructureExtensions.Events.RegisterModules, Our.Umbraco.StructureExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Our.Umbraco.StructureExtensions.Events.InjectExtensions, Our.Umbraco.StructureExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.BusinessLogic.ApplicationRegistrar, businesslogic, Version=1.0.4869.18013, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.BusinessLogic.ApplicationTreeRegistrar, businesslogic, Version=1.0.4869.18013, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.ApplicationStartup, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.MultiPickerRelations.MultiPickerRelationsEventHandler, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Core.Models.IMacroPropertyType" resolutionType="FindAllTypes" />
   <baseType type="Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter" resolutionType="FindAllTypes" />
@@ -38,9 +38,20 @@
     <add type="Umbraco.Web.Media.ImageUrlProviders.ImageUrlProvider, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="umbraco.interfaces.IDataType" resolutionType="FindAllTypes">
-    <add type="DigibizAdvancedMediaPicker.DAMP_DataType, DigibizAdvancedMediaPicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="Our.Umbraco.WidgetGrid.DataTypes.WidgetGridDataType, Our.Umbraco.WidgetGrid, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.ImageDropdown.ID_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.JsonDropdown.JD_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.MultiNodeTreePicker.MNTP_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.MultipleTextstring.MultipleTextstringDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.RadiobuttonListWithImages.RLWI_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.RelatedLinksWithMedia.RelatedLinkswMediaDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.Slider.SliderDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.StyledTextBox.StyledTextBoxDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.UniqueProperty.UniquePropertyDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.XPathCheckBoxList.XPathCheckBoxListDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.XPathDropDownList.XPathDropDownListDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="InfoCaster.Umbraco._301UrlTracker.DataType_301URLTracker.DataType301URLTrackerDataType, InfoCaster.Umbraco._301UrlTracker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Gecko.Uploadify.UploadifyDataType, Gecko.Uploadify, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Our.Umbraco.WidgetGrid.DataTypes.WidgetGridDataType, Our.Umbraco.WidgetGrid, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.editorControls.PickerRelations.PickerRelationsDataType, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.editorControls.checkboxlist.checkboxListDataType, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.editorControls.colorpicker.ColorPickerDataType, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
@@ -76,17 +87,10 @@
     <add type="umbraco.editorControls.XPathCheckBoxList.XPathCheckBoxListDataType, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.editorControls.XPathDropDownList.XPathDropDownListDataType, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.editorControls.yesno.YesNoDataType, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.ImageDropdown.ID_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.JsonDropdown.JD_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.MultiNodeTreePicker.MNTP_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.MultipleTextstring.MultipleTextstringDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.RadiobuttonListWithImages.RLWI_DataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.RelatedLinksWithMedia.RelatedLinkswMediaDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.Slider.SliderDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.StyledTextBox.StyledTextBoxDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.UniqueProperty.UniquePropertyDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.XPathCheckBoxList.XPathCheckBoxListDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.XPathDropDownList.XPathDropDownListDataType, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="DigibizAdvancedMediaPicker.DAMP_DataType, DigibizAdvancedMediaPicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.DataTypes.StockManagement.StockManagementDataType, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.DataTypes.VatGroupPicker.VatGroupPickerDataType, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.DataTypes.StorePicker.StorePickerDataType, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.DataTypes.AutoComplete.AutoCompleteDataType, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.DataTypes.CharLimit.CharLimitDataType, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.DataTypes.CheckBoxTree.CheckBoxTreeDataType, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -115,24 +119,8 @@
     <add type="uComponents.DataTypes.ToggleBox.TB_DataType, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.DataTypes.UrlPicker.UrlPickerDataType, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.DataTypes.UserPicker.UserPickerDataType, uComponents.DataTypes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.DataTypes.StockManagement.StockManagementDataType, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.DataTypes.VatGroupPicker.VatGroupPickerDataType, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.DataTypes.StorePicker.StorePickerDataType, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="InfoCaster.Umbraco._301UrlTracker.DataType_301URLTracker.DataType301URLTrackerDataType, InfoCaster.Umbraco._301UrlTracker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="umbraco.interfaces.ITree" resolutionType="FindAllTypes">
-    <add type="FergusonMoriyama.Umbraco.ExamineGui.ConfigTree, FergusonMoriyama.Umbraco.ExamineGui, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="Our.Umbraco.Tree.RobotsTxt.RobotsTxtTree, Our.Umbraco.Tree.RobotsTxt, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="DigibizTree.Picker.DigibizMediaTree, DigibizTree, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null" />
-    <add type="uLess.Core.Trees.LoadLessFilesTree, uLess.Core, Version=0.2.1.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="umbraco.editorControls.MultiNodeTreePicker.FilteredContentTree, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
-    <add type="umbraco.editorControls.MultiNodeTreePicker.FilteredMediaTree, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.MultiNodeTreePicker.FilteredContentTree, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="uComponents.DataTypes.MultiNodeTreePicker.FilteredMediaTree, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.Trees.SecurityTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.Trees.StoreTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.Trees.NeedHelpTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="TeaCommerce.Umbraco.Application.Trees.LicenseTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Trees.PartialViewsTree, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Trees.PartialViewMacrosTree, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.loadDLRScripts, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
@@ -167,7 +155,19 @@
     <add type="umbraco.cms.presentation.Trees.LegacyTree, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.cms.presentation.Trees.UserPermissions, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.cms.presentation.Trees.UserTypes, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.MultiNodeTreePicker.FilteredContentTree, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uComponents.DataTypes.MultiNodeTreePicker.FilteredMediaTree, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="InfoCaster.Umbraco._301UrlTracker.Tree301URLTracker, InfoCaster.Umbraco._301UrlTracker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="FergusonMoriyama.Umbraco.ExamineGui.ConfigTree, FergusonMoriyama.Umbraco.ExamineGui, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="uLess.Core.Trees.LoadLessFilesTree, uLess.Core, Version=0.2.1.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.editorControls.MultiNodeTreePicker.FilteredContentTree, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.editorControls.MultiNodeTreePicker.FilteredMediaTree, umbraco.editorControls, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
+    <add type="DigibizTree.Picker.DigibizMediaTree, DigibizTree, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null" />
+    <add type="Our.Umbraco.Tree.RobotsTxt.RobotsTxtTree, Our.Umbraco.Tree.RobotsTxt, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.Trees.SecurityTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.Trees.StoreTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.Trees.NeedHelpTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="TeaCommerce.Umbraco.Application.Trees.LicenseTree, TeaCommerce.Umbraco.Application, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="umbraco.interfaces.IApplication" resolutionType="FindTypesWithAttribute">
     <add type="umbraco.businesslogic.ContentApplicationDefinition, businesslogic, Version=1.0.4869.18013, Culture=neutral, PublicKeyToken=null" />
@@ -211,10 +211,10 @@
     <add type="umbraco.ActionHandlers.umbEnsureUniqueName, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="umbraco.cms.businesslogic.macro.IMacroEngine" resolutionType="FindAllTypes">
+    <add type="Umbraco.Web.Macros.PartialViewMacroEngine, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.MacroEngines.RazorMacroEngine, umbraco.MacroEngines, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.MacroEngines.StaticFileMacroEngine, uComponents.MacroEngines, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="uComponents.MacroEngines.XsltMacroEngine, uComponents.MacroEngines, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <add type="umbraco.MacroEngines.RazorMacroEngine, umbraco.MacroEngines, Version=1.0.4869.18016, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.Macros.PartialViewMacroEngine, umbraco, Version=1.0.4869.18015, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="umbraco.MacroEngines.IRazorDataTypeModel" resolutionType="FindTypesWithAttribute">
     <add type="uComponents.DataTypes.MultiNodeTreePicker.MultiNodeTreePickerModelBinder, uComponents.Legacy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null" />

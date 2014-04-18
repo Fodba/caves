@@ -1,0 +1,28 @@
+﻿/* ------------------------------------- FORMULAIRE INSCRIPTION/CONNEXION ------------------------------ */
+.inscriptionConnection{
+    width:60%;
+    margin:auto;
+    padding:30px;
+    /*display:inline-block;*/
+}
+.formContent{
+    width:auto;
+    margin:auto;
+    position:relative;
+	/*margin-top: 100px;*/
+    display:inline-block;
+}
+.formulaire{
+    display:inline-block;
+    position:relative;
+    vertical-align:middle;
+    width:45%;
+    /*border:1px solid red;*/
+    margin:auto;
+    /*margin-top:50px;*/
+    min-width:500px;
+    padding:10px;
+}
+.inscription{
+    width:95%;
+}
