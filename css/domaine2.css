@@ -1,57 +1,34 @@
-﻿body {
-}
-
-/* ------------------------------------ PORTFOLIO ----------------------------------------*/
-
+﻿/* ------------------------------------ PORTFOLIO ----------------------------------------*/
 .portfolio{
-    /*overflow:hidden;*/
     position:relative;
     background-color:#000000;
 	width:100% ;
     height:auto;
-    
 	top:0%;
-    /*overflow:visible !important;*/
     overflow:hidden;
     padding:0;
     float:right;
-    
-    
-    
-    
-    
 }
 
 .portfolio isotope-item{
-  
-    
     padding:0px;
     margin:0 !important;
     margin-right:200px;
-    
 }
 
 .isotope,.isotope-item{
-    
-    
     padding:0px;
     margin:0px !important;
-    
 }
 
 .portfolio li{
     position:relative;
     padding:0px;
-    /*margin-right:50px;*/
     overflow:hidden;
-    
 }
 
 /* ------------------------------------ THUMB ---------------------------------------------*/
-
  .vignette{
-     
-    
     list-style-type:none;
     display:inline-block;
     width:120px;
@@ -63,36 +40,19 @@
     -o-transition:2s;
     -khtml-transition:2s;
     -ms-transition:2s;
-    /*background-color:white;*/
     z-index:2;
     opacity:0.3;
-    
  }
  .vignettes{
-     
-    
     background-color:#9e1237;
-    /*height:150px;
-    width:220px !important;
-    z-index:9;
-    position:absolute;*/
-    
     list-style-type:none;
     display:inline-block;
     width:220px;
     height:150px;
     position:relative;
-    
-    
-    /*background-color:white;*/
-    
- }
- .vignette{
-	/*background-color: rgba(255,255,255,0.9);*/
  }
 
 .vignette:hover{
-    
     -ms-opacity:1;
     opacity:1;
     -webkit-transition: width 200ms;
@@ -100,11 +60,8 @@
     -ms-transition: width 200ms;
     -o-transition: width 200ms;
     -khtml-transition: width 200ms;
-    /*width:130px;*/
     z-index:3;
     overflow:visible;
-    
-    
 }
 /* ------------------------------------ LINK_DOMAIN ---------------------------------------------*/
 .linkDomain{
@@ -116,7 +73,6 @@
 	color: #9e1237;
 	font-weight: bold;
 	font-size: 12px;
-	
  }
 
 /* ------------------------------------ INFOSSUP ---------------------------------------------*/
@@ -132,16 +88,12 @@
 }
 
 .infosSup{
-    
     position:relative;
     left:150px;
     width:240px;
     height:150px;
     background-color:white;
-    /*display:none;*/
-    
 }
-
 
 .infosSup,.photoVigneron{
     display:block;
@@ -150,8 +102,8 @@
 
 .infosSup p{
     width:100%;
-    /*height:70%;*/
 }
+
 .textinfo{
     position:absolute;
     top:-5px !important;
@@ -161,54 +113,35 @@
     font-size:10px;
 }
 /* ------------------------------------ VOILE ---------------------------------------------*/
-
-.voile{
-    /*width:100%;
-    height:25%;
-    vertical-align:bottom;
-    text-align:center;*/
-}
 .voile{
 	height:20%;
 	width:100%;
 	background-color: #9e1237 !important;
-	/*position:absolute;*/
 	display:none;
-	/*bottom: 12px;*/
 	text-align:center;
 	opacity: 0.9;
     z-index:5;
 	display:block;
-    
     top:80%;
-    
 }
+
  .voile div{
 	color:white;
 	margin-top: 12px;
 	font-weight: normal;
 	letter-spacing: 4px;
  }
- .portfolio li a:hover .voile{
- }
 /* ------------------------------------ PHOTO_VIGNERON ---------------------------------------------*/
-
 .photoVigneron{
-
     filter:gray !important ;
     height:150px;
     width:120px;
     position:relative;
     left:0;
 }
+
 .photoVigneron:hover{
     filter:none;
-    /*-webkit-filter:none;*/
-    
-
-    /*-moz-filter:none;*/
-    /*-khtml-filter:none;*/
-    /*-o-filter:none;*/
 }
 /* ------------------------------------ NOTRE pHILOSOPHIE ------------------------------------------*/
 .conteneur{
@@ -218,7 +151,8 @@
     min-height:300px;
     background-color:white;
     border:1px solid red;
-}.contener{
+}
+.contener{
     width:50%;
     margin:20px;
     display:inline-block;
