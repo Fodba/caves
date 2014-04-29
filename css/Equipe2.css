@@ -28,7 +28,6 @@
 
 .conteneu img:not(.imageBouton){
     height:150px;
-    /*width:120px;*/
 }
 
 .divGlobal,.titreSection
@@ -37,19 +36,12 @@
     display:block;
 }
 
-/*#sliderPro,#accueilTel{
-    position:relative;
-    border:1px solid black;
-}*/
-
 .titreSection{
     font-weight:100;
     display:block;
     float:none !important;
     font-size:18px;
     margin-left:5% !important;
-    /*margin-top:20px; !important;*/
-    /*margin-bottom:10px !important;*/
 }
 
 .conteneu h3,.conteneu h2{

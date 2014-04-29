@@ -34,7 +34,7 @@
     <div id="content" >
       <asp:ContentPlaceHolder Id="CphMain" runat="server" />
         <div >
-            <a class="linkEnter" href="fr/accueil/"><div class="enter styleBold"><span><strong>ENTREZ</strong>DANS LA CAVE<img src="/css/gfx/arrow_enter.png" /></span></div></a>
+            <a class="linkEnter" href="fr/accueil/"><div class="enter styleBold"><%--<span><strong>ENTREZ</strong>DANS LA CAVE--%><img src="/media/images/picto-entrez.png" /><%--</span>--%></div></a>
         </div>        
     </div>
 	</div> 

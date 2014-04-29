@@ -3,8 +3,8 @@
 <div class="connect pull-right" id="divConnect" runat="server">
     <asp:Panel runat="server" ID="connect">
         <div class="hidden-phone">
-            <a href="{localLink:1342}"><span class="conn_btn">CONNEXION</span></a>
-            <a href="{localLink:1334}" id="linkSub"><span class="conn_btn">INSCRIPTION</span></a>
+            <%--<a href="{localLink:1342}"><span class="conn_btn">CONNEXION</span></a>--%>
+            <a href="{localLink:1334}" id="linkSub"><span class="conn_btn">CONNEXION</span></a>
         </div>
         <div class="connectPhone visible-phone">
             <a href="{localLink:1342}"><i class="icon-user"> Se connecter</i></a>
