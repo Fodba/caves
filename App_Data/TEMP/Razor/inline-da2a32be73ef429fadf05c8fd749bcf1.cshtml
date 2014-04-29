@@ -1,4 +1,0 @@
-﻿@inherits umbraco.MacroEngines.DynamicNodeContext
-@if (Model.HasProperty("backgroundImage") && Model.backgroundImage != 0) {
-	style="background:url(@Model.nodeById(Model.backgroundImage).Url) no-repeat center center fixed;background-size:cover"
-}
