@@ -1,5 +1,7 @@
 ﻿@inherits umbraco.MacroEngines.DynamicNodeContext
 @using umbraco.NodeFactory
+@using umbraco.cms.businesslogic.member
+
 
 @*
     Model = The current page the macro is executed on
@@ -11,6 +13,12 @@
 *@
 
 @{
+
+
+    Member member = Member.GetCurrentMember();
+    var typeConnexion = member != null ? member.ContentType.Alias : "Particulier";
+
+
     /// on récupère le noeud de plus haut niveau,
     var ancetre = Model.AncestorsOrSelf().First();
     ///on liste tous ses descendants de type "Folder".
@@ -18,8 +26,7 @@
     var equipes = Model;
     var membresPro = Model;
     var membresPart = Model;
-    
-    
+
     /// on récupère le descendant qui se nomme "Equipe",
     foreach (var item in dos)
     {
@@ -29,31 +36,284 @@
         }
     }
     /// on trie les descendants d'Equipe en fonctions du service.
-    foreach (var item1 in equipes.Descendants())
+    foreach (var item1 in equipes.Children())
     {
-        if (item1.departement == "professionnels")
+
+        if (item1.Name.ToLower() == "professionnel")
         {
+
             membresPro = item1;
         }
-        else if (item1.departement == "particuliers")
+        else if (item1.Name.ToLower() == "particulier")
         {
             membresPart = item1;
         }
     }
-    
-    
+
+
     /// affichage des données.
     var SelectedMembre = equipes.Descendants().First();
     var model = Model;
-    <div class="divSlider row-fluid">
+    var nombre = 0;
+    var nom = "";
+    var serv = membresPro.Children();
+    var important = true;
+
+    <h2 class="span13 titreSection styleLight">@Model.Children().First().pageHeading</h2>
+
+
+
+    if (member != null && typeConnexion == "Professionnel")
+    {
+        <div class="divA fleche">
+            <div class="flecheHaut">
+                <img class="imageBouton" src="~/media/images/flechehaut.png" />
+            </div>
+        </div>
+        <div id="Pro_@typeConnexion" class="typeSlider ">
+            <div class="outerViewport">
+                <div class="viewportEquipe">
+                    @{var nombre2 = 0;}
+                    @foreach (var service in membresPro.Children())
+                    {
+                        foreach (var membre in service.Children())
+                        {
+                            if (membre.membreImportant && important)
+                            {
+
+                                var nombre3 = 0;
+
+                                <div id="@membre.Name" class="itemService">
+                                    <div class="sliderContent" id="slider_@nombre2">
+                                        @*<span class="styleBold">@typeConnexion.ToUpper() : </span>*@
+                                        <div class="posteDetail">
+                                            <div class="slider">
+                                                <span class="styleSemiBold titrePro">@membre.Name.ToUpper() : </span>
+                                                @*<span class="slider-prev" id="prev_@nombre-@nombre2"><img src="~/media/images/leftarrow.png" /></span>*@
+                                                <div class="posteDetaile" id="slider_@nombre-@nombre2">
+
+                                                    <div id="membreImportant">
+                                                        <div class="als-item" id="item_@nombre2@nombre3">
+                                                            <div class="zoneMembre" id="membre_@membre.id">
+                                                                <div class="membreEquipe span12">
+                                                                    @{nom = membre.nom.ToString();}
+                                                                    <img class="" src="@Library.MediaById(@membre.photo.ToString()).UmbracoFile" alt="@membre.Nom" />
+                                                                    <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="detailleMembre" id="detail_@membre.id">
+                                                                <div class="poste">
+                                                                    <h3 class="styleSemiBold">@membre.poste</h3>
+                                                                    <p class="descriptifPoste">@membre.descriptif</p>
+                                                                </div>
+                                                            </div>
+                                                            @{nombre3++;}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @*<span class="slider-next" id="next_@nombre-@nombre2"><img src="~/media/images/rightarrow.png" /></span>*@
+                                            </div>
+                                        </div>
+
+                                        @{nombre2++;}
+                                    </div>
+                                    @{important = false;}
+                                </div>
+                            }
+                        }
+                    }
+
+                    @foreach (var service in membresPro.Children())
+                    {
+
+
+
+                        var nombre3 = 0;
+
+                        <div id="@service.Name" class="itemService">
+                            <div class="sliderContent" id="slider_@nombre2">
+                                @*<span class="styleBold">@typeConnexion.ToUpper() : </span>*@
+                                <div class="posteDetail">
+                                    <div class="slider">
+                                        <span class="styleSemiBold titrePro">@service.Name.ToUpper() : </span>
+                                        <span class="slider-prev" id="prev_@nombre-@nombre2"><img src="~/media/images/leftarrow.png" /></span>
+                                        <div class="cont posteDetaile owl-carousel" id="slider_@nombre-@nombre2">
+                                            @foreach (var membre in service.Children())
+                                            {
+
+
+                                                <div class="als-item" id="item_@nombre2@nombre3">
+                                                    <div class="zoneMembre" id="membre_@membre.id">
+                                                        <div class="membreEquipe span12">
+                                                            @{nom = membre.nom.ToString();}
+                                                            <img class="" src="@Library.MediaById(@membre.photo.ToString()).UmbracoFile" alt="@membre.Nom" />
+                                                            <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detailMembre" id="detail_@membre.id">
+                                                        <div class="poste">
+                                                            <h3 class="styleSemiBold">@membre.poste</h3>
+                                                            <p class="descriptifPoste">@membre.descriptif</p>
+                                                        </div>
+                                                    </div>                                            @{nombre3++;}
+                                                </div>
+                                            }
+                                        </div>
+                                        <span class="slider-next" id="next_@nombre-@nombre2"><img src="~/media/images/rightarrow.png" /></span>
+                                    </div>
+                                </div>
+
+                                @{nombre2++;}
+                            </div>
+
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="divA fleche">
+            <div class="flecheBas">
+                <img class="imageBouton" src="~/media/images/flechebas.png" />
+            </div>
+        </div>
+
+
+
+    }
+    else
+    {
+        var nombre2 = 0;
+        <div id="Pro_@typeConnexion" class="typeSlider ">
+            <div class="part">
+                <h3 class="titrePro styleBold">@membresPart.Name.ToUpper()</h3>
+                <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
+
+                <div class="posteDetail">
+                    <div class="slider">
+
+
+                        <div class="cont row owl-carousel" id="slider_@membresPart.Name-@nombre@nombre2">
+                            @foreach (var membre in membresPart.Children())
+                            {
+                                @*<h2 class="span13 titreSection styleLight">@membre.Name</h2>*@
+                                <div class="als-item" id="item_numero_@nombre@nombre2">
+                                    <div class="zoneMembre" id="membre_@membre.id">
+                                        <div class="membreEquipe span12">
+                                            @{nom = membre.nom.ToString();}
+                                            <img class="" src="@Library.MediaById(@membre.photo.ToString()).UmbracoFile" alt="@membre.Nom" />
+                                            <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="detailMembre" id="detail_@membre.id">
+                                        <div class="poste">
+                                            <h3 class="styleSemiBold">@membre.poste</h3>
+                                            <div class="descriptifPoste">@membre.descriptif</div>
+                                        </div>
+                                    </div>
+                                    @{nombre2++;}
+                                </div>
+                            }
+                        </div>
+                        @{nombre++;}
+                    </div>
+                </div>
+                <span class="slider-next"><img src="~/media/images/rightarrow.png" /></span>
+            </div>
+        </div>
+
+        @*<div class="typeSlider">
+
+                @foreach (var item in membresPart.Children())
+                {
+
+                    var nombre2 = 0;
+
+                    <div id="@item.Name">
+                        <div class="posteDetaile" id="posteDetail_@nombre-@nombre2">
+                            <h3 class="titrePro styleBold">@item.Name.ToUpper()</h3>
+                            <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
+
+                            <div id="sliderPro" class="als-container posteDetail">
+                                <div class="slider">
+
+
+                                    <div class="cont row owl-carousel" id="slider_@item.Name-@nombre-@nombre2">
+                                        @foreach (var item1 in item.Children())
+                                        {
+                                            <h2 class="span13 titreSection styleLight">@item1.Name</h2>
+                                            <div class="als-item" id="item_numero_@nombre@nombre2">
+                                                <div class="zoneMembre" id="membre_@item1.id">
+                                                    <div class="membreEquipe span12">
+                                                        @{nom = item1.nom.ToString().ToUpper();}
+                                                        <img class="" src="@Library.MediaById(@item1.photo.ToString()).UmbracoFile" alt="@item1.Nom" />
+                                                        <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="detailMembre" id="detail_@item1.id">
+                                                    <div class="poste">
+                                                        <h3 class="styleSemiBold">@item1.poste</h3>
+                                                        <div class="descriptifPoste">@item1.descriptif</div>
+                                                    </div>
+                                                </div>
+                                                @{nombre2++;}
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="slider-next"><img src="~/media/images/rightarrow.png" /></span>
+
+                        </div>
+                    </div>
+                }
+                @{nombre++;}
+            </div>*@
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="divSlider row-fluid">
         <h2 class="span13 titreSection styleLight">L'EQUIPE CAVES QUARANTE ET UN</h2>
         <div class=" divGlobal">
-            <div id="membresPro" class="typeSlider ">
-                <div class="slideOwl membresPro">
+
+
+
+
+            <div id="Pro" class="typeSlider ">
+
+
+                <div id="membresPro" class="slideOwl membresPro typeSlider">
+                    <h3 class="titrePro styleBold">PROFESSIONNELS</h3>
                     <span class="slider-prev"><img class="imageBouton" src="~/media/images/leftarrow.png" /></span>
 
                     <div id="sliderPro" class="als-container posteDetail">
-                        <h3 class="titrePro styleBold">VENTES AUPRES DES PROFESSIONNELS</h3>
                         <div class="slider">
 
 
@@ -107,19 +367,17 @@
 
                 <div class="divA">
                     <div class="flecheBas">
-                        <button>
                             <img class="imageBouton" src="~/media/images/flechebas.png" />
-                        </button>
                     </div>
                 </div>
             </div>
 
 
 
-            <div id="membresPart" class="als-container posteDetail typeSlider membresPro slideOwl">
+            <div id="membresPart" class="als-container  typeSlider membresPro slideOwl">
+                <h3 class="titrePro styleBold">PARTICULIERS</h3>
                 <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
-                <div class="cont" id="viewportPart">
-                    <h3 class="titrePro styleBold">PARTICULIERS</h3>
+                <div class="cont posteDetail" id="viewportPart">
 
 
                     <div class="slider">
@@ -129,20 +387,20 @@
                             {
                                 if (item.departement == "Particuliers")
                                 {
-                            <div class="als-item">
-                                <div class="membreEquipe span12" id="membre_@item.id">
-                                    @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
-                                    <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
-                                    <div class="zone-item-text"><p class="item-texte">@nom</p></div>
+                                    <div class="als-item">
+                                        <div class="membreEquipe span12" id="membre_@item.id">
+                                            @{var nom = item.nom.ToString().ToUpper() + " " + item.prenom.ToString().ToUpper();}
+                                            <img src="@Library.MediaById(@item.photo.ToString()).UmbracoFile" alt="@item.Nom" />
+                                            <div class="zone-item-text"><p class="item-texte">@nom</p></div>
 
-                                </div>
-                                <div class="detailMembre" id="detail_@item.id">
-                                    <div class="poste">
-                                        <h3>@item.poste</h3>
-                                        <div class="descriptifPoste">@item.descriptif</div>
+                                        </div>
+                                        <div class="detailMembre" id="detail_@item.id">
+                                            <div class="poste">
+                                                <h3>@item.poste</h3>
+                                                <div class="descriptifPoste">@item.descriptif</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
                                 }
                             }
                         </div>
@@ -156,8 +414,7 @@
             </div>
 
         </div>
-    </div>
-}
+    </div>*@
 
 
 

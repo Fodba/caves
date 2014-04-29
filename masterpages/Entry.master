@@ -14,6 +14,7 @@
   <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />
     <link href="/css/fonts/OpenSans/OpenSans.css" rel="stylesheet" />
+    <link href="/css/Navigation.css" rel="stylesheet" />
  
 </head>
 
@@ -23,10 +24,23 @@
       <div class="navbar navbar-static-top">
         <div class="navbar-inner">
           <div class="container">
-			  <a class="span5 logo" href="{localLink:1365}"><img src="/css/gfx/logo.png"/></a> 
+              <div class="row-fluid">
+                  <a class="span5 logo" href="{localLink:1365}"><img src="/css/gfx/logo.png"/></a> 
+				  <div class="hidden-phone" style="height:87px"></div>
+				  <div class="topRight">
+                    <div class="logBouton">
+					    <umbraco:Macro Alias="LoginView2" runat="server" style="float:right;"/>
+				    </div>
+                    <div class="navBouton">
+				        <umbraco:Macro Alias="Nav" runat="server" />	
+                    </div>
+                  </div>
+			  </div> 
+			  <%--<a class="span5 logo" href="{localLink:1365}"><img src="/css/gfx/logo.png"/></a> 
 			  <div>
-              <umbraco:Macro Alias="LoginView" runat="server" />         
-			  </div>
+              <umbraco:Macro Alias="LoginView" runat="server" /> 
+				  <umbraco:Macro Alias="Nav" runat="server" />	        
+			  </div>--%>
           </div>
         </div>
       </div>

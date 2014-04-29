@@ -11,8 +11,6 @@
                                 <tr>
                                     <td>
                                         <table cellpadding="0">
-                                            <tr height="20">
-                                            </tr>
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nom d&#39;utilisateur&nbsp;</asp:Label>
@@ -44,8 +42,6 @@
                                                 <td align="center" colspan="2" style="color: Red;">
                                                     <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                                 </td>
-                                            </tr>
-                                            <tr height="20">
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="2">

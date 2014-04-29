@@ -295,6 +295,7 @@
     //
     ///FILTRE GRAYSCALE CROSSBROWSER
     //
+    <script src="~/scripts/jquery.hoverIntent.minified.js"></script>
     <script type="text/javascript">
 
         $(window).load(function () {
@@ -302,16 +303,27 @@
                 $("#" + $(obj).attr("data-image")).pixastic("desaturate");
             });
 
-            $(".filtergray").mouseenter(function (e) {
+            //$(".filtergray").mouseenter(function (e) {
+            //    var self = document.getElementById($(e.currentTarget).attr("data-image"));
+            //    Pixastic.revert(self);
+            //});
+
+            //$(".filtergray").mouseleave(function (e) {
+
+            //    $("#" + $(e.currentTarget).attr("data-image")).pixastic("desaturate");
+
+            //});
+            
+            $(".filtergray").hoverIntent(function (e) {
                 var self = document.getElementById($(e.currentTarget).attr("data-image"));
                 Pixastic.revert(self);
-            });
-
-            $(".filtergray").mouseleave(function (e) {
+            },
+            function (e) {
 
                 $("#" + $(e.currentTarget).attr("data-image")).pixastic("desaturate");
 
             });
+
         });
     </script>
     ////------------///
