@@ -1,14 +1,14 @@
 @inherits umbraco.MacroEngines.DynamicNodeContext
 
 @*
-	Model = The current page the macro is executed on
-			@Model.bodyText
+    Model = The current page the macro is executed on
+            @Model.bodyText
 
-	Parameter = collection of parameter values passed from the macro
-			@Paramter.myParam
+    Parameter = collection of parameter values passed from the macro
+            @Paramter.myParam
 
     Library = utillity library with common methods
-    		@Library.NodeById(1233)
+            @Library.NodeById(1233)
 *@
 
 
@@ -17,6 +17,36 @@
 
 @{
     var page = Model;
+
+    /// on récupère le noeud de plus haut niveau,
+    var ancetre = Model.AncestorsOrSelf().First();
+    ///on liste tous ses descendants de type "Folder".
+    var dos = ancetre.Descendants("Folder");
+    var equipes = Model;
+
+    /// on récupère le descendant qui se nomme "Equipe",
+    foreach (var item in dos)
+    {
+        if (item.name == "Equipe")
+        {
+            equipes = item;
+        }
+    }
+
+
+    //if (member != null)
+    //{
+    //    //if (member.ContentType.Alias == "Professionnel")
+    //    //{
+    //    typeConnexion = member.ContentType.Alias;
+    //    //}
+    //    //else
+    //    //{
+    //    //    typeConnexion = "Part_";
+    //    //}
+    //}
+
+
     foreach (var item in page.Children())
     {
         <div class="title styleLight titre">
@@ -29,8 +59,16 @@
             @if (item.pageHeading.ToString().ToLower() == "l'equipe caves quarante et un")
             {
                 <div class="filtreService row-fluid">
-                    <button id="filtreParticuliers" class="filtre span6 styleLight">PARTICULIERS</button>
-                    <button id="filtreProfessionnels" class="filtre span6 styleLight">PROFESSIONNELS</button>
+                    <div class="temp">
+                        @*@foreach (var item1 in equipes.Children())
+                        {
+                        <button id="filtre_@item1.Name" class="filtre styleLight">@item1.Name.ToUpper()</button>
+                        }*@                        
+                        @*@foreach (var item1 in equipes.Children())
+                        {*@
+                        <div id="filtre_Connection" class="filtre styleLight">VOIR L'EQUIPE</div>
+                        @*}*@
+                    </div>
                 </div>
             }
             <br />

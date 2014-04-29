@@ -1,0 +1,104 @@
+﻿.conteneir{
+    margin:auto !important;
+    margin-top:50px !important;
+    width:95% !important;
+    position:relative;
+}
+.pulle-right{
+    float:right;
+}
+.pulle-righte{
+    position:absolute;
+    top:0px !important;
+    margin-top:0px !important;
+}
+/*.pulle-right hidden-phone{
+    float:right;
+}*/
+.contet{
+    margin:auto !important;
+    width:85%;
+}
+.conteneir h3{
+}
+
+.titreSection{
+    font-weight:100;
+    display:block;
+    float:none !important;
+    font-size:18px;
+    margin-left:5% !important;
+}
+/* -----------------------------------
+   -----         contenu         -----
+   ----------------------------------- */
+/*.contenu{
+    width:50% !important;
+    margin:auto !important;
+    position:relative;
+}*/
+
+#source{
+    display:inline-block;
+    width:52%;
+    margin-left:2%;
+    float:left;
+}
+.filtreService{
+    width:50%;
+    margin:auto;
+}
+.temp{
+    width:90%;
+    display:inline-block;
+    margin:auto;
+}
+.filtre{
+    width:48%;
+    display:inline-block;
+    background-color:#9b1230;
+    color:white;
+}
+/* -----------------------------------
+   -----         conteneu         -----
+   ----------------------------------- */
+.conteneu{
+    visibility:hidden;
+    background-color:RGBa(255,255,255,0.9);
+    color:#9b1230;
+    width:42%;
+    margin-left:1%;
+    margin-right:2%;
+    display:none;
+    overflow:hidden;
+    min-width:300px;
+    min-height:300px;
+    padding-top:23px;
+    font-size:10px;
+}
+
+.conteneu img:not(.imageBouton){
+    height:150px;
+}
+/* -----------------------------------
+   -----     equipeConteneur     -----
+   ----------------------------------- */
+.equipeConteneur{
+    width:90%;
+    margin:auto;
+}
+/* -----------------------------------
+   -----         contenu         -----
+   ----------------------------------- */
+/* -----------------------------------
+   -----         contenu         -----
+   ----------------------------------- */
+/* -----------------------------------
+   -----         contenu         -----
+   ----------------------------------- */
+/* -----------------------------------
+   -----         contenu         -----
+   ----------------------------------- */
+/* -----------------------------------
+   -----         contenu         -----
+   ----------------------------------- */

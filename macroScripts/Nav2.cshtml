@@ -1,0 +1,76 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@*
+	Macro to display child pages below the root page of a standard website.
+	Also highlights the current active page/section in the navigation with
+	the css class "current". 
+*@
+
+
+@{ 
+	@*Get the root of the website *@
+    var root = Model.AncestorOrSelf(1).Descendants("HomePage").First();
+    var homeSelected = Model.Level == 1 ? " class=\"active\"" : string.Empty;
+    var i = 0;
+    var active = "";
+    var activeO = "";
+    if (Model.Id == root.Id)
+    {
+        active = "active";
+    }
+    if (Model.Id==1062)
+    {
+        activeO = "active";
+    }
+}
+
+<div class="hidden-phone pulle-right pull-right">
+
+    <ul id="mainmenu" class="lvl1 nav">
+        <li class="lvl1 @active">
+            <a href="@root.Url">@root.Name</a>
+        </li>
+        <li class="divider"></li>
+        @foreach (var page in root.Children.Where("Visible"))
+        {
+            i++;
+            <li class="lvl1 @page.IsAncestorOrSelf(Model, "active", "")">
+                <a href="@page.Url">@page.Name</a>
+            </li>
+            if (i != root.Children.Where("Visible").Count())
+            {
+                <li class="divider"></li>
+            }
+
+        }
+        <li class="divider"></li>
+        <li class="lvl1 @activeO"><a href="/{localLink:1062}">Nos offres</a></li>
+    </ul>
+
+</div>
+
+
+<div class="visible-phone menu-phone">
+    <div style="height:30px;">
+
+    </div>
+    <select ONCHANGE="location = this.options[this.selectedIndex].value;" style="margin-top: 18px;" class="visible-phone">
+            <option class="@Html.Raw(homeSelected)" value="@root.Url" >@root.Name</option>
+        @foreach (var item in root.Children.Where("Visible"))
+        {
+            var selected = Model.Id==item.Id ? "selected" : string.Empty;
+                     <option @selected value="@item.Url">
+                        @item.Name
+                    </option>
+        }
+        <option value="@Model.NodeById(1062).Url">Nos offres</option>
+        </select>
+</div>
+
+<script>
+    
+</script>
+
+
+
+

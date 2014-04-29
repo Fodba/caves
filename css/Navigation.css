@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.logBouton, .navBouton{
+    display:inline-block;
+    float:right;
+}
+
+.logBouton > *{
+    margin:0px !important;
+    margin-right:10px !important;
+}
+
+/*.logBouton{
+    float:right;
+}*/
+
+
+
+
+
+
+

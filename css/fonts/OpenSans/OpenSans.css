@@ -59,19 +59,60 @@ body{
 
 .styleNormal{
     font-family:'OpenSans' !important;
+    color:#9b1230;
 }
+.styleNormalU{
+    font-family:'OpenSans' !important;
+    text-decoration:underline;
+    color:#9b1230;
+}
+
 
 .styleLight{
     font-family:'OpenSans Light' !important;
+    color:#9b1230;
 }
+.styleLightU{
+    font-family:'OpenSans Light' !important;
+    text-decoration:underline;
+    color:#9b1230;
+}
+
 
 .styleBold{
     font-family:'OpenSans Bold' !important;
+    /*margin-top:5px;
+    margin-bottom:10px;*/
+    color:#9b1230;
+    /*margin-left:5%;*/
+}
+.styleBoldU{
+    font-family:'OpenSans Bold' !important
+    text-decoration:underline;
     margin-top:5px;
     margin-bottom:10px;
+    color:#9b1230;
+    /*margin-left:5%;*/
 }
 
+
 .styleSemiBold{
+    font-family:'OpenSans SemiBold' !important;
+    color:#9b1230;
+}
+.styleSemiBoldU{
+    font-family:'OpenSans SemiBold' !important;
+    text-decoration:underline;
+    color:#9b1230;
+}
+
+
+
+
+
+
+
+.styleSemiBoldU{
     font-family:'OpenSans SemiBold' !important;
 }
 

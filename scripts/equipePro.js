@@ -1,146 +1,232 @@
 ﻿$(window).load(function () {
+    var nombreItem = 3;
     $(".conteneu").css("visibility", "hidden");
-    $(".cont").find(".detailMembre").css("display", "none");
+    $(".detailMembre").css("display", "none");
 
 
+    var sliderId; // Id du bloc affiché à l'écran. Correspond au département.
+
+    var owl = new Array();
+
+    var pos = 0; // position du slider par rapport au viewport.
+    var positionWrapper = 0; // indique le nombre de déplacement du slider depuis l'item 0
+    
     /// on gère le click sur les boutons de filtre.
+
     $(".filtre").click(function () {
+        $(".conteneu").find(".typeSlider").css("display", "none");
+        sliderId = $(".typeSlider").attr("id");
+        //$(".detailMembre").css("display", "none");
         var elem = $(this);
         $(".conteneu").css("visibility", "visible");
-        if (elem.attr("id") == "filtreParticuliers") {
-            if (!($("#" + id).css("display") == "block")) {
-                $("#membresPro").find(".detailMembre").css("display", "none");
-                $("#membresPro").hide();
-                $("#membresPart").show();
+        $(".conteneu").find(".typeSlider").css("display", "block");
+
+        var item = $("#membreImportant").parent().find(".zoneMembre");
+        $("#membreImportant").position({
+            my: "left",
+            at: "right",
+            of: item,
+            within: item.parent()
+        })
+
+        jQuery.each($("#" + sliderId).find(".cont"), function () {
+            var elem = $(this);
+            var abc = elem.find(".als-item").length;
+            var sliderPrevId = elem.attr("id").replace("slider_", "prev_");
+            var sliderNextId = elem.attr("id").replace("slider_", "next_");
+
+            if (abc - nombreItem <= 0) {
+                $("#" + sliderPrevId).css("display", "none");
+                $("#" + sliderNextId).css("display", "none");
             }
-        }
-        else if (elem.attr("id") == "filtreProfessionnels") {
-            $("#membresPart").find(".detailMembre").css("display", "none");
-            $("#membresPart").hide();
-            $("#membresPro").show();
-        }
+            else if (abc - nombreItem > 0) {
+                $("#" + sliderPrevId).css("display", "block");
+                $("#" + sliderNextId).css("display", "block");
+            }
+
+        })
+
+        $(".cont").owlCarousel({
+            itemsScaleUp: true,
+            itemsDesktop: [1700, 3],
+            itemsDesktopSmall: [1399, 2],
+            responsive: true,
+            responsiveRefreshRate: 200,
+            responsiveBaseWidth: window,
+            mouseDrag: false,
+            touchDrag: false,
+            items: nombreItem
+        });
     });
-
-
-    $(".owl-carousel").owlCarousel({
-        itemsScaleUp: true,
-        itemsDesktop: [1700, 3],
-        itemsDesktopSmall: [1399, 2],
-        responsive: true,
-        responsiveRefreshRate: 200,
-        responsiveBaseWidth: window,
-        items: 3
-    });
-    var owl2 = $("#viewportPro.owl-carousel").data("owlCarousel");
-    var owl1 = $("#wrapperPart.owl-carousel").data("owlCarousel");
-
-
-    var sens200 = false; //indique si un element est selectionné ou non.
-    var sens400; // definit si la position du wrapper est à 0 ou si elle est négative.
-    var PosInit; // position initial du wrapper au moment du click sur un membre.
-    var ItemInit = 1; // entier indiquant le numéro de l'item en première position visible dans le slider.
 
 
     $(".slider-prev").click(function () {
-        var elem = $(this);
-        if (elem.closest(".typeSlider").attr("id") == "membresPart") {
-            owl1.prev();
-        }
-        else {
-            if (!sens200) {
-                owl2.prev();
+        if (!sens200) {
+            var elem = $(this);
+            var sliderCible = elem.parent().find(".owl-carousel");
+            owl = sliderCible.data("owlCarousel");
+            pos = elem.parent().find(".owl-wrapper").position().left;
+            if (pos == 0) {
+                positionWrapper = (($("." + sliderId).find(".als-item").length) - nombreItem) + 1;
+                positionWrapper--;
             }
-            sens400 = parseInt($("#membresPro").find(".owl-wrapper").position().left);
-            PosInit = parseInt($("#membresPro").find(".owl-wrapper").position().left);
+            else {
+                positionWrapper--;
+            }
+            owl.prev();
         }
     })
 
     $(".slider-next").click(function () {
-        var elem = $(this);
-        if (elem.closest(".typeSlider").attr("id") == "membresPart") {
-            owl1.next();
-        }
-        else if (elem.closest(".typeSlider").attr("id") == "membresPro") {
-            if (!sens200) {
-                owl2.next();
+        if (!sens200) {
+            var elem = $(this);
+            var sliderCible = elem.parent().find(".owl-carousel");
+            owl = sliderCible.data("owlCarousel");
+            pos = elem.parent().find(".owl-wrapper").position().left;
+            if (pos == 0) {
+                positionWrapper = 0;
+                positionWrapper++;
             }
-            sens400 = parseInt($("#membresPro").closest(".owl-wrapper").position().left);
-            PosInit = parseInt($("#membresPro").closest(".owl-wrapper").position().left);
+            else if ((positionWrapper + nombreItem == $("." + sliderId).find(".als-item").length)) {
+                positionWrapper = 0;
+            }
+            else {
+                positionWrapper++;
+            }
+            owl.next();
         }
     })
 
 
+    var sens200 = false; //indique si un element est selectionné ou non.
+    var sens400; // definit si la position du wrapper est à 0 ou si elle est négative.
+
+
     /// gestion de l'affichage du détail pour le click sur un membre professionnel
-        var id = 0;
+
+    var taille; // stocke la taille du viewport owlCarousel.
     var taille5; // stocke la taille d'un owl-item.
     var taille2; // stocke la taille de l'element actuel.
     var deplacement; // indique le deplacement en px.
+    var positionWrapp; // stocke la position du owl-wrapper au moment du click.
+
 
     /// on gère le click sur l'un des items du slider.
-    $("#membresPro").find(".zoneMembre").click(function () {
+
+    $(".zoneMembre").click(function () {
+        //if (sliderId == "Pro_Professionnel"){
         var elem = $(this);
         var parent = elem.parent();
         var position1; // stocke la position du owl-item au moment du click.
         var elemId = elem.attr("id").replace("membre_", "detail_").toString();
-        id = elem.attr("id").replace("membre_", "detail_").toString();
+        taille = elem.closest(".owl-carousel").css("width").replace("px", "");
+        var tailleInfo = taille - taille2;
+        position1 = elem.position().left;
+        var numeroItem = parent.attr("id").replace("item_", "");
+        var num = numeroItem.substring(1);
 
 
-        position1 = parent.position().left;
-        sens400 = elem.closest(".owl-wrapper").position().left;
-        var taille = $("#viewportPro").css("width").replace("px","");
-        var taille1 = elem.closest("#viewportPro").css("width").replace("px", "");
-        taille2 = elem.css("width").replace("px", "");
-        var tailleInfo = taille1 - taille2;
-       
         /// on gère le cas où le détail est déjà affiché
-        if ($("#" + id).css("display") == "block") {
 
-            position1 = elem.parent().position().left;
-            elem.parent().find("#" + id).css("display", "none");
-            parent.parent().css("width", taille5);
+        if ($("#" + elemId).css("display") == "block") {
+            sens200 = false;
+            parent.parent().css("width", taille2);
+            $("#" + elemId).css("display", "none");
 
-            if (bowser["name"] == "Internet Explorer") {
-                elem.closest(".owl-wrapper").css("left", PosInit + "px");
-                sens200 = false;
-            }
-            else {
-                elem.closest(".owl-wrapper").css("left", total + "px");
-                sens200 = false;
-            }
-            
+            /// on gère le deplacement du slider pour que la photo revienne à sa position de départ.
+
+            elem.closest(".owl-wrapper").css("left", "0px");
         }
 
-        /// on gère le cas où aucun détail n'est affiché.
+            /// on gère le cas où aucun détail n'est affiché.
+
         else {
-            PosInit = parseInt(elem.closest(".owl-wrapper").position().left);
-            taille5 = $(this).closest(".owl-item").css("width").toString();
-            parent.find("#" + id).css("display", "block");
-            parent.find("#" + id).css("visibility", "visible");
-            parent.find("#" + id).css("width", tailleInfo);
+            //alert("Item N°: " + numeroItem + "\nPosition dans le viewport: " + num);
             sens200 = true;
-            parent.find("#" + id).position({
+            positionWrapp = elem.closest(".owl-wrapper").position().left;
+            $("#" + elemId).css("display", "block");
+
+            taille2 = parent.parent().css("width").replace("px", "");
+            taille5 = elem.closest(".owl-item").css("width").replace("px", "");
+
+            parent.find("#" + elemId).css("display", "block");
+            parent.find("#" + elemId).css("visibility", "visible");
+
+            parent.find("#" + elemId).position({
                 my: "left",
                 at: "right",
                 of: elem,
-                within: elem.parent()
+                within: parent
             })
-
-            var total = parseInt(position1) - parseInt(sens400);
-            if (total > taille) {
-                total = (total - taille) * 2;
-            }
             parent.parent().css("width", taille);
-            
-            if (bowser["name"]=="Internet Explorer") {
-                elem.closest(".owl-wrapper").css("left", "-" + position1 + "px");
-                deplacement = parseInt(position1);
-            }
-            else {
-                elem.closest(".owl-wrapper").css("left", "-" + total + "px");
-                deplacement = parseInt(total);
-            }
-        }
 
+            /// on gère le deplacement du slider pour que la photo s'affiche à gauche du viewport.
+
+            var temp = num - positionWrapper;
+            var deplacement = temp * taille5;
+            elem.closest(".owl-wrapper").css("left", "-" + deplacement + "px");
+
+        }
+        //}
     })
+
+
+
+    var nombreDeplacement = 0;
+    if (nombreDeplacement == 0) {
+        $(".flecheHaut").css("display", "none");
+    }
+
+    $(".flecheBas").click(function () {
+        var elem = $(this).parent();
+        var position = elem.parent().find(".viewportEquipe").position().top;
+        var nombreService = elem.parent().find(".itemService").length;
+        if (nombreService - nombreDeplacement <= 4) {
+            $(".flecheBas").css("display", "none");
+        }
+        else {
+            $(".flecheBas").css("display", "block");
+        }
+        if (nombreService - nombreDeplacement == 3) {
+            nombreDeplacement = 0;
+        }
+        else {
+            nombreDeplacement++;
+        }
+            var taille = parseInt(elem.parent().find(".itemService").css("height")) + 14;
+        var posi = taille * nombreDeplacement;
+        $(".viewportEquipe").css("top", "-" + posi + "px");
+        $(".flecheHaut").css("display", "block");
+    })
+    $(".flecheHaut").click(function () {
+        var elem = $(this).parent();
+        var position = elem.parent().find(".viewportEquipe").position().top;
+        var nombreService = elem.parent().find(".itemService").length;
+        if (nombreDeplacement == 1) {
+            $(".flecheHaut").css("display", "none");
+        }
+        else {
+            $(".flecheHaut").css("display", "block");
+        }
+        if (position == 0) {
+            nombreDeplacement = nombreService - 3;
+        }
+        else {
+            nombreDeplacement--;
+        }
+        var taille = parseInt(elem.parent().find(".itemService").css("height")) + 14;
+        var posi = taille * nombreDeplacement;
+        $(".viewportEquipe").css("top", "-" + posi + "px");
+        $(".flecheBas").css("display", "block");
+    })
+
+
+
+
+
+
+
+
+
 })
 

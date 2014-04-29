@@ -19,6 +19,11 @@
 .isotope,.isotope-item{
     padding:0px;
     margin:0px !important;
+    -webkit-transition:200ms;
+    -moz-transition:200ms;
+    -o-transition:200ms;
+    -khtml-transition:200ms;
+    -ms-transition:200ms;
 }
 
 .portfolio li{
@@ -35,11 +40,11 @@
     height:150px;
     position:relative;
     overflow:hidden;
-    -webkit-transition:2s;
-    -moz-transition:2s;
-    -o-transition:2s;
-    -khtml-transition:2s;
-    -ms-transition:2s;
+    -webkit-transition:200ms !important;
+    -moz-transition:200ms !important;
+    -o-transition:200ms !important;
+    -khtml-transition:200ms !important;
+    -ms-transition:200ms !important;
     z-index:2;
     opacity:0.3;
  }

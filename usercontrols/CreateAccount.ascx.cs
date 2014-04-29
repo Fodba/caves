@@ -22,4 +22,9 @@ public partial class usercontrols_CreateAccount : System.Web.UI.UserControl
     {
         Response.Redirect("/");
     }
+  
+    protected void Login1_LoggedIn(object sender, EventArgs e)
+    {
+        Response.Redirect("/fr/accueil/");
+    }
 }
