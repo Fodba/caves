@@ -21,13 +21,15 @@
         $(".conteneu").css("visibility", "visible");
         $(".conteneu").find(".typeSlider").css("display", "block");
 
-        var item = $("#membreImportant").parent().find(".zoneMembre");
-        $("#membreImportant").position({
-            my: "left",
-            at: "right",
-            of: item,
-            within: item.parent()
-        })
+        if (sliderId.replace("Pro", "") == "Professionnel") {
+            var item = $("#membreImportant").find(".zoneMembre");
+            $("#membreImportant").find(".detailleMembre").position({
+                my: "left",
+                at: "right",
+                of: item,
+                within: item.parent()
+            })
+        }
 
         jQuery.each($("#" + sliderId).find(".cont"), function () {
             var elem = $(this);

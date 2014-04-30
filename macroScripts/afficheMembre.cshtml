@@ -188,12 +188,12 @@
         var nombre2 = 0;
         <div id="Pro_@typeConnexion" class="typeSlider ">
             <div class="part">
-                <h3 class="titrePro styleBold">@membresPart.Name.ToUpper()</h3>
                 <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
 
                 <div class="posteDetail">
                     <div class="slider">
 
+                        <h3 class="titrePro styleBold">@membresPart.Name.ToUpper()</h3>
 
                         <div class="cont row owl-carousel" id="slider_@membresPart.Name-@nombre@nombre2">
                             @foreach (var membre in membresPart.Children())
