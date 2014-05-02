@@ -5,58 +5,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-  <title ><umbraco:Macro Alias="PageTitle" runat="server"></umbraco:Macro></title>
-  <!-- META TAGS -->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title ><umbraco:Macro Alias="PageTitle" runat="server"></umbraco:Macro></title>
+	<!-- META TAGS -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.7,maximum-scale=5.0">
-  <umbraco:Macro Alias="MetaDescription" runat="server" />
+	<umbraco:Macro Alias="MetaDescription" runat="server" />
   
-  <!-- STYLESHEETS -->
-  <link rel="stylesheet" type="text/css" href="/less/bootstrap.less" />
-  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
-    <%--<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />--%>
-    <link href="/css/fonts/OpenSans/OpenSans.css" rel="stylesheet" />
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="/less/bootstrap.less" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	<%--<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />--%>
+	<link href="/css/fonts/OpenSans/OpenSans.css" rel="stylesheet" />
 	<link type="text/css" href="/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
-    <link href="/css/domaine2.css" rel="stylesheet" />
-    <link href="/css/Equipe2.css" rel="stylesheet" />
-    <link href="/css/owl.carousel.css" rel="stylesheet" />
-    <link href="/css/connection.css" rel="stylesheet" />
+	<link href="/css/domaine2.css" rel="stylesheet" />
+	<link href="/css/Equipe2.css" rel="stylesheet" />
+	<link href="/css/owl.carousel.css" rel="stylesheet" />
+	<link href="/css/connection.css" rel="stylesheet" />
 
 	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-    <script src="/scripts/jquery-2.1.0.min.js"></script>
-    <script src="/scripts/jquery.ui.position.js"></script>
-    <script src="/scripts/owl.carousel.min.js"></script>
-    <script src="/scripts/bowser.min.js"></script>
-    <script src="/scripts/pixastic.core.js"></script>
-    <script src="/scripts/pixastic.jquery.js"></script>
-    <script src="/scripts/desaturate.js"></script>
-    <script src="/scripts/equipePro.js"></script>
+	<script src="/scripts/jquery-2.1.0.min.js"></script>
+	<script src="/scripts/jquery.ui.position.js"></script>
+	<script src="/scripts/owl.carousel.min.js"></script>
+	<script src="/scripts/bowser.min.js"></script>
+	<script src="/scripts/pixastic.core.js"></script>
+	<script src="/scripts/pixastic.jquery.js"></script>
+	<script src="/scripts/desaturate.js"></script>
+	<script src="/scripts/equipePro.js"></script>
 
 </head>
 
 <body  <asp:ContentPlaceHolder Id="backgroundImage" runat="server">
 </asp:ContentPlaceHolder>
-    <div id="top">     
-      <div class="navbar navbar-static-top">
-        <div class="navbar-inner">
-          <div class="container">
-              <div class="row-fluid">
-                  <a class="span5 logo" href="{localLink:1365}"><img src="/css/gfx/logo.png"/></a> 
+	<div id="top">     
+	  <div class="navbar navbar-static-top">
+		<div class="navbar-inner">
+		  <div class="container">
+			  <div class="row-fluid">
+				  <a class="span5 logo" href="{localLink:1365}"><img src="/css/gfx/logo.png"/></a> 
 				  <div class="hidden-phone" style="height:87px"></div>
 				  <div class="topRight">
 					  <umbraco:Macro Alias="LoginView" runat="server"/>
 				  <umbraco:Macro Alias="Nav" runat="server" />	
-                  </div>
+				  </div>
 			  </div>    	      
-          </div>
-        </div>
-      </div>
-        </div>
-    <div id="content">
-      <asp:ContentPlaceHolder Id="CphMain" runat="server" />
-      <asp:ContentPlaceHolder Id="CphMain2" runat="server" />
-             
-    </div>
+		  </div>
+		</div>
+	  </div>
+		</div>
+	<div id="content">
+	  <asp:ContentPlaceHolder Id="CphMain" runat="server" />
+	  <asp:ContentPlaceHolder Id="CphMain2" runat="server" />
+			 
+	</div>
 </body>
 </html>
 </asp:Content>
