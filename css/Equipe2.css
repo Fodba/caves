@@ -414,8 +414,15 @@
     height:150px;
     position:relative;
     cursor:pointer;
+    transition:200ms;
+    -webkit-transition:200ms;
+    -moz-transition:200ms;
 }
-
+.owl-wrapper{
+    transition:200ms;
+    -webkit-transition:200ms;
+    -moz-transition:200ms;
+}
 .als-item{
     width:450px;
     height:150px;
