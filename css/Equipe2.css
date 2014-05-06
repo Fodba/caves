@@ -195,6 +195,8 @@
 .detailleMembre{
     display:inline-block;
     vertical-align:top;
+    width:60% !important;
+    /*float:right !important;*/
 }
 
 .poste{
@@ -424,7 +426,7 @@
     -moz-transition:200ms;
 }
 .als-item{
-    width:450px;
+    /*width:450px;*/
     height:150px;
     position:relative;
 }
@@ -471,6 +473,9 @@
 .viewportEquipe{
     position:relative;
     overflow:hidden;
+    transition:1000ms;
+    -webkit-transition:1000ms;
+    -moz-transition:1000ms;
 }
 
 .outerViewport{
