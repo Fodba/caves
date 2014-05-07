@@ -116,7 +116,6 @@
     /// on gère le click sur l'un des items du slider.
 
     $(".zoneMembre").click(function () {
-        //if (sliderId == "Pro_Professionnel"){
         var elem = $(this);
         var parent = elem.parent();
         var position1; // stocke la position du owl-item au moment du click.
@@ -169,7 +168,6 @@
             elem.closest(".owl-wrapper").css("left", "-" + deplacement + "px");
 
         }
-        //}
     })
 
 

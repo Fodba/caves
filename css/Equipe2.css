@@ -1,406 +1,372 @@
 ﻿.conteneir{
-    margin:auto !important;
-    margin-top:50px !important;
+	margin:auto !important;
+	margin-top:50px !important;
 }
 .pulle-right{
-    float:right;
+	float:right;
 }
 .pulle-righte{
-    position:absolute;
-    top:0px !important;
-    margin-top:0px !important;
+	position:absolute;
+	top:0px !important;
+	margin-top:0px !important;
 }
-/*.pulle-right hidden-phone{
-    float:right;
-}*/
 .conteneir h3{
 }
 .title h3{
-    font-weight:100;
-    font-size:25px;
+	font-weight:100;
+	font-size:25px;
 }
 .contet{
-    margin:auto !important;
-    width:85%;
+	margin:auto !important;
+	width:85%;
 }
 .conteneu{
-    visibility:hidden;
-    background-color:RGBa(255,255,255,0.9);
-    color:#9b1230;
-    width:42%;
-    margin-left:1%;
-    margin-right:2%;
-    display:none;
-    overflow:hidden;
-    min-width:300px;
-    min-height:300px;
-    padding-top:23px;
-    font-size:15px;
+	visibility:hidden;
+	background-color:RGBa(255,255,255,0.9);
+	color:#9b1230;
+	width:42%;
+	margin-left:1%;
+	margin-right:2%;
+	display:none;
+	overflow:hidden;
+	min-width:300px;
+	min-height:300px;
+	padding-top:23px;
+	font-size:15px;
 }
 
 .conteneu img:not(.imageBouton){
-    height:150px;
+	height:150px;
 }
 
 .divGlobal,.titreSection
 {
-    position:relative;
-    display:block;
+	position:relative;
+	display:block;
 }
 
 .titreSection{
-    font-weight:100;
-    display:block;
-    float:none !important;
-    font-size:18px;
-    margin-left:5% !important;
+	font-weight:100;
+	display:block;
+	float:none !important;
+	font-size:18px;
+	margin-left:5% !important;
 }
-
-/*.conteneu h3,.conteneu h2{
-    font-weight:100;
-}*/
-
-/*.conteneu h3{
-    font-size:18px;
-}*/
 
 .equipeConteneur{
 
 }
 #source{
-    display:inline-block;
-    width:52%;
-    margin-left:2%;
-    float:left;
+	display:inline-block;
+	width:52%;
+	margin-left:2%;
+	float:left;
 }
 
 .divSlider{
-    width:100%;
-    position:relative;
-    /*margin-top:10px;*/
+	width:100%;
+	position:relative;
 }
 
 /*************************************
  *  SLIDERS
  ************************************/
 .slideOwl{
-    position:relative;
-    /*margin-top:5px;*/
-    height:200px;
-    margin-bottom:15px;
+	position:relative;
+	height:200px;
+	margin-bottom:15px;
 }
-/*.slideOwl span, .slideOwl div{
-    position:relative;
-    margin-top:5px;
-}*/
 .slider{
-    /*width:90%;*/
-    /*max-width:450px;*/
-    margin:auto;
-    display:inherit;
-    visibility:inherit !important;
-    height:175px;
-    margin-left:5%;
-    margin-right:5%;
+	margin:auto;
+	display:inherit;
+	visibility:inherit !important;
+	height:175px;
+	margin-left:5%;
+	margin-right:5%;
 }
 .cont{
-    position:relative;
-    width:100% !important;
-    margin:auto !important;
-    vertical-align:middle;
-    visibility:inherit !important;
-    overflow:hidden;
+	position:relative;
+	width:100% !important;
+	margin:auto !important;
+	vertical-align:middle;
+	visibility:inherit !important;
+	overflow:hidden;
 }
 .cont ul{
-    list-style-type:none;
+	list-style-type:none;
 }
 .divGlobal{
-    width:100% !important;
+	width:100% !important;
 }
 .membresPro {
-    height:200px;
-    margin-top:0px !important;
+	height:200px;
+	margin-top:0px !important;
 }
 #membresPro {
-    overflow:hidden;
-    position:relative;
-    margin:auto;
+	overflow:hidden;
+	position:relative;
+	margin:auto;
 	width: 100%;
-    margin-bottom:10px;
+	margin-bottom:10px;
 }
 
 #membresPart {
-    overflow:hidden;
-    position:relative;
-    margin:auto;
+	overflow:hidden;
+	position:relative;
+	margin:auto;
 	width: 100%;
-    margin-bottom:30px;
-    /*margin-top:5px;*/
-    /*height:220px;*/
+	margin-bottom:30px;
 }
 
 .posteDetail{
-    overflow:hidden;
-    position:relative;
-    margin:auto;
-    height:180px;
-    margin-bottom:15px !important;
+	overflow:hidden;
+	position:relative;
+	margin:auto;
+	height:180px;
+	margin-bottom:15px !important;
 }
 
 .typeMembre{
-    visibility:inherit !important;
-    margin:auto !important;
+	visibility:inherit !important;
+	margin:auto !important;
 }
 
 .zoneMembre{
-    height:150px;
-    display:inline-block;
-    /*width:auto;*/
-    position:relative;
-    /*left:0px;*/
-    z-index:8;
+	height:150px;
+	display:inline-block;
+	position:relative;
+	z-index:8;
 }
 
 .membreEquipe{
-    width:100% !important;
-    max-width:150px;
-    position:relative;
-    display:block;
-    list-style-position:inside;
-    margin-left:0;
-    float:left;
+	width:100% !important;
+	max-width:150px;
+	position:relative;
+	display:block;
+	list-style-position:inside;
+	margin-left:0;
+	float:left;
 }
 
 .membreEquipe img{
-    width:100% !important;
-    max-width:150px;
+	width:100% !important;
+	max-width:150px;
 }
 
 
 .detailMembre, .detailleMembre{
-    position:relative;
-    display:inline-block;
-    /*right:0px;*/
-    z-index:150;
-    height:150px;
-    background-color:white;
-    margin:0;
-    /*top:-150px !important;*/
-    /*left:0px !important;*/
-    /*float:right !important;*/
-    width:65% !important;
+	position:relative;
+	display:inline-block;
+	z-index:150;
+	height:150px;
+	background-color:white;
+	margin:0;
+	width:65% !important;
 
 }
 
 .detailleMembre{
-    display:inline-block;
-    vertical-align:top;
-    width:60% !important;
-    /*float:right !important;*/
+	display:inline-block;
+	vertical-align:top;
+	width:60% !important;
 }
 
 .poste{
-    display:inline-block;
-    vertical-align:bottom;
-    height:150px;
-    margin-left:10px;
-    margin-top:0;
-    overflow:hidden;
-    position:relative;
-    width:95%;
-    font-size:20px !important;
+	display:inline-block;
+	vertical-align:bottom;
+	height:150px;
+	margin-left:10px;
+	margin-top:0;
+	overflow:hidden;
+	position:relative;
+	width:95%;
+	font-size:20px !important;
 }
 
 .poste h3{
-    margin-bottom:5px;
+	margin-bottom:5px;
 }
 
 .descriptifPoste{
-    width:280px;
-    overflow:visible !important;
-    text-align:justify;
-    width:90%;
-    font-size:12px;
+	width:280px;
+	overflow:visible !important;
+	text-align:justify;
+	width:90%;
+	font-size:12px;
 }
 
 
 .zone-item-text{
-    position:absolute;
-    text-align:center;
-    width:100%;
-    height:20px;
-    background-color:rgba(255,255,255,0.9);
-    bottom:0px;
-    opacity:0.8;
-    font-size:16px;
+	position:absolute;
+	text-align:center;
+	width:100%;
+	height:20px;
+	background-color:rgba(255,255,255,0.9);
+	bottom:0px;
+	opacity:0.8;
+	font-size:16px;
 }
 
 .item-texte{
-    /*background-color:#c3c7cd;*/
-    bottom:0px;
-    color:#9b1230;
-    opacity:1;
+	bottom:0px;
+	color:#9b1230;
+	opacity:1;
 }
 
 /************************************
  *  FILTRE PAR SERVICE
  ***********************************/
 .filtreService{
-    margin:auto;
-    margin-bottom:50px;
-    margin-top:0px;
-    text-align:center;
+	margin:auto;
+	margin-bottom:50px;
+	margin-top:0px;
+	text-align:center;
 }
 .temp{
-    width:25%;
-    /*height:25px;*/
-    display:inline-block;
-    margin:auto;
-    text-align:center;
-    background-color:#9b1230;
-    cursor:pointer;
+	width:25%;
+	display:inline-block;
+	margin:auto;
+	text-align:center;
+	background-color:#9b1230;
+	cursor:pointer;
 }
 .filtre{
-    background-color:#9b1230;
-    color:white;
-    /*width:auto !important;*/
-    font-size:13px;
-    display:inline-block !important;
-    margin:0px !important;
+	background-color:#9b1230;
+	color:white;
+	font-size:13px;
+	display:inline-block !important;
+	margin:0px !important;
 }
 
 .posteDetail, #accueilTel{
-    position:relative;
-    margin:auto;
-    /*height:200px;*/
+	position:relative;
+	margin:auto;
 }
 
 .posteDetaile{
-    position:relative;
-    /*margin:auto;
-    height:200px;*/
+	position:relative;
 }
 #membreImportant{
-    position:relative;
-    left:0px !important;
+	position:relative;
+	left:0px !important;
 }
 #accueilTel img{
-    height:150px;
+	height:150px;
 }
 
 .membreEquipeDetail,
 #accueilTel .membreEquipe{
-    width:150px;
-    height:150px;
-    margin-bottom:15px;
+	width:150px;
+	height:150px;
+	margin-bottom:15px;
 }
 
 #accueilTel{
-    display:block;
-    position:relative;
-    height:200px;
+	display:block;
+	position:relative;
+	height:200px;
 }
 
 .PosteMembre{
-    position:relative;
-    display:inline-block;
-    z-index:9;
-    height:150px;
-    background-color:white;
-    margin:0;
-    vertical-align:middle
+	position:relative;
+	display:inline-block;
+	z-index:9;
+	height:150px;
+	background-color:white;
+	margin:0;
+	vertical-align:middle
 }
 
 #accueilTel .PosteMembre{
-    display:none;
+	display:none;
 }
 
 .PosteMembre .poste{
-    display:inline-block;
-    vertical-align:bottom;
-    height:150px;
-    width:98%;
-    margin-right:0px;
-    margin-top:0;
-    overflow:hidden;
+	display:inline-block;
+	vertical-align:bottom;
+	height:150px;
+	width:98%;
+	margin-right:0px;
+	margin-top:0;
+	overflow:hidden;
 }
 
 .espaceBlanc{
-    height:300px;
+	height:300px;
 }
 
 .divA{
-    position:relative;
-    cursor:pointer;
-    height:35px;
-    margin-top:10px;
-    margin-bottom:10px;
+	position:relative;
+	cursor:pointer;
+	height:35px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 .flecheBas{
-    background-color:#9b1230;
-    text-align:center;
-    margin:auto !important;
-    margin-top:0px;
-    margin-bottom:40px;
-    height:auto;
-    width:100%;
-    height:26px;
+	background-color:#9b1230;
+	text-align:center;
+	margin:auto !important;
+	margin-top:0px;
+	margin-bottom:40px;
+	height:auto;
+	width:100%;
+	height:26px;
 }
 
 .flecheHaut{
-    background-color:#9b1230;
-    text-align:center;
-    margin:auto !important;
-    margin-top:0px;
-    margin-bottom:40px;
-    height:auto;
-    width:100%;
-    height:26px;
+	background-color:#9b1230;
+	text-align:center;
+	margin:auto !important;
+	margin-top:0px;
+	margin-bottom:40px;
+	height:auto;
+	width:100%;
+	height:26px;
 }
 
 .flecheBas img{
-    width:100%;
+	width:100%;
 }
 
 .flecheHaut img{
-    width:100%;
+	width:100%;
 }
 
 .titrePro{
-    position:relative;
-    top:-5px;
-    font-size:14px;
+	position:relative;
+	top:-5px;
+	font-size:14px;
 }
 
 .itemImportant{
-    margin-left:0px !important;
+	margin-left:0px !important;
 }
 
 
 .slider-prev, .slider-next {
 	position: absolute;
-    visibility:inherit;
+	visibility:inherit;
 	cursor: pointer;
 	clear: both;
-    width:40px !important;
-    height:40px !important;
-    overflow:hidden;
-    z-index:250;
+	width:40px !important;
+	height:40px !important;
+	overflow:hidden;
+	z-index:250;
 	top: 40% !important;
-    display:inline-block;
-    vertical-align:middle !important;
+	display:inline-block;
+	vertical-align:middle !important;
 }
 
 .slider-prev img, .slider-next img {
 	position: relative;
 	cursor: pointer;
 	clear: both;
-    width:40px !important;
-    height:40px !important;
-    overflow:hidden;
-    border-radius:300px;
-    z-index:1200;
+	width:40px !important;
+	height:40px !important;
+	overflow:hidden;
+	border-radius:300px;
+	z-index:1200;
 }
 
 .slider-prev{
@@ -412,126 +378,123 @@
 }
 
 .owl-item{
-    /*width:450px;*/
-    height:150px;
-    position:relative;
-    cursor:pointer;
-    transition:200ms;
-    -webkit-transition:200ms;
-    -moz-transition:200ms;
+	height:150px;
+	position:relative;
+	cursor:pointer;
+	transition:200ms;
+	-webkit-transition:200ms;
+	-moz-transition:200ms;
 }
 .owl-wrapper{
-    transition:200ms;
-    -webkit-transition:200ms;
-    -moz-transition:200ms;
+	transition:200ms;
+	-webkit-transition:200ms;
+	-moz-transition:200ms;
 }
 .als-item{
-    /*width:450px;*/
-    height:150px;
-    position:relative;
+	height:150px;
+	position:relative;
 }
 
 .als-item img{
-    width:100%;
+	width:100%;
 }
 
 .als-container{
-    /*margin:auto !important;*/
-    position:relative;
+	position:relative;
 }
 
 #sliderPro{
-    height:170px;
-    margin:auto;
-    max-width:450px;
+	height:170px;
+	margin:auto;
+	max-width:450px;
 }
 .part{
-    position:relative;
-    margin-bottom:30px;
+	position:relative;
+	margin-bottom:30px;
 }
 #accueilTel,#sliderPro,#viewportPart,.divA{
-    position:relative;
-    width:90%;
-    margin:auto;
+	position:relative;
+	width:90%;
+	margin:auto;
 }
 
 #accueilTel{
-    height:200px;
+	height:200px;
 }
 
 .divGlobal{
-    width:100% !important;
-    margin:auto;
+	width:100% !important;
+	margin:auto;
 }
 
 .typeSlider {
-    max-height:650px;
-    overflow:hidden;
-    position:relative;
+	max-height:650px;
+	overflow:hidden;
+	position:relative;
 }
 
 .viewportEquipe{
-    position:relative;
-    overflow:hidden;
-    transition:1000ms;
-    -webkit-transition:1000ms;
-    -moz-transition:1000ms;
+	position:relative;
+	overflow:hidden;
+	transition:1000ms;
+	-webkit-transition:1000ms;
+	-moz-transition:1000ms;
 }
 
 .outerViewport{
-    position:relative;
-    overflow:hidden;
-    height:585px;
+	position:relative;
+	overflow:hidden;
+	height:585px;
 }
 
 #importantMembre{
-    width:90%;
-    margin:auto;
-    height:180px;
-    /*margin-bottom:10px !important;*/
+	width:90%;
+	margin:auto;
+	height:180px;
 }
 
 @media screen and (max-width:1500px){
-    
-    .zoneMembre,.detailMembre{
-        /*display:inline-block;*/
-    }
-    .zoneMembre{
-        /*width:30%;*/
-    }
-    .membreEquipe img{
-        /*width:40% !important;*/
-        float:left;
-    }
-    .detailMembre{
-        width:60% !important;
-        float:right;
-        margin-right:5%;
-        /*top:0px !important;*/
-        /*left:0px !important;*/
-    }
+	
+	.zoneMembre,.detailMembre{
+		display:inline-block;
+	}
+	.membreEquipe img{
+		float:left;
+	}
+	.detailMembre{
+        position:relative;
+		width:55% !important;
+		float:right;
+		margin-right:0% !important;
+		top:0px !important;
+		left:0px !important;
+	}
 }
 
 
-@media screen and (max-width:1325px){
-    
-    .zoneMembre,.detailMembre{
-        /*display:inline-block;*/
-    }
-    .zoneMembre{
-        /*width:30%;*/
-    }
-    .membreEquipe img{
-        /*width:40% !important;*/
-        float:left;
-    }
-    .detailMembre{
-        width:50% !important;
-        float:right;
-        margin-right:5%;
-        /*top:-150px !important;*/
-        /*left:0px !important;*/
-    }
+@media screen and (max-width:1420px){
+	.membreEquipe img{
+		float:left;
+	}
+	.detailMembre{
+		width:50% !important;
+		float:right;
+	}
+}
+
+@media screen and (max-width:1270px){
+	.zoneMembre{
+		width:100%;
+	}
+	.membreEquipe img{
+		width:100% !important;
+		float:left;
+	}
+	.detailMembre{
+		width:45% !important;
+		float:right;
+		top:-150px !important;
+	}
 }
 
 

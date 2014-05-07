@@ -85,13 +85,10 @@
 
                                 <div id="@membre.Name" class="itemService">
                                     <div class="sliderContent" id="slider_@nombre2">
-                                        @*<span class="styleBold">@typeConnexion.ToUpper() : </span>*@
                                         <div class="posteDetail">
                                             <div class="slider">
                                                 <span class="styleSemiBold titrePro">@membre.Name.ToUpper() : </span>
-                                                @*<span class="slider-prev" id="prev_@nombre-@nombre2"><img src="~/media/images/leftarrow.png" /></span>*@
                                                 <div class="posteDetaile" id="slider_@nombre-@nombre2">
-
                                                     <div id="membreImportant">
                                                         <div class="als-item row-fluid" id="item_@nombre2@nombre3">
                                                             <div class="zoneMembre" id="membre_@membre.id">
@@ -111,7 +108,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @*<span class="slider-next" id="next_@nombre-@nombre2"><img src="~/media/images/rightarrow.png" /></span>*@
                                             </div>
                                         </div>
 
@@ -125,14 +121,10 @@
 
                     @foreach (var service in membresPro.Children())
                     {
-
-
-
                         var nombre3 = 0;
 
                         <div id="@service.Name" class="itemService">
                             <div class="sliderContent" id="slider_@nombre2">
-                                @*<span class="styleBold">@typeConnexion.ToUpper() : </span>*@
                                 <div class="posteDetail">
                                     <div class="slider">
                                         <span class="styleSemiBold titrePro">@service.Name.ToUpper() : </span>
@@ -140,8 +132,6 @@
                                         <div class="cont posteDetaile owl-carousel" id="slider_@nombre-@nombre2">
                                             @foreach (var membre in service.Children())
                                             {
-
-
                                                 <div class="als-item" id="item_@nombre2@nombre3">
                                                     <div class="zoneMembre" id="membre_@membre.id">
                                                         <div class="membreEquipe span12">
@@ -165,10 +155,7 @@
 
                                 @{nombre2++;}
                             </div>
-
                         </div>
-
-
                     }
                 </div>
             </div>
@@ -189,16 +176,12 @@
         <div id="Pro_@typeConnexion" class="typeSlider ">
             <div class="part">
                 <span class="slider-prev"><img src="~/media/images/leftarrow.png" /></span>
-
                 <div class="posteDetail">
                     <div class="slider">
-
                         <h3 class="titrePro styleBold">@membresPart.Name.ToUpper()</h3>
-
                         <div class="cont row owl-carousel" id="slider_@membresPart.Name-@nombre@nombre2">
                             @foreach (var membre in membresPart.Children())
                             {
-                                @*<h2 class="span13 titreSection styleLight">@membre.Name</h2>*@
                                 <div class="als-item" id="item_@nombre@nombre2">
                                     <div class="zoneMembre" id="membre_@membre.id">
                                         <div class="membreEquipe span12">
@@ -223,14 +206,7 @@
                 <span class="slider-next"><img src="~/media/images/rightarrow.png" /></span>
             </div>
         </div>
-
-
     }
-
-
-
-
-
 }
 
 
