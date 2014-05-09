@@ -88,8 +88,8 @@
                         }
                         if (item.prefixe.ToLower() == "roc")
                         {
-                            <div class="leftb">
-                                <a class="texthover" href="@item.Url">
+                            <div class="leftb" data-image="lien_@item.id">
+                                <a class="texthover" href="@item.Url" id="link_@item.id">
                                     <p class="textb" style="font-weight:lighter;">></p>
                                     &nbsp;
                                     <p class="textb special">@item.prefixe.Substring(0, 1).ToUpper()</p>
@@ -101,8 +101,8 @@
                         }
                         else
                         {
-                            <div class="leftb">
-                                <a class="texthover" href="@item.Url">
+                            <div class="leftb" data-image="lien_@item.id">
+                                <a class="texthover" href="@item.Url" id="link_@item.id">
                                     <p class="textb" style="font-weight:lighter;">></p>
                                     &nbsp;
                                     <p class="textb ">@item.prefixe</p>
@@ -159,42 +159,44 @@
                     }
                 }
                 @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
-                {
-                    var image = Model.NodeById(item.imageV).Url;
-                    string classe = item.lieu.ToString();
-                    var element = Model.NodeById(item.lieu);
-                    if (listeLieux.Contains(classe))
-                    {
-                        <li id="lisep" class="@classe vignette sep sepa" data-id="@item.Id">
-                            <div class="sizevignette">
-                                <a href="@item.Url" class="linkDomain">
+{
+    var image = Model.NodeById(item.imageV).Url;
+    string classe = item.lieu.ToString();
+    var element = Model.NodeById(item.lieu);
+    if (listeLieux.Contains(classe))
+    {
+        <li id="vignette_@item.id" class="@classe vignette sep sepa vignette_@item.id" data-id="@item.Id">
+            <div class="sizevignette">
+                <div id="photo_@item.id" class="photo">
+                    <a href="@item.Url" class="linkDomain">
 
 
-                                    <div class="filtergray" data-image="img_@item.id">
-                                        <img class="photoVigneron" src="@Library.MediaById(@item.imageV.ToString()).UmbracoFile" id="img_@item.id" />
-                                    </div>
-                                </a>
+                        <div class="filtergray filter_@item.id" data-image="img_@item.id">
+                            <img class="photoVigneron" src="@Library.MediaById(@item.imageV.ToString()).UmbracoFile" id="img_@item.id" />
+                        </div>
+                    </a>
+                </div>
 
-                                @*Info bulle sur le hover de chaque vignette domaine*@
+                @*Info bulle sur le hover de chaque vignette domaine*@
 
-                                <div id="info" class="infosSup">
-                                    <p>@element.name</p>
-                                    <h2 class="domainsup">Domaine "@item.domainName" </h2>
-                                    <br />
-                                    <h2 class="namesup">@item.nameV</h2>
+                <div id="info_@item.id" class="infosSup">
+                    <p>@element.name</p>
+                    <h2 class="domainsup">Domaine "@item.domainName" </h2>
+                    <br />
+                    <h2 class="namesup">@item.nameV</h2>
 
-                                    <div class="voile">
-                                        <a style="height:100%;width:100%;z-index:40;" href="#">
-                                            <div class="textinfo">>Découvrir le domaine</div>
-                                        </a>
-                                    </div>
+                    <div class="voile">
+                        <a style="height:100%;width:100%;z-index:40;" href="#">
+                            <div class="textinfo">>Découvrir le domaine</div>
+                        </a>
+                    </div>
 
-                                </div>
-                            </div>
+                </div>
+            </div>
 
-                        </li>
-                    }
-                }
+        </li>
+    }
+}
 
                 @*Second séparateur pour les autes Domaines*@
 
@@ -209,38 +211,40 @@
 
 
                 @foreach (var item in Model.Children.Where("Visible").OrderBy("domainName"))
-                {
-                    var image = Model.NodeById(item.imageV).Url;
-                    string classe = item.lieu.ToString();
-                    var element = Model.NodeById(item.lieu);
-                    if (!listeLieux.Contains(classe))
-                    {
-                        <li id="lisep" class="@classe vignette sep sepa" data-id="@item.Id">
-                            <div class="sizevignette">
-                                <a href="@item.Url" class="linkDomain">
+{
+    var image = Model.NodeById(item.imageV).Url;
+    string classe = item.lieu.ToString();
+    var element = Model.NodeById(item.lieu);
+    if (!listeLieux.Contains(classe))
+    {
+        <li id="vignette_@item.id" class="@classe vignette sep sepa vignette_@item.id" data-id="@item.Id">
+            <div class="sizevignette">
+                <div id="photo_@item.id" class="photo">
+                    <a href="@item.Url" class="linkDomain">
 
 
-                                    <div class="filtergray" data-image="img_@item.id">
-                                        <img class="photoVigneron" src="@Library.MediaById(@item.imageV.ToString()).UmbracoFile" id="img_@item.id" />
-                                    </div>
-                                </a>
+                        <div class="filtergray filter_@item.id" data-image="img_@item.id">
+                            <img class="photoVigneron" src="@Library.MediaById(@item.imageV.ToString()).UmbracoFile" id="img_@item.id" />
+                        </div>
+                    </a>
+                </div>
 
-                                <div id="info" class="infosSup">
-                                    <p>@element.name</p>
-                                    <h2 class="domainsup">Domaine "@item.domainName" </h2>
-                                    <br />
-                                    <h2 class="namesup">@item.nameV</h2>
-                                    <div class="voile">
-                                        <a style="height:100%;width:100%;z-index:40;" href="#">
-                                            <div class="textinfo">>Découvrir le domaine</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                <div id="info_@item.id" class="infosSup">
+                    <p>@element.name</p>
+                    <h2 class="domainsup">Domaine "@item.domainName" </h2>
+                    <br />
+                    <h2 class="namesup">@item.nameV</h2>
+                    <div class="voile">
+                        <a style="height:100%;width:100%;z-index:40;" href="#">
+                            <div class="textinfo">>Découvrir le domaine</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                        </li>
-                    }
-                }
+        </li>
+    }
+}
 
                 }
 
@@ -263,7 +267,7 @@
 
                 $('#scroll').animate({
                     scrollTop: $("p:last").offset().top
-                }, 2000);
+                }, 1500);
                 $("#downb").animate({ opacity: 0, duration: 1 });
                 $("#topb").animate({ opacity: 1, duration: 1 });
 
@@ -274,7 +278,7 @@
                 if (scrolla > 30) {
                     $("#scroll").animate({
                         scrollTop: $("#ancrescroll").offset().top
-                    }, 800);
+                    }, 1200);
                     $("#topb").animate({ opacity: 0, duration: 1 });
                     $("#downb").animate({ opacity: 1, duration: 1 });
 
@@ -290,6 +294,10 @@
 
     </script>
 
+    ////------------///
+    <script src="/scripts/pixastic.jquery.js"></script>
+    <script src="/scripts/pixastic.core.js"></script>
+    <script src="/scripts/desaturate.js"></script>
 
 
     //
@@ -313,7 +321,7 @@
             //    $("#" + $(e.currentTarget).attr("data-image")).pixastic("desaturate");
 
             //});
-            
+
             $(".filtergray").hoverIntent(function (e) {
                 var self = document.getElementById($(e.currentTarget).attr("data-image"));
                 Pixastic.revert(self);
@@ -323,13 +331,8 @@
                 $("#" + $(e.currentTarget).attr("data-image")).pixastic("desaturate");
 
             });
-
         });
     </script>
-    ////------------///
-    <script src="/scripts/pixastic.jquery.js"></script>
-    <script src="/scripts/pixastic.core.js"></script>
-    <script src="/scripts/desaturate.js"></script>
 
 
 

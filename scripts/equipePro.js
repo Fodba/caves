@@ -16,7 +16,6 @@
     $(".filtre").click(function () {
         $(".conteneu").find(".typeSlider").css("display", "none");
         sliderId = $(".typeSlider").attr("id");
-        //$(".detailMembre").css("display", "none");
         var elem = $(this);
         $(".conteneu").css("visibility", "visible");
         $(".conteneu").find(".typeSlider").css("display", "block");

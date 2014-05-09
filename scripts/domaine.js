@@ -9,7 +9,7 @@
 
 $(window).load(function () {
     $(".vignette").hover(function (event) {
-        
+
         var elem = $(this).find(".infosSup");
         var photo = $(this);
         elem.position({
@@ -18,8 +18,6 @@ $(window).load(function () {
             of: photo,
             //collision: 'flip',
             within: '.portfolio'
-
-
-
-        });})
+        });
+    })
 })

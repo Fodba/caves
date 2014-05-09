@@ -2,22 +2,9 @@
 @using umbraco.NodeFactory
 @using umbraco.cms.businesslogic.member
 
-
-@*
-    Model = The current page the macro is executed on
-            @Model.bodyText
-    Parameter = collection of parameter values passed from the macro
-            @Paramter.myParam
-    Library = utillity library with common methods
-            @Library.NodeById(1233)
-*@
-
 @{
-
-
     Member member = Member.GetCurrentMember();
     var typeConnexion = member != null ? member.ContentType.Alias : "Particulier";
-
 
     /// on récupère le noeud de plus haut niveau,
     var ancetre = Model.AncestorsOrSelf().First();
@@ -50,7 +37,6 @@
         }
     }
 
-
     /// affichage des données.
     var SelectedMembre = equipes.Descendants().First();
     var model = Model;
@@ -60,8 +46,6 @@
     var important = true;
 
     <h2 class="span13 titreSection styleLight">@Model.Children().First().pageHeading</h2>
-
-
 
     if (member != null && typeConnexion == "Professionnel")
     {
@@ -166,9 +150,6 @@
                 <img class="imageBouton" src="~/media/images/flechebas.png" />
             </div>
         </div>
-
-
-
     }
     else
     {
